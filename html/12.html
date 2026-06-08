@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 12</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📬 Формы — начинаем диалог с пользователем</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять структуру HTML-формы и научиться создавать простые поля ввода и кнопки.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Всё начинается с <code>&lt;form&gt;</code>. Внутри — поля ввода и кнопки.<br/>
+            <br/>
+            Базовые элементы:
+            <pre>
+&lt;form action="/search" method="get"&gt;
+    &lt;label for="search-query"&gt;Поиск:&lt;/label&gt;
+    &lt;input type="text" id="search-query" name="query" placeholder="Введите запрос..."&gt;
+    &lt;button type="submit"&gt;Искать 🔍&lt;/button&gt;
+&lt;/form&gt;
+            </pre>
+
+            Другие типы input:
+            <ul>
+                <li><code>type="email"</code> — поле для почты</li>
+                <li><code>type="passwprd"</code> — скрытые символы</li>
+                <li><code>type="number"</code> — только цифры</li>
+                <li><code>type="checkbox"</code> — галочка (много)</li>
+                <li><code>type="radio"</code> — радио-кнопка (одна из группы, одинаковый <code>name</code>!)</li>
+            </ul>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&lt;form&gt;</code> — контейнер формы</li>
+            <li><code>&lt;label for="id"&gt;</code> — подпись к полю, клик по ней = фокус на поле</li>
+            <li><code>&lt;input type="..."&gt;</code> — поле ввода</li>
+            <li><code>name="..."</code> — имя переменной для отправки на сервер</li>
+            <li><code>placeholder="..."</code> — подсказка внутри поля</li>
+            <li><code>&lt;button type="submit"&gt;</code> — кнопка отправки</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда связывай <code>&lt;label&gt;</code> и <code>&lt;input&gt;</code>. Маленькая область клика на «галочку» расширяется до текста — пользователи скажут спасибо!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть <code>name</code> у инпутов. Без него данные не отправятся на сервер! И радио-кнопкам в одной группе — одинаковый <code>name</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>&lt;form&gt;</code> — контейнер</li>
+            <li><code>&lt;input&gt;</code> — основной элемент, тип через <code>type</code></li>
+            <li><code>&lt;label&gt;</code> — подпись, улучшает UX</li>
+            <li><code>type="submit"</code> — отправка формы</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Создай форму «Связаться с нами»: Имя, Email, кнопка «Отправить».
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай форму регистрации: Логин, Пароль, Возраст.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай опрос «Любимый цвет» с тремя радио-кнопками и кнопкой «Голосовать».
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему у группы радио-кнопок должно быть одинаковое <code>name</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Формы превращают сайт из «витрины» в настоящее приложение. Ты на шаг ближе к веб-сервисам! 🚀
+        </p>
+
+    </body>
+</html>

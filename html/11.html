@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 11</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📊 Таблицы — наводим порядок в данных</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться создавать HTML-таблицы для отображения табличных данных с правильной семантической структурой.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Таблица строится послойно:<br/>
+            <ol>
+                <li><code>&lt;table&gt;</code> — внешний контейнер</li>
+                <li><code>&lt;tr&gt;</code> (Table Row) — СТРОКА</li>
+                <li><code>&lt;th&gt;</code> (Table Header) — ячейка-ЗАГОЛОВОК</li>
+                <li><code>&lt;td&gt;</code> (Table Data) — ячейка с ДАННЫМИ</li>
+            </ol>
+            <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Имя&lt;/th&gt;
+        &lt;th&gt;Возраст&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Анна&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+            Семантика для крутых таблиц:
+            <ul>
+                <li><code>&lt;thead&gt;</code> — шапка</li>
+                <li><code>&lt;tbody&gt;</code> — тело</li>
+                <li><code>&lt;tfoot&gt;</code> — подвал (итоги)</li>
+            </ul>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&lt;tr&gt;</code> — строка</li>
+            <li><code>&lt;th&gt;</code> — жирный заголовок по центру</li>
+            <li><code>&lt;td&gt;</code> — обычные данные</li>
+            <li><code>colspan="2"</code> — объединить 2 колонки</li>
+            <li><code>rowspan="2"</code> — объединить 2 строки</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            <pre>&lt;td colspan="2"&gt;Итого: 2 товара&lt;/td&gt;</pre>
+            Ячейка растянется на 2 колонки. Магия!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Использовать таблицы для вёрстки макета всей страницы! Таблицы — ТОЛЬКО для табличных данных. Для макетов — CSS Grid/Flexbox.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code></li>
+            <li><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></li>
+            <li><code>colspan</code> и <code>rowspawn</code> для объединения</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Создай расписание уроков: «№ урока», «Время», «Предмет».
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай таблицу-калькулятор калорий с <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>. В подвале объедини ячейки через <code>colspan</code>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Нарисуй таблицу 3x3 на бумаге и попробуй объединить центральную ячейку со следующей.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему табличная вёрстка сайтов — ужасная практика для мобильных?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты освоил мощный инструмент для данных! Умение делать таблицы ценится в бизнес-приложениях. 📈
+        </p>
+
+    </body>
+</html>

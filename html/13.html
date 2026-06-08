@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 13</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📎 Продвинутые элементы форм: select, textarea, file</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Изучить теги <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code> с <code>&lt;option&gt;</code>, и тип <code>file</code> для создания многофункциональных форм.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>Выпадающий список &lt;select&gt;<br/>
+                <pre>
+&lt;label for="country"&gt;Страна:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value=""&gt;-- Выберите --&lt;/option&gt;
+    &lt;option value="ru"&gt;Россия&lt;/option&gt;
+    &lt;option value="us"&gt;США&lt;/option&gt;
+&lt;/select&gt;</pre>
+            </li>
+            <li>Многострочный текст &lt;textarea&gt;<br/>
+                <pre>
+&lt;label for="comment"&gt;Комментарий:&lt;/label&gt;
+&lt;textarea id="comment" name="comment" rows="5" cols="40" placeholder="Ваше мнение..."&gt;&lt;/textarea&gt;</pre>
+            </li>
+            <li>Загрузка файла<br/>
+                <pre>&lt;input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"&gt;</pre>
+            </li>
+            <li>Группировка: &lt;fieldset&gt; и &lt;legend&gt;<br/>
+                <pre>
+&lt;fieldset&gt;
+    &lt;legend&gt;Личные данные&lt;/legend&gt;
+    &lt;!-- поля --&gt;
+&lt;/fieldset&gt;</pre>
+            </li>
+        </ol>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&lt;select&gt;</code> — контейнер выпадающего списка</li>
+            <li><code>&lt;option&gt;</code> — пункт списка, <code>value</code> — что уйдёт на сервер</li>
+            <li><code>&lt;textarea&gt;</code> — ПАРНЫЙ тег! Не забывай <code>&lt;/textarea&gt;</code></li>
+            <li><code>accept</code>— ограничение типов файлов</li>
+            <li><code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> — группировка полей</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>&lt;fieldset&gt;</code> и <code>&lt;legend&gt;</code> для больших форм — это семантично и красиво!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Оставлять <code>&lt;textarea&gt;</code> открытым как одиночный тег. Это не так! Весь последующий код может оказаться внутри textarea. Всегда закрывай: <code>&lt;textarea&gt;&lt;/textarea&gt;</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>&lt;select&gt;</code> + <code>&lt;option&gt;</code> = выпадающий список</li>
+            <li><code>&lt;textarea&gt;</code> (парный!) = многострочный текст</li>
+            <li><code>type="file"</code> = загрузка файлов</li>
+            <li><code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> = группировка</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Создай форму обратной связи: Имя, Тема (select), Сообщение (textarea), кнопка.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай форму загрузки резюме: Имя, Email, file (accept=".pdf,.doc").
+                </p>
+            </li>
+            <li>
+                <p>
+                    Разбей форму из задания 1 на <code>&lt;fieldset&gt;</code> с легендами.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>&lt;textarea&gt;</code> сделан парным тегом, а не как <code>&lt;input type="textarea"&gt;</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Теперь ты умеешь создавать формы любой сложности! Анкеты, опросы, интерфейсы — всё в твоих руках. 🧑‍💻
+        </p>
+
+    </body>
+</html>

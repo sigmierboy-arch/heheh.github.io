@@ -1,0 +1,1233 @@
+{
+  "course_meta": {
+    "title": "⚡ Основы JavaScript",
+    "description": "Полный интерактивный курс по JavaScript для начинающих. От переменных и функций до DOM, событий и асинхронного программирования.",
+    "author": "Веб-наставник",
+    "version": "1.0",
+    "total_lessons": 20,
+    "total_tests": 3,
+    "language": "ru",
+    "telegram_format": "HTML",
+    "supported_parse_modes": [
+      "HTML",
+      "MarkdownV2"
+    ],
+    "prerequisites": "Базовое знание HTML и CSS (рекомендуется пройти соответствующие курсы)"
+  },
+  "formatting_guide": {
+    "html_mode": {
+      "bold": "<b>текст</b>",
+      "italic": "<i>текст</i>",
+      "underline": "<u>текст</u>",
+      "strikethrough": "<s>текст</s>",
+      "code_inline": "<code>текст</code>",
+      "code_block": "<pre>текст</pre>",
+      "link": "<a href='url'>текст</a>"
+    },
+    "markdown_mode": {
+      "bold": "*текст*",
+      "italic": "_текст_",
+      "underline": "__текст__",
+      "strikethrough": "~текст~",
+      "code_inline": "`текст`",
+      "code_block": "```текст```",
+      "link": "[текст](url)"
+    }
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "⚡ Что такое JavaScript и первая программа",
+      "description": "Знакомимся с языком, подключаем скрипты, пишем console.log и alert",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nПонять, что такое JavaScript, зачем он нужен, и написать свою первую программу с выводом в консоль и на экран.",
+        "theory": "📚 <b>Теория</b>\n\nJavaScript — это <b>язык программирования</b>, который делает веб-страницы ИНТЕРАКТИВНЫМИ. Если HTML — скелет, CSS — кожа и одежда, то JavaScript — это МОЗГ и МЫШЦЫ! 🧠💪\n\n<b>Как подключить JavaScript к HTML:</b>\n\n<b>1. Внутренний скрипт</b> — тег <code>&lt;script&gt;</code> в HTML:\n<pre>&lt;body&gt;\n    &lt;h1&gt;Привет!&lt;/h1&gt;\n    &lt;script&gt;\n        alert('Привет, мир!');\n    &lt;/script&gt;\n&lt;/body&gt;</pre>\n\n<b>2. Внешний скрипт</b> (ЛУЧШИЙ способ!):\n<pre>&lt;script src=\"script.js\"&gt;&lt;/script&gt;</pre>\nПодключать лучше в конце <code>&lt;body&gt;</code>, чтобы HTML загрузился первым.\n\n<b>Первые команды:</b>\n<pre>// Вывод в консоль браузера (F12 → Console)\nconsole.log('Привет, консоль!');\n\n// Всплывающее окно\nalert('Привет, пользователь!');\n\n// Вывод на страницу (заменит всё содержимое!)\ndocument.write('Прямо на странице');</pre>",
+        "code_breakdown": "🔍 <b>Разбор кода:</b>\n• <code>&lt;script&gt;</code> — тег для JavaScript-кода\n• <code>console.log()</code> — вывод в консоль (главный инструмент разработчика)\n• <code>alert()</code> — всплывающее окно с сообщением\n• <code>//</code> — однострочный комментарий (браузер игнорирует)\n• <code>/* ... */</code> — многострочный комментарий\n• Точка с запятой <code>;</code> — конец инструкции (желательно, но не всегда обязательно)",
+        "tip": "💡 <b>Полезный совет:</b>\nВсегда открывай <b>Консоль</b> (F12 → Console) при работе с JavaScript. Там видны все ошибки и результаты <code>console.log()</code>. Это твой лучший друг!",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПодключать скрипт в <code>&lt;head&gt;</code> без атрибутов <code>defer</code> или <code>async</code>. Скрипт начнёт выполняться до загрузки HTML, и элементы на странице будут недоступны. Подключай скрипт в конце <code>&lt;body&gt;</code>!",
+        "summary": "✅ <b>Итоги урока:</b>\n✅ JavaScript — язык программирования для веба\n✅ Подключение: <code>&lt;script src=\"...\"&gt;&lt;/script&gt;</code>\n✅ <code>console.log()</code> — вывод в консоль\n✅ <code>alert()</code> — всплывающее окно\n✅ Консоль (F12) — главный помощник",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай HTML-страницу, подключи внешний JS-файл и выведи в консоль фразу «Я изучаю JavaScript!».\n\n📝 <b>Задание 2:</b> Добавь <code>alert()</code> с любым сообщением. Проверь, что окно появляется при загрузке страницы.\n\n📝 <b>Задание 3:</b> Намеренно допусти ошибку в коде (например, пропусти скобку) и посмотри, что покажет консоль.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>console.log()</code> — главный инструмент разработчика, а не <code>alert()</code>?",
+        "bonus": "🎉 <b>Бонус:</b>\nТы написал свой первый код на JavaScript! С этого начинается путь в мир программирования. Помни: каждый профессионал когда-то написал свой первый <code>console.log('Hello, World!')</code> 🚀"
+      }
+    },
+    {
+      "id": 2,
+      "title": "📦 Переменные: let, const и var",
+      "description": "Учимся хранить данные в переменных, разбираем типы данных и разницу между let и const",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться создавать переменные с помощью <code>let</code> и <code>const</code>, понять основные типы данных и разницу между ними.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Переменная</b> — это как коробка с этикеткой, в которой мы храним данные.\n\n<b>Три способа объявить переменную:</b>\n<pre>// СОВРЕМЕННЫЙ способ (меняется)\nlet name = 'Анна';\nlet age = 25;\n\n// КОНСТАНТА (не меняется)\nconst PI = 3.14159;\nconst BIRTH_YEAR = 1999;\n\n// УСТАРЕВШИЙ (не используй!)\nvar oldWay = 'не надо так';</pre>\n\n<b>Основные типы данных:</b>\n<pre>// Число (Number)\nlet count = 42;\nlet price = 19.99;\n\n// Строка (String)\nlet message = 'Привет!';\nlet name = \"Иван\";\nlet template = `Привет, ${name}!`; // шаблонная строка\n\n// Булево (Boolean)\nlet isLoggedIn = true;\nlet isAdmin = false;\n\n// null — «ничего», пусто\nlet empty = null;\n\n// undefined — значение не присвоено\nlet notDefined;\nconsole.log(notDefined); // undefined</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>let</code> — переменная, можно перезаписывать\n• <code>const</code> — константа, НЕЛЬЗЯ перезаписывать (но объекты/массивы внутри менять можно)\n• <code>var</code> — НЕ ИСПОЛЬЗУЙ (устарел, странная область видимости)\n• <code>${}</code> — вставка переменной в шаблонную строку (обратные кавычки!)\n• Типы: Number, String, Boolean, null, undefined",
+        "tip": "💡 <b>Лайфхак:</b>\nПо умолчанию используй <code>const</code>! Если знаешь, что значение будет меняться — только тогда <code>let</code>. Это делает код предсказуемее и защищает от случайных перезаписей.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПытаться перезаписать <code>const</code>. <code>const x = 5; x = 10;</code> — ОШИБКА! Консоль покажет <code>TypeError: Assignment to constant variable</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>let</code> — изменяемая переменная\n✅ <code>const</code> — константа (не перезаписывается)\n✅ <code>var</code> — НЕ ИСПОЛЬЗОВАТЬ\n✅ Типы: Number, String, Boolean, null, undefined\n✅ Шаблонные строки: <code>`Привет, ${name}`</code>",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай переменные для имени, возраста и города. Выведи их в консоль и через <code>alert()</code>.\n\n📝 <b>Задание 2:</b> Попробуй изменить <code>const</code>. Посмотри на ошибку в консоли.\n\n📝 <b>Задание 3:</b> Создай шаблонную строку: «Меня зовут ..., мне ... лет, я из ...».\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>const</code> не защищает содержимое массива или объекта от изменений?",
+        "bonus": "🎉 <b>Бонус:</b>\nПеременные — это алфавит программирования. Освоил их — и ты уже можешь хранить любую информацию! 📦"
+      }
+    },
+    {
+      "id": 3,
+      "title": "🔢 Операторы: арифметика, сравнение, логика",
+      "description": "Изучаем математические, сравнительные и логические операторы, а также шаблонные строки",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nОсвоить основные операторы JavaScript: арифметические, присваивания, сравнения и логические.",
+        "theory": "📚 <b>Теория</b>\n\n<b>1. Арифметические операторы:</b>\n<pre>let x = 10;\nlet y = 3;\n\nconsole.log(x + y);  // 13 (сложение)\nconsole.log(x - y);  // 7  (вычитание)\nconsole.log(x * y);  // 30 (умножение)\nconsole.log(x / y);  // 3.333... (деление)\nconsole.log(x % y);  // 1  (остаток от деления)\nconsole.log(x ** y); // 1000 (возведение в степень)</pre>\n\n<b>Инкремент / Декремент:</b>\n<pre>let count = 0;\ncount++;  // увеличить на 1 (теперь 1)\ncount--;  // уменьшить на 1 (теперь 0)</pre>\n\n<b>2. Операторы сравнения (возвращают Boolean):</b>\n<pre>console.log(5 > 3);   // true\nconsole.log(5 < 3);   // false\nconsole.log(5 >= 5);  // true\nconsole.log(5 === 5); // true (строгое равенство)\nconsole.log(5 === '5'); // false (разные типы!)\nconsole.log(5 == '5');  // true (нестрогое, с приведением типов)\nconsole.log(5 !== 3); // true (строгое неравенство)</pre>\n\n<b>3. Логические операторы:</b>\n<pre>// И (оба условия true)\nconsole.log(true && true);   // true\nconsole.log(true && false);  // false\n\n// ИЛИ (хотя бы одно true)\nconsole.log(true || false);  // true\nconsole.log(false || false); // false\n\n// НЕ (отрицание)\nconsole.log(!true);  // false\nconsole.log(!false); // true</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>**</code> — возведение в степень (ES6+)\n• <code>%</code> — остаток от деления (проверка чётности: <code>x % 2 === 0</code>)\n• <code>===</code> — СТРОГОЕ равенство (ВСЕГДА используй его!)\n• <code>==</code> — НЕСТРОГОЕ равенство (избегай, приводит типы)\n• <code>&&</code> — логическое И\n• <code>||</code> — логическое ИЛИ\n• <code>!</code> — логическое НЕ",
+        "tip": "💡 <b>Лайфхак:</b>\nВсегда используй <b>строгое равенство</b> <code>===</code> и <b>строгое неравенство</b> <code>!==</code>. Нестрогие операторы <code>==</code> и <code>!=</code> могут дать неожиданные результаты из-за приведения типов.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПутать <code>=</code> (присваивание) и <code>===</code> (сравнение). <code>if (x = 5)</code> — всегда true, потому что это присваивание! Правильно: <code>if (x === 5)</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ Арифметика: <code>+ - * / % **</code>\n✅ Сравнение: <code>> < >= <= === !==</code>\n✅ Логика: <code>&& || !</code>\n✅ Всегда <code>===</code>, никогда <code>==</code>",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Вычисли и выведи в консоль: площадь круга с радиусом 5 (πr²), остаток от деления 17 на 3, 2 в 10 степени.\n\n📝 <b>Задание 2:</b> Проверь в консоли: <code>5 === '5'</code>, <code>5 == '5'</code>, <code>true && false</code>, <code>!false</code>.\n\n📝 <b>Задание 3:</b> Создай переменную <code>age</code> и проверь, что возраст больше или равен 18. Выведи результат в консоль.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>0.1 + 0.2 === 0.3</code> возвращает <code>false</code>? (Подсказка: погугли «IEEE 754»)",
+        "bonus": "🎉 <b>Бонус:</b>\nОператоры — это инструменты. Как в математике: знаешь формулы — можешь посчитать что угодно. Теперь ты можешь вычислять на лету! 🔢"
+      }
+    },
+    {
+      "id": 4,
+      "title": "🔀 Условные конструкции: if, else, else if, тернарный оператор, switch",
+      "description": "Учимся принимать решения в коде с помощью условий",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться управлять потоком выполнения программы с помощью условных конструкций.",
+        "theory": "📚 <b>Теория</b>\n\n<b>1. if / else if / else:</b>\n<pre>let hour = 14;\n\nif (hour < 12) {\n    console.log('Доброе утро!');\n} else if (hour < 18) {\n    console.log('Добрый день!');\n} else {\n    console.log('Добрый вечер!');\n}</pre>\n\n<b>2. Тернарный оператор</b> (короткий if-else):\n<pre>let age = 20;\nlet status = age >= 18 ? 'Совершеннолетний' : 'Несовершеннолетний';\n// условие ? если_да : если_нет</pre>\n\n<b>3. switch</b> — для множества конкретных значений:\n<pre>let day = 'вторник';\n\nswitch (day) {\n    case 'понедельник':\n        console.log('Начало недели 😩');\n        break;\n    case 'пятница':\n        console.log('Ура! 🎉');\n        break;\n    case 'суббота':\n    case 'воскресенье':\n        console.log('Выходные! 😴');\n        break;\n    default:\n        console.log('Обычный день');\n}</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>if (условие) { ... }</code> — выполнится, если условие true\n• <code>else if</code> — дополнительная проверка\n• <code>else</code> — если ни одно условие не подошло\n• <code>условие ? да : нет</code> — тернарный оператор (в одну строку!)\n• <code>switch</code> — перебор вариантов, <code>break</code> обязателен!\n• <code>default</code> — аналог else в switch",
+        "tip": "💡 <b>Лайфхак:</b>\nТернарный оператор — отличный способ присвоить значение по условию в одну строку. Но не вкладывай тернарные операторы друг в друга — код станет нечитаемым!",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть <code>break</code> в <code>switch</code>. Без <code>break</code> выполнение «провалится» в следующий <code>case</code>! Иногда это нужно специально, но обычно — ошибка.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>if / else if / else</code> — условные ветвления\n✅ Тернарный оператор: <code>условие ? да : нет</code>\n✅ <code>switch / case / break / default</code> — для множества вариантов\n✅ Фигурные скобки <code>{ }</code> — тело условия",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Напиши программу, которая проверяет число и выводит: «Положительное», «Отрицательное» или «Ноль».\n\n📝 <b>Задание 2:</b> Создай переменную <code>temperature</code>. Если < 0 — «Мороз», 0-15 — «Холодно», 15-25 — «Тепло», >25 — «Жарко».\n\n📝 <b>Задание 3:</b> Перепиши проверку на совершеннолетие с if-else на тернарный оператор.\n\n🤖 <b>Вопрос к размышлению:</b> В чём разница между <code>switch</code> и цепочкой <code>if-else if</code>? Когда что выбрать?",
+        "bonus": "🎉 <b>Бонус:</b>\nТвой код научился ДУМАТЬ и принимать решения! Это основа любого интеллектуального поведения программы. Ты создаёшь логику! 🧠"
+      }
+    },
+    {
+      "id": 5,
+      "title": "🔄 Циклы: for, while, do...while",
+      "description": "Учимся повторять действия: классический for, цикл с условием while, обход массивов",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться выполнять повторяющиеся действия с помощью циклов и управлять ими с помощью <code>break</code> и <code>continue</code>.",
+        "theory": "📚 <b>Теория</b>\n\nЦиклы позволяют выполнять код много раз.\n\n<b>1. for</b> — когда известно количество итераций:\n<pre>for (let i = 0; i < 5; i++) {\n    console.log(`Итерация №${i + 1}`);\n}\n// Выведет 5 раз: Итерация №1, №2, ...</pre>\n\n<b>Структура for:</b>\n<pre>for (начало; условие; шаг) {\n    // тело цикла\n}</pre>\n\n<b>2. while</b> — пока условие true:\n<pre>let count = 0;\nwhile (count < 3) {\n    console.log('Счёт: ' + count);\n    count++;\n}</pre>\n\n<b>3. do...while</b> — сначала выполнит, потом проверит:\n<pre>let x = 0;\ndo {\n    console.log('Выполнится хотя бы раз');\n    x++;\n} while (x < 0); // условие false, но первый раз сработало!</pre>\n\n<b>Управление циклом:</b>\n<pre>// break — выйти из цикла\nfor (let i = 0; i < 10; i++) {\n    if (i === 5) break;  // выйдем на 5\n    console.log(i);\n}\n\n// continue — пропустить итерацию\nfor (let i = 0; i < 5; i++) {\n    if (i === 2) continue;  // пропустим 2\n    console.log(i);  // 0, 1, 3, 4\n}</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>for (let i = 0; i < 5; i++)</code> — классический счётчик\n• <code>while (условие)</code> — неизвестно сколько итераций\n• <code>do...while</code> — гарантированно 1 раз\n• <code>break</code> — экстренный выход\n• <code>continue</code> — переход к следующей итерации\n• <b>Осторожно с бесконечными циклами!</b>",
+        "tip": "💡 <b>Лайфхак:</b>\nИспользуй <code>for</code>, когда знаешь количество итераций (массив, счётчик). Используй <code>while</code>, когда ждёшь условие (например, ответ от сервера).",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nБесконечный цикл! Если условие никогда не станет false — страница зависнет.\n<pre>let i = 0;\nwhile (i < 10) {\n    console.log(i);\n    // ЗАБЫЛИ i++ !!! Бесконечный цикл!\n}</pre>",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>for</code> — цикл со счётчиком\n✅ <code>while</code> — цикл с условием\n✅ <code>do...while</code> — минимум 1 итерация\n✅ <code>break</code> — выход, <code>continue</code> — пропуск\n✅ Всегда проверяй условие выхода!",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Выведи все чётные числа от 0 до 20 с помощью цикла <code>for</code>.\n\n📝 <b>Задание 2:</b> Напиши <code>while</code>, который считает от 10 до 0 (обратный отсчёт) и выводит «Пуск!» в конце.\n\n📝 <b>Задание 3:</b> Создай таблицу умножения на 7 (от 1 до 10) с помощью цикла.\n\n🤖 <b>Вопрос к размышлению:</b> Что быстрее: <code>for</code> или <code>while</code>? Есть ли разница в производительности?",
+        "bonus": "🎉 <b>Бонус:</b>\nЦиклы — это суперсила! Вместо 100 строк кода ты пишешь 3. Автоматизация начинается здесь. Ты теперь можешь обрабатывать тысячи элементов за секунды! 🔄"
+      }
+    },
+    {
+      "id": 6,
+      "title": "📋 Массивы: создание, доступ, методы push, pop, shift, unshift, splice",
+      "description": "Изучаем массивы — упорядоченные коллекции данных. Учимся добавлять, удалять и изменять элементы",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться создавать массивы, получать доступ к элементам по индексу и использовать основные методы для работы с массивами.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Массив</b> — это упорядоченная коллекция данных. Как список покупок или плейлист.\n\n<b>Создание и доступ:</b>\n<pre>// Создание\nlet fruits = ['яблоко', 'банан', 'апельсин'];\nlet numbers = [1, 2, 3, 4, 5];\nlet mixed = [42, 'привет', true, null];\n\n// Доступ по индексу (начинается с 0!)\nconsole.log(fruits[0]);  // 'яблоко'\nconsole.log(fruits[1]);  // 'банан'\nconsole.log(fruits[2]);  // 'апельсин'\n\n// Длина массива\nconsole.log(fruits.length);  // 3</pre>\n\n<b>Методы массивов:</b>\n<pre>let arr = [1, 2, 3];\n\n// ДОБАВЛЕНИЕ\narr.push(4);        // в конец → [1,2,3,4]\narr.unshift(0);     // в начало → [0,1,2,3,4]\n\n// УДАЛЕНИЕ\narr.pop();          // с конца (вернёт 4) → [0,1,2,3]\narr.shift();        // с начала (вернёт 0) → [1,2,3]\n\n// УНИВЕРСАЛЬНЫЙ splice\narr.splice(1, 1, 'x', 'y');\n// начиная с индекса 1, удалить 1 элемент, вставить 'x','y'\n// Было [1,2,3] → Стало [1,'x','y',3]</pre>",
+        "code_breakdown": "🔍 <b>Разбор методов:</b>\n• <code>arr[0]</code> — первый элемент (индексы с 0!)\n• <code>arr.length</code> — длина массива\n• <code>.push(элемент)</code> — добавить в КОНЕЦ (чаще всего!)\n• <code>.pop()</code> — удалить с конца (вернёт удалённое)\n• <code>.unshift(элемент)</code> — добавить в НАЧАЛО\n• <code>.shift()</code> — удалить с начала\n• <code>.splice(начало, сколько_удалить, что_вставить)</code> — швейцарский нож",
+        "tip": "💡 <b>Лайфхак:</b>\nЗапомни: <code>push/pop</code> — работа с КОНЦОМ (быстро). <code>unshift/shift</code> — работа с НАЧАЛОМ (медленнее, сдвигает все элементы). Для производительности лучше использовать <code>push/pop</code>.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть, что индексы начинаются с 0. <code>arr[1]</code> — это ВТОРОЙ элемент! И <code>arr[arr.length]</code> — не последний, а ЗА последним (undefined). Последний: <code>arr[arr.length - 1]</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ Массив — упорядоченная коллекция\n✅ Индексы с 0, длина — <code>.length</code>\n✅ <code>.push()</code> / <code>.pop()</code> — конец\n✅ <code>.unshift()</code> / <code>.shift()</code> — начало\n✅ <code>.splice()</code> — удалить/вставить в любом месте",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай массив из 5 любимых фильмов. Выведи первый и последний элементы.\n\n📝 <b>Задание 2:</b> Добавь ещё один фильм в конец и один в начало. Выведи обновлённый массив.\n\n📝 <b>Задание 3:</b> Удали второй элемент массива с помощью <code>splice()</code> и вставь на его место два других.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>push/pop</code> работают быстрее, чем <code>unshift/shift</code>?",
+        "bonus": "🎉 <b>Бонус:</b>\nМассивы — это контейнеры для данных. Почти всё в программировании — это списки. Ты освоил базовый инструмент для работы с коллекциями! 📋"
+      }
+    },
+    {
+      "id": 7,
+      "title": "🔁 Методы массивов: forEach, map, filter, find, reduce",
+      "description": "Изучаем современные методы для работы с массивами без циклов",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nОсвоить функциональные методы массивов, которые заменяют циклы и делают код чище и выразительнее.",
+        "theory": "📚 <b>Теория</b>\n\nСовременный JavaScript предлагает крутые методы для работы с массивами. Они принимают <b>колбэк-функцию</b>.\n\n<b>1. forEach</b> — просто перебрать (без возврата):\n<pre>let fruits = ['яблоко', 'банан', 'киви'];\nfruits.forEach(function(item, index) {\n    console.log(`${index}: ${item}`);\n});\n// 0: яблоко, 1: банан, 2: киви</pre>\n\n<b>2. map</b> — ТРАНСФОРМИРОВАТЬ каждый элемент (возвращает новый массив!):\n<pre>let numbers = [1, 2, 3];\nlet doubled = numbers.map(n => n * 2);\nconsole.log(doubled);  // [2, 4, 6]</pre>\n\n<b>3. filter</b> — ОТФИЛЬТРОВАТЬ (вернуть только подходящие):\n<pre>let ages = [12, 18, 25, 14, 30];\nlet adults = ages.filter(age => age >= 18);\nconsole.log(adults);  // [18, 25, 30]</pre>\n\n<b>4. find</b> — НАЙТИ первый подходящий:\n<pre>let users = [\n    {name: 'Аня', age: 25},\n    {name: 'Ваня', age: 17},\n    {name: 'Катя', age: 30}\n];\nlet user = users.find(u => u.age > 18);\nconsole.log(user);  // {name: 'Аня', age: 25}</pre>\n\n<b>5. reduce</b> — СВЕРНУТЬ массив в одно значение:\n<pre>let numbers = [1, 2, 3, 4, 5];\nlet sum = numbers.reduce((accumulator, current) => accumulator + current, 0);\nconsole.log(sum);  // 15</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>.forEach()</code> — перебор, ничего не возвращает\n• <code>.map()</code> — новый массив той же длины (трансформация)\n• <code>.filter()</code> — новый массив с подходящими элементами\n• <code>.find()</code> — первый подходящий элемент (или undefined)\n• <code>.reduce()</code> — аккумуляция (сумма, объект, строка)\n• Стрелочная функция: <code>item => item * 2</code>",
+        "tip": "💡 <b>Лайфхак:</b>\nВыбирай правильный метод:\n• Просто пройтись → <code>forEach</code>\n• Изменить каждый → <code>map</code>\n• Отобрать → <code>filter</code>\n• Найти один → <code>find</code>\n• Посчитать сумму/объединить → <code>reduce</code>",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nДумать, что <code>map</code> меняет исходный массив. НЕТ! <code>map</code> возвращает НОВЫЙ массив. Исходный остаётся неизменным (иммутабельность!).",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>.forEach()</code> — перебор\n✅ <code>.map()</code> — трансформация\n✅ <code>.filter()</code> — фильтрация\n✅ <code>.find()</code> — поиск первого\n✅ <code>.reduce()</code> — свёртка в одно значение\n✅ Исходный массив НЕ меняется!",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Дан массив чисел <code>[1,2,3,4,5]</code>. С помощью <code>map</code> создай массив квадратов этих чисел.\n\n📝 <b>Задание 2:</b> Из массива чисел отфильтруй только чётные.\n\n📝 <b>Задание 3:</b> Найди сумму всех чисел массива с помощью <code>reduce</code>.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>map</code> не меняет исходный массив? Чем это полезно?",
+        "bonus": "🎉 <b>Бонус:</b>\nТы перешёл на новый уровень! Эти методы — визитная карточка современного JavaScript-разработчика. Код стал чище и элегантнее! 🎯"
+      }
+    },
+    {
+      "id": 8,
+      "title": "📝 Строки: методы, шаблонные строки, работа с текстом",
+      "description": "Учимся работать со строками: длина, регистр, поиск, замена, извлечение подстрок",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nОсвоить основные методы для работы со строками в JavaScript: от изменения регистра до поиска и замены.",
+        "theory": "📚 <b>Теория</b>\n\nСтроки в JavaScript неизменяемы (immutable). Все методы возвращают НОВУЮ строку.\n\n<b>Основные методы строк:</b>\n<pre>let str = 'Привет, Мир!';\n\n// Длина строки\nconsole.log(str.length);  // 13\n\n// Регистр\nconsole.log(str.toUpperCase());  // 'ПРИВЕТ, МИР!'\nconsole.log(str.toLowerCase());  // 'привет, мир!'\n\n// Поиск подстроки\nconsole.log(str.includes('Мир'));    // true\nconsole.log(str.indexOf('Мир'));     // 8 (позиция)\nconsole.log(str.startsWith('При'));  // true\nconsole.log(str.endsWith('!'));      // true\n\n// Извлечение\nconsole.log(str.slice(0, 6));   // 'Привет'\nconsole.log(str.slice(8));      // 'Мир!'\nconsole.log(str.substring(0, 6)); // 'Привет'\n\n// Замена\nconsole.log(str.replace('Мир', 'JavaScript')); // 'Привет, JavaScript!'\nconsole.log(str.replaceAll('и', 'ы')); // замена всех\n\n// Разбиение в массив\nconsole.log(str.split(', '));  // ['Привет', 'Мир!']\n\n// Удаление пробелов\nlet raw = '   текст   ';\nconsole.log(raw.trim());  // 'текст'</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>.length</code> — длина строки (свойство, не метод!)\n• <code>.toUpperCase() / .toLowerCase()</code> — регистр\n• <code>.includes()</code> — есть ли подстрока (true/false)\n• <code>.indexOf()</code> — позиция подстроки (-1 если нет)\n• <code>.slice(начало, конец)</code> — извлечь часть\n• <code>.replace()</code> — заменить ПЕРВОЕ вхождение\n• <code>.replaceAll()</code> — заменить ВСЕ вхождения\n• <code>.split()</code> — разбить в массив\n• <code>.trim()</code> — убрать пробелы по краям",
+        "tip": "💡 <b>Лайфхак:</b>\nДля поиска используй <code>.includes()</code> (просто есть/нет). Для получения позиции — <code>.indexOf()</code>. <code>.slice()</code> работает с отрицательными индексами (с конца): <code>str.slice(-3)</code> — последние 3 символа.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть, что строки неизменяемы. <code>str.toUpperCase()</code> не меняет <code>str</code>! Надо: <code>str = str.toUpperCase();</code>",
+        "summary": "✅ <b>Итоги:</b>\n✅ Строки неизменяемы (методы возвращают новую строку)\n✅ <code>.length</code>, <code>.toUpperCase()</code>, <code>.toLowerCase()</code>\n✅ <code>.includes()</code>, <code>.indexOf()</code>, <code>.slice()</code>\n✅ <code>.replace()</code>, <code>.split()</code>, <code>.trim()</code>",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Напиши функцию, которая принимает строку и возвращает её длину и первый/последний символы.\n\n📝 <b>Задание 2:</b> Проверь, содержит ли email символ '@' и точку.\n\n📝 <b>Задание 3:</b> Разбей предложение на слова с помощью <code>.split()</code> и выведи их количество.\n\n🤖 <b>Вопрос к размышлению:</b> Почему строки сделали неизменяемыми? Какие преимущества это даёт?",
+        "bonus": "🎉 <b>Бонус:</b>\nСтроки — это то, с чем пользователь взаимодействует напрямую. Умение их обрабатывать критично для любого приложения. Ты стал мастером текста! ✍️"
+      }
+    },
+    {
+      "id": 9,
+      "title": "🔧 Функции: объявление, параметры, return, стрелочные функции",
+      "description": "Создаём собственные функции — кирпичики программы. Изучаем параметры, возврат значений",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться создавать функции — переиспользуемые блоки кода, принимать параметры и возвращать результат.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Функция</b> — это блок кода, который можно вызвать много раз. Как рецепт: один раз записал — используешь когда угодно.\n\n<b>1. Function Declaration (классическая):</b>\n<pre>function greet(name) {\n    return `Привет, ${name}!`;\n}\nconsole.log(greet('Анна')); // 'Привет, Анна!'</pre>\n\n<b>2. Function Expression (функция в переменной):</b>\n<pre>const greet = function(name) {\n    return `Привет, ${name}!`;\n};</pre>\n\n<b>3. Стрелочная функция (современно! 🔥):</b>\n<pre>const greet = (name) => {\n    return `Привет, ${name}!`;\n};\n// Короткая форма (если одна операция):\nconst greet = name => `Привет, ${name}!`;</pre>\n\n<b>Параметры и return:</b>\n<pre>function sum(a, b) {\n    return a + b;\n}\nlet result = sum(5, 3);  // 8\n\n// Параметры по умолчанию\nfunction greet(name = 'Гость') {\n    return `Привет, ${name}!`;\n}\nconsole.log(greet());      // 'Привет, Гость!'\nconsole.log(greet('Ваня')); // 'Привет, Ваня!'</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>function имя(параметры) { тело }</code> — классическое объявление\n• <code>return</code> — возвращает значение (без return — undefined)\n• После <code>return</code> код в функции НЕ выполняется!\n• <code>(параметры) => { тело }</code> — стрелочная функция\n• <code>параметр = 'значение'</code> — значение по умолчанию",
+        "tip": "💡 <b>Лайфхак:</b>\n<b>Одна функция — одна задача.</b> Если функция делает «и это, и то» — разбей на две. Короткие функции легче тестировать и переиспользовать. Имена функций — глаголы: <code>getUser</code>, <code>calculateTotal</code>, <code>showError</code>.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть <code>return</code>. Без него функция возвращает <code>undefined</code>. И путать функцию с её вызовом: <code>console.log(greet)</code> — выведет код функции, а <code>console.log(greet())</code> — результат.",
+        "summary": "✅ <b>Итоги:</b>\n✅ Функция — переиспользуемый блок кода\n✅ <code>function имя(параметры) { return ... }</code>\n✅ Стрелочные: <code>const fn = (x) => x * 2</code>\n✅ Параметры по умолчанию\n✅ Одна функция — одна задача",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Напиши функцию <code>multiply(a, b)</code>, которая возвращает произведение двух чисел.\n\n📝 <b>Задание 2:</b> Напиши функцию <code>isEven(n)</code>, которая возвращает <code>true</code>, если число чётное.\n\n📝 <b>Задание 3:</b> Перепиши функцию <code>isEven</code> в виде стрелочной функции в одну строку.\n\n🤖 <b>Вопрос к размышлению:</b> Чем стрелочные функции отличаются от обычных, кроме синтаксиса? (Подсказка: контекст <code>this</code>)",
+        "bonus": "🎉 <b>Бонус:</b>\nФункции — это основа программирования. Ты теперь умеешь создавать свои собственные команды! Как будто ты добавляешь новые слова в язык JavaScript. 🔧"
+      }
+    },
+    {
+      "id": 10,
+      "title": "🧱 Объекты: свойства, методы, this, перебор for...in",
+      "description": "Изучаем объекты — неупорядоченные коллекции данных по ключу",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться создавать объекты, работать со свойствами и методами, понимать ключевое слово <code>this</code>.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Объект</b> — это коллекция данных по принципу «ключ: значение». Как карточка товара или профиль пользователя.\n\n<b>Создание объекта:</b>\n<pre>const user = {\n    name: 'Анна',\n    age: 25,\n    city: 'Москва',\n    isAdmin: false,\n    // Метод — функция внутри объекта\n    greet() {\n        console.log(`Привет, я ${this.name}!`);\n    }\n};</pre>\n\n<b>Доступ к свойствам:</b>\n<pre>// Точечная нотация\nconsole.log(user.name);  // 'Анна'\n\n// Скобочная нотация (ключ — строка или переменная)\nconsole.log(user['age']);  // 25\nlet key = 'city';\nconsole.log(user[key]);  // 'Москва'\n\n// Добавление\nuser.email = 'anna@mail.com';\n\n// Удаление\ndelete user.isAdmin;\n\n// Проверка наличия\nconsole.log('age' in user);  // true</pre>\n\n<b>Ключевое слово this:</b>\n<pre>const person = {\n    name: 'Петя',\n    sayName() {\n        console.log(this.name);  // this = текущий объект\n    }\n};\nperson.sayName();  // 'Петя'</pre>\n\n<b>Перебор объекта:</b>\n<pre>for (let key in user) {\n    console.log(`${key}: ${user[key]}`);\n}</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>{ ключ: значение }</code> — синтаксис объекта\n• <code>объект.свойство</code> — точечный доступ\n• <code>объект['свойство']</code> — скобочный доступ (для переменных)\n• <code>this</code> — ссылка на текущий объект внутри метода\n• <code>delete объект.свойство</code> — удаление\n• <code>'ключ' in объект</code> — проверка наличия\n• <code>for...in</code> — перебор ключей",
+        "tip": "💡 <b>Лайфхак:</b>\nИспользуй точечную нотацию (<code>user.name</code>) когда знаешь точное имя свойства. Скобочную (<code>user[key]</code>) — когда имя свойства в переменной или вычисляется динамически.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПутать <code>.</code> и <code>[]</code>. <code>user.key</code> ищет свойство с именем «key». <code>user[key]</code> ищет свойство с именем, которое ЛЕЖИТ в переменной <code>key</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ Объект = коллекция «ключ: значение»\n✅ <code>объект.свойство</code> — доступ\n✅ <code>this</code> — текущий объект в методе\n✅ <code>delete</code> — удаление свойства\n✅ <code>for...in</code> — перебор ключей\n✅ Методы — функции внутри объекта",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай объект <code>car</code> с маркой, моделью, годом и методом <code>getInfo()</code>, возвращающим строку с информацией.\n\n📝 <b>Задание 2:</b> Добавь новое свойство, измени существующее, удали ненужное.\n\n📝 <b>Задание 3:</b> Перебери все свойства объекта циклом <code>for...in</code>.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>this</code> в стрелочных функциях работает не так, как в обычных методах объекта?",
+        "bonus": "🎉 <b>Бонус:</b>\nОбъекты — это сердце JavaScript. Почти ВСЁ в языке — объекты. Ты освоил ключевую структуру данных! 🧱"
+      }
+    },
+    {
+      "id": 11,
+      "title": "🌳 DOM: что это и как с ним работать",
+      "description": "Знакомимся с Document Object Model: получаем элементы со страницы, меняем их содержимое",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nПонять, что такое DOM-дерево, и научиться находить элементы на странице с помощью JavaScript.",
+        "theory": "📚 <b>Теория</b>\n\n<b>DOM (Document Object Model)</b> — это представление HTML-страницы в виде дерева объектов, с которыми JavaScript может взаимодействовать.\n\n<b>Главный объект — document:</b>\n<pre>// Выведет весь HTML страницы\nconsole.log(document);</pre>\n\n<b>Поиск элементов:</b>\n<pre>// По id (ОДИН элемент)\nconst header = document.getElementById('header');\n\n// По классу (КОЛЛЕКЦИЯ, похожа на массив)\nconst cards = document.getElementsByClassName('card');\n\n// По тегу (КОЛЛЕКЦИЯ)\nconst paragraphs = document.getElementsByTagName('p');\n\n// УНИВЕРСАЛЬНЫЙ querySelector (ПЕРВЫЙ подходящий) 🔥\nconst firstCard = document.querySelector('.card');\n\n// querySelectorAll (ВСЕ подходящие) 🔥\nconst allCards = document.querySelectorAll('.card');</pre>\n\n<b>Изменение содержимого:</b>\n<pre>const title = document.querySelector('h1');\n\ntitle.textContent = 'Новый заголовок';  // только текст (безопасно)\ntitle.innerHTML = 'Новый &lt;span&gt;заголовок&lt;/span&gt;';  // HTML (осторожно!)</pre>\n\n<b>Изменение стилей:</b>\n<pre>const box = document.querySelector('.box');\nbox.style.backgroundColor = 'red';\nbox.style.fontSize = '20px';</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>document</code> — корневой объект всей страницы\n• <code>getElementById('id')</code> — один элемент (быстрый)\n• <code>querySelector('селектор')</code> — ПЕРВЫЙ по CSS-селектору\n• <code>querySelectorAll('селектор')</code> — ВСЕ по CSS-селектору\n• <code>.textContent</code> — ТОЛЬКО текст (безопасно от XSS)\n• <code>.innerHTML</code> — HTML-код (опасно с пользовательским вводом!)\n• <code>.style.свойство</code> — инлайн-стили",
+        "tip": "💡 <b>Лайфхак:</b>\nЗапомни: <code>querySelector</code> — универсальный (один элемент), <code>querySelectorAll</code> — универсальный (коллекция). Они понимают любой CSS-селектор: <code>'.class'</code>, <code>'#id'</code>, <code>'div > p'</code>.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПытаться использовать методы DOM до загрузки страницы. Скрипт в <code>&lt;head&gt;</code> не видит <code>&lt;body&gt;</code>! Решение: размещать <code>&lt;script&gt;</code> в конце body или использовать <code>DOMContentLoaded</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ DOM — дерево объектов страницы\n✅ <code>querySelector()</code> — поиск элемента\n✅ <code>querySelectorAll()</code> — поиск коллекции\n✅ <code>.textContent</code> — изменить текст\n✅ <code>.innerHTML</code> — изменить HTML\n✅ <code>.style</code> — изменить стили",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Найди на странице заголовок <code>&lt;h1&gt;</code> и измени его текст.\n\n📝 <b>Задание 2:</b> Найди все параграфы и выведи их количество в консоль.\n\n📝 <b>Задание 3:</b> Измени цвет фона первого <code>&lt;div&gt;</code> с классом <code>card</code>.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>textContent</code> безопаснее, чем <code>innerHTML</code>? Что такое XSS-атака?",
+        "bonus": "🎉 <b>Бонус:</b>\nТвой JavaScript теперь видит HTML! Ты можешь дотянуться до любого элемента на странице и изменить его. Магия становится реальностью! 🌳"
+      }
+    },
+    {
+      "id": 12,
+      "title": "🖱️ События: click, input, submit, клавиатура, мышь",
+      "description": "Учимся реагировать на действия пользователя с помощью addEventListener",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться обрабатывать события: клики, ввод текста, отправку форм, нажатия клавиш.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Событие</b> — это сигнал от браузера о том, что что-то произошло (клик, ввод, загрузка).\n\n<b>Способ 1: addEventListener (ЛУЧШИЙ! 🔥):</b>\n<pre>const button = document.querySelector('button');\n\nbutton.addEventListener('click', function() {\n    alert('Кнопка нажата!');\n});\n\n// Со стрелочной функцией:\nbutton.addEventListener('click', () => {\n    console.log('Клик!');\n});</pre>\n\n<b>Способ 2: onclick (устаревший, только ОДИН обработчик):</b>\n<pre>button.onclick = function() {\n    alert('Клик!');\n};</pre>\n\n<b>Популярные события:</b>\n<pre>// Мышь\nelement.addEventListener('click', handler);      // клик\nelement.addEventListener('dblclick', handler);   // двойной клик\nelement.addEventListener('mouseover', handler);  // наведение\nelement.addEventListener('mouseout', handler);   // уход курсора\n\n// Клавиатура\ndocument.addEventListener('keydown', handler);  // нажатие клавиши\ndocument.addEventListener('keyup', handler);    // отпускание\n\n// Формы\ninput.addEventListener('input', handler);   // ввод текста\ninput.addEventListener('change', handler);  // изменение + уход фокуса\nform.addEventListener('submit', handler);  // отправка формы\n\n// Загрузка\ndocument.addEventListener('DOMContentLoaded', handler); // DOM готов</pre>\n\n<b>Объект события (event):</b>\n<pre>button.addEventListener('click', function(event) {\n    console.log(event.target);  // элемент, на котором сработало\n    console.log(event.type);    // 'click'\n    event.preventDefault();     // отменить действие по умолчанию\n});</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>.addEventListener('событие', функция)</code> — подписка\n• <code>'click'</code> — клик мыши\n• <code>'input'</code> — каждое изменение в поле ввода\n• <code>'submit'</code> — отправка формы\n• <code>'keydown'</code> — нажатие клавиши\n• <code>event.target</code> — кто вызвал событие\n• <code>event.preventDefault()</code> — отмена стандартного поведения",
+        "tip": "💡 <b>Лайфхак:</b>\nИспользуй <code>addEventListener</code> вместо <code>onclick</code>. Он позволяет повесить НЕСКОЛЬКО обработчиков на одно событие и легко их удалять.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть про <code>event.preventDefault()</code> при отправке формы. Страница перезагрузится, и весь JavaScript-код потеряет состояние!",
+        "summary": "✅ <b>Итоги:</b>\n✅ События — действия пользователя (клик, ввод, загрузка)\n✅ <code>.addEventListener()</code> — подписка на событие\n✅ <code>'click', 'input', 'submit', 'keydown'</code> — типы событий\n✅ <code>event.target</code> — источник события\n✅ <code>event.preventDefault()</code> — отмена действия по умолчанию",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай кнопку, при клике на которую меняется текст в абзаце.\n\n📝 <b>Задание 2:</b> Создай поле ввода, при вводе текста в которое дублируется текст в <code>&lt;span&gt;</code> ниже.\n\n📝 <b>Задание 3:</b> Отследи нажатие клавиши <code>Enter</code> и выведи сообщение в консоль.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>addEventListener</code> лучше, чем <code>onclick</code>? Приведи минимум две причины.",
+        "bonus": "🎉 <b>Бонус:</b>\nТвой сайт ОЖИЛ! Он реагирует на пользователя: на клики, ввод текста, нажатия клавиш. Это настоящая интерактивность! 🖱️"
+      }
+    },
+    {
+      "id": 13,
+      "title": "🎨 Манипуляции с DOM: создание, добавление, удаление элементов",
+      "description": "Учимся создавать HTML-элементы из JavaScript, добавлять их на страницу и удалять",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться динамически создавать, добавлять, удалять и клонировать HTML-элементы с помощью JavaScript.",
+        "theory": "📚 <b>Теория</b>\n\nJavaScript может не только читать, но и МЕНЯТЬ структуру страницы.\n\n<b>Создание элемента:</b>\n<pre>// Создать (пока не на странице)\nconst newDiv = document.createElement('div');\n\n// Добавить класс\nnewDiv.classList.add('card');\n\n// Добавить текст\nnewDiv.textContent = 'Я новый элемент!';\n\n// Задать атрибут\nnewDiv.setAttribute('data-id', '123');</pre>\n\n<b>Добавление на страницу:</b>\n<pre>const parent = document.querySelector('.container');\n\n// В конец родителя\nparent.append(newDiv);\n\n// В начало родителя\nparent.prepend(newDiv);\n\n// Перед элементом\ntarget.before(newDiv);\n\n// После элемента\ntarget.after(newDiv);\n\n// Старый способ (ещё работает)\nparent.appendChild(newDiv);</pre>\n\n<b>Удаление:</b>\n<pre>element.remove();  // удалить элемент\n\n// Старый способ\nparent.removeChild(element);</pre>\n\n<b>Клонирование:</b>\n<pre>const clone = element.cloneNode(true);  // true = с содержимым</pre>\n\n<b>Работа с классами:</b>\n<pre>element.classList.add('active');     // добавить\nclassList.remove('hidden');   // удалить\nclassList.toggle('dark');     // переключить\nclassList.contains('active'); // проверить</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>document.createElement('тег')</code> — создать элемент\n• <code>.append()</code> — добавить в конец (современный)\n• <code>.prepend()</code> — добавить в начало\n• <code>.before() / .after()</code> — рядом с элементом\n• <code>.remove()</code> — удалить\n• <code>.cloneNode(true)</code> — клонировать\n• <code>.classList</code> — удобная работа с классами",
+        "tip": "💡 <b>Лайфхак:</b>\nСоздавай элемент, настраивай его (классы, текст, атрибуты), а потом ОДИН раз добавляй на страницу. Множество вставок по одной — медленно. Для массового добавления используй <code>insertAdjacentHTML</code> или DocumentFragment.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПытаться использовать <code>append</code> со строкой. <code>parent.append('текст')</code> — текст добавится как текстовый узел. Для HTML-строки используй <code>insertAdjacentHTML('beforeend', '&lt;div&gt;HTML&lt;/div&gt;')</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>createElement()</code> — создание\n✅ <code>.append()</code> — в конец\n✅ <code>.prepend()</code> — в начало\n✅ <code>.remove()</code> — удаление\n✅ <code>.classList</code> — работа с классами\n✅ <code>.setAttribute()</code> — атрибуты",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай кнопку «Добавить карточку». При клике создавай новый <code>&lt;div&gt;</code> с классом card и текстом.\n\n📝 <b>Задание 2:</b> В каждой карточке сделай кнопку «Удалить», которая удаляет именно эту карточку.\n\n📝 <b>Задание 3:</b> Реализуй переключение тёмной темы с помощью <code>classList.toggle</code>.\n\n🤖 <b>Вопрос к размышлению:</b> Что быстрее: создать 1000 элементов через цикл или через <code>insertAdjacentHTML</code> с одной строкой?",
+        "bonus": "🎉 <b>Бонус:</b>\nТы теперь можешь строить интерфейсы на лету! Добавить, удалить, изменить — всё подвластно твоему JavaScript. Ты — творец веб-страниц! 🎨"
+      }
+    },
+    {
+      "id": 14,
+      "title": "📝 Работа с формами: получение значений, валидация",
+      "description": "Учимся получать данные из форм, проверять их и предотвращать отправку",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться работать с HTML-формами: получать значения полей, проверять (валидировать) их и обрабатывать отправку.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Получение значений из формы:</b>\n<pre>const form = document.querySelector('form');\nconst nameInput = document.querySelector('#name');\nconst emailInput = document.querySelector('#email');\n\nform.addEventListener('submit', (event) => {\n    event.preventDefault();  // отменяем перезагрузку!\n    \n    const name = nameInput.value;\n    const email = emailInput.value;\n    \n    console.log({ name, email });\n});</pre>\n\n<b>Типы полей и их значения:</b>\n<pre>// Текст, пароль, email\ninput.value\n\n// Чекбокс (галочка)\ncheckbox.checked  // true/false\n\n// Радио-кнопки\nconst selected = document.querySelector('input[name=\"gender\"]:checked');\nselected.value\n\n// Select\nselect.value\n\n// Textarea\ntextarea.value</pre>\n\n<b>Простая валидация:</b>\n<pre>form.addEventListener('submit', (event) => {\n    const email = emailInput.value;\n    \n    if (!email.includes('@')) {\n        alert('Введите корректный email!');\n        event.preventDefault();  // не отправлять!\n        return;\n    }\n    \n    if (nameInput.value.trim() === '') {\n        alert('Имя не может быть пустым!');\n        event.preventDefault();\n        return;\n    }\n});</pre>\n\n<b>Событие input (реакция на лету):</b>\n<pre>nameInput.addEventListener('input', () => {\n    const value = nameInput.value;\n    const errorSpan = document.querySelector('.error');\n    \n    if (value.length < 3) {\n        errorSpan.textContent = 'Минимум 3 символа';\n    } else {\n        errorSpan.textContent = '';\n    }\n});</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>event.preventDefault()</code> — ОБЯЗАТЕЛЬНО при submit!\n• <code>input.value</code> — текст из поля\n• <code>checkbox.checked</code> — true/false\n• <code>input.value.trim()</code> — удалить пробелы по краям\n• Валидация — проверка ДО отправки\n• <code>'input'</code> — событие при КАЖДОМ изменении",
+        "tip": "💡 <b>Лайфхак:</b>\nВалидируй на клиенте (в браузере) ДЛЯ УДОБСТВА пользователя (быстрые подсказки). Но ВСЕГДА проверяй данные и на сервере! Клиентскую валидацию легко обойти.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть <code>event.preventDefault()</code> при отправке формы. Страница перезагрузится, все данные потеряются, а консоль очистится. Это САМАЯ частая ошибка новичков!",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>event.preventDefault()</code> — отмена отправки\n✅ <code>input.value</code> — значение поля\n✅ <code>checkbox.checked</code> — состояние чекбокса\n✅ Валидация = проверка + сообщение об ошибке\n✅ Проверяй на клиенте И на сервере",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай форму входа (email + пароль). При отправке выводи значения в консоль.\n\n📝 <b>Задание 2:</b> Добавь валидацию: email должен содержать '@', пароль — минимум 6 символов.\n\n📝 <b>Задание 3:</b> Реализуй live-валидацию: при вводе сразу показывай, корректен ли email.\n\n🤖 <b>Вопрос к размышлению:</b> Почему нельзя полагаться ТОЛЬКО на клиентскую валидацию?",
+        "bonus": "🎉 <b>Бонус:</b>\nФормы — это мост между пользователем и сервером. Ты научился принимать данные, проверять их и управлять отправкой. Это основа любого веб-приложения! 📝"
+      }
+    },
+    {
+      "id": 15,
+      "title": "⏰ Таймеры: setTimeout, setInterval",
+      "description": "Учимся выполнять код с задержкой и периодически повторять действия",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться откладывать выполнение кода (<code>setTimeout</code>) и выполнять его периодически (<code>setInterval</code>).",
+        "theory": "📚 <b>Теория</b>\n\n<b>1. setTimeout</b> — выполнить ОДИН раз через задержку:\n<pre>// Через 3 секунды покажет сообщение\nsetTimeout(() => {\n    console.log('Прошло 3 секунды!');\n}, 3000);  // время в миллисекундах\n\n// С отменой\nconst timerId = setTimeout(() => {\n    console.log('Не увидишь это');\n}, 5000);\nclearTimeout(timerId);  // отменили!</pre>\n\n<b>2. setInterval</b> — повторять КАЖДЫЕ N миллисекунд:\n<pre>// Каждую секунду выводить в консоль\nconst intervalId = setInterval(() => {\n    console.log('Тик!');\n}, 1000);\n\n// Остановить через 5 секунд\nsetTimeout(() => {\n    clearInterval(intervalId);\n    console.log('Остановлено!');\n}, 5000);</pre>\n\n<b>Практический пример — таймер обратного отсчёта:</b>\n<pre>let seconds = 10;\nconst timerElement = document.querySelector('#timer');\n\nconst countdown = setInterval(() => {\n    seconds--;\n    timerElement.textContent = seconds;\n    \n    if (seconds <= 0) {\n        clearInterval(countdown);\n        timerElement.textContent = 'Время вышло!';\n    }\n}, 1000);</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>setTimeout(функция, задержка_в_мс)</code> — один раз\n• <code>setInterval(функция, интервал_в_мс)</code> — повторять\n• <code>1000 мс = 1 секунда</code>\n• <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена\n• Сохраняй ID таймера для возможности отмены\n• <b>Важно:</b> таймеры продолжают работать, даже если пользователь ушёл со вкладки (но с пониженной частотой)",
+        "tip": "💡 <b>Лайфхак:</b>\nДля анимаций лучше использовать <code>requestAnimationFrame</code>, а не <code>setInterval</code>. Для периодических задач (например, автосохранение) — <code>setInterval</code>. Для задержек — <code>setTimeout</code>.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть очистить интервал при уходе со страницы. Интервал продолжит работать, нагружая браузер, и может вызвать ошибки при попытке обновить уже несуществующие элементы.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>setTimeout(fn, ms)</code> — задержка, один раз\n✅ <code>setInterval(fn, ms)</code> — повторение\n✅ <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена\n✅ Всегда сохраняй ID и очищай при необходимости",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Выведи сообщение «Привет!» с задержкой в 2 секунды после загрузки страницы.\n\n📝 <b>Задание 2:</b> Создай таймер обратного отсчёта от 10 до 0. Когда 0 — выведи «Финиш!».\n\n📝 <b>Задание 3:</b> Создай кнопку «Старт» (запускает интервал, который выводит время) и «Стоп» (останавливает).\n\n🤖 <b>Вопрос к размышлению:</b> Почему не стоит использовать <code>setInterval</code> с интервалом 0 мс?",
+        "bonus": "🎉 <b>Бонус:</b>\nТы научился управлять временем! Задержки, интервалы, таймеры — теперь ты контролируешь, КОГДА выполнится код. ⏰"
+      }
+    },
+    {
+      "id": 16,
+      "title": "🌐 Асинхронность: Promise, .then(), .catch()",
+      "description": "Понимаем асинхронный код и учимся работать с Promise",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nПонять, что такое асинхронность, и научиться работать с Promise: создавать, обрабатывать результат и ошибки.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Асинхронность</b> — это способность выполнять код, не блокируя основной поток. Как заказ пиццы: ты сделал заказ и можешь заниматься делами, пока её готовят.\n\n<b>Promise (Обещание)</b> — объект, который представляет результат асинхронной операции.\n\n<b>Состояния Promise:</b>\n• <b>pending</b> — ожидание (пицца готовится)\n• <b>fulfilled</b> — выполнено успешно (пицца приехала!)\n• <b>rejected</b> — ошибка (пиццу не довезли)\n\n<b>Создание Promise:</b>\n<pre>const myPromise = new Promise((resolve, reject) => {\n    // асинхронная операция\n    setTimeout(() => {\n        const success = true;\n        if (success) {\n            resolve('Успех! 🎉');\n        } else {\n            reject('Ошибка! 💥');\n        }\n    }, 2000);\n});</pre>\n\n<b>Обработка Promise:</b>\n<pre>myPromise\n    .then(result => {\n        console.log('Результат:', result);  // 'Успех! 🎉'\n    })\n    .catch(error => {\n        console.error('Ошибка:', error);\n    })\n    .finally(() => {\n        console.log('Операция завершена (в любом случае)');\n    });</pre>\n\n<b>Цепочки Promise:</b>\n<pre>fetchUser(1)\n    .then(user => fetchPosts(user.id))\n    .then(posts => console.log(posts))\n    .catch(error => console.error('Где-то ошибка:', error));</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>new Promise((resolve, reject) => {...})</code> — создание\n• <code>resolve(данные)</code> — успех, переходит в <code>.then()</code>\n• <code>reject(ошибка)</code> — ошибка, переходит в <code>.catch()</code>\n• <code>.then()</code> — обработка успеха\n• <code>.catch()</code> — обработка ошибки\n• <code>.finally()</code> — выполнится всегда\n• Цепочка: <code>.then().then().catch()</code>",
+        "tip": "💡 <b>Лайфхак:</b>\nВсегда добавляй <code>.catch()</code> в конце цепочки! Необработанные ошибки в Promise могут «упасть» молча, и ты не узнаешь, что что-то сломалось.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть вернуть (<code>return</code>) Promise в цепочке <code>.then()</code>.\n<pre>fetchUser(1)\n    .then(user => {\n        fetchPosts(user.id);  // ЗАБЫЛИ return!\n    })\n    .then(posts => console.log(posts));  // undefined!</pre>",
+        "summary": "✅ <b>Итоги:</b>\n✅ Promise — объект для асинхронных операций\n✅ <code>resolve()</code> → <code>.then()</code>\n✅ <code>reject()</code> → <code>.catch()</code>\n✅ <code>.finally()</code> — в любом случае\n✅ Цепочки: <code>.then().then().catch()</code>\n✅ Всегда возвращай Promise в <code>.then()</code>",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Создай Promise, который через 2 секунды возвращает строку «Готово!». Обработай результат.\n\n📝 <b>Задание 2:</b> Создай функцию, возвращающую Promise, который иногда завершается ошибкой. Обработай оба случая.\n\n📝 <b>Задание 3:</b> Сделай цепочку из двух Promise: первый генерирует число, второй умножает его.\n\n🤖 <b>Вопрос к размышлению:</b> Чем Promise лучше старых колбэков? Почему их называют «решением проблемы callback hell»?",
+        "bonus": "🎉 <b>Бонус:</b>\nАсинхронность — это то, что делает JavaScript мощным. Ты теперь понимаешь Promise — ключевую концепцию современной веб-разработки! 🌐"
+      }
+    },
+    {
+      "id": 17,
+      "title": "🚀 Async/Await — асинхронность без боли",
+      "description": "Изучаем синтаксический сахар для Promise: пишем асинхронный код как синхронный",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nОсвоить <code>async/await</code> — современный и элегантный способ работы с асинхронным кодом.",
+        "theory": "📚 <b>Теория</b>\n\n<b>async/await</b> — это «сахар» над Promise, который позволяет писать асинхронный код так, как будто он синхронный.\n\n<b>async-функция:</b>\n<pre>// async всегда возвращает Promise\nasync function fetchData() {\n    return 'Данные';\n}\n// Эквивалентно:\nfunction fetchData() {\n    return Promise.resolve('Данные');\n}</pre>\n\n<b>await — ждём результат:</b>\n<pre>async function getUser() {\n    // await можно использовать ТОЛЬКО внутри async-функции\n    const response = await fetch('https://api.example.com/user');\n    const user = await response.json();\n    return user;\n}</pre>\n\n<b>Обработка ошибок с try/catch:</b>\n<pre>async function loadData() {\n    try {\n        const user = await fetchUser();\n        const posts = await fetchPosts(user.id);\n        console.log(posts);\n    } catch (error) {\n        console.error('Что-то пошло не так:', error);\n    } finally {\n        console.log('Загрузка завершена');\n    }\n}</pre>\n\n<b>Сравнение Promise и async/await:</b>\n<pre>// Promise\nfetchUser()\n    .then(user => fetchPosts(user.id))\n    .then(posts => console.log(posts))\n    .catch(error => console.error(error));\n\n// async/await (читается как обычный код!)\nasync function load() {\n    try {\n        const user = await fetchUser();\n        const posts = await fetchPosts(user.id);\n        console.log(posts);\n    } catch (error) {\n        console.error(error);\n    }\n}</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>async</code> перед функцией — она вернёт Promise\n• <code>await</code> — ждёт выполнения Promise (только внутри async)\n• <code>try { ... } catch(error) { ... }</code> — обработка ошибок\n• Код после <code>await</code> выполнится, когда Promise разрешится\n• Выглядит как синхронный код, но не блокирует поток!",
+        "tip": "💡 <b>Лайфхак:</b>\nВсегда оборачивай <code>await</code> в <code>try/catch</code>. Если Promise отклонится, ошибка будет поймана, и приложение не упадёт. Забыл catch — получил необработанную ошибку!",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nИспользовать <code>await</code> вне <code>async</code>-функции. На верхнем уровне (в глобальной области) <code>await</code> можно использовать только в ES модулях. В обычном скрипте — только внутри <code>async function</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>async</code> — функция возвращает Promise\n✅ <code>await</code> — ждёт Promise внутри async\n✅ <code>try/catch</code> — обработка ошибок\n✅ Код чище и читаемее, чем цепочки <code>.then()</code>\n✅ Всегда обрабатывай ошибки!",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Перепиши цепочку Promise на <code>async/await</code>.\n\n📝 <b>Задание 2:</b> Создай <code>async</code>-функцию, которая делает вид, что загружает данные (setTimeout внутри Promise) и обработай ошибку.\n\n📝 <b>Задание 3:</b> Напиши функцию, которая последовательно получает пользователя, потом его посты, потом комментарии (с искусственными задержками).\n\n🤖 <b>Вопрос к размышлению:</b> Можно ли использовать <code>await</code> внутри не-<code>async</code> функции? Почему?",
+        "bonus": "🎉 <b>Бонус:</b>\nТы освоил САМЫЙ современный способ работы с асинхронностью! Твой код теперь чистый, понятный и профессиональный. async/await — это стандарт индустрии! 🚀"
+      }
+    },
+    {
+      "id": 18,
+      "title": "🌍 Fetch API: общение с сервером (GET, POST, JSON)",
+      "description": "Учимся отправлять HTTP-запросы к серверу с помощью fetch",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться получать данные с сервера и отправлять их с помощью Fetch API.",
+        "theory": "📚 <b>Теория</b>\n\n<b>Fetch API</b> — это современный способ отправлять HTTP-запросы из браузера.\n\n<b>GET-запрос (получить данные):</b>\n<pre>async function getUsers() {\n    const response = await fetch('https://jsonplaceholder.typicode.com/users');\n    \n    if (!response.ok) {\n        throw new Error(`Ошибка HTTP: ${response.status}`);\n    }\n    \n    const users = await response.json();  // парсим JSON\n    console.log(users);\n    return users;\n}</pre>\n\n<b>POST-запрос (отправить данные):</b>\n<pre>async function createUser(userData) {\n    const response = await fetch('https://api.example.com/users', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(userData),  // объект → JSON-строка\n    });\n    \n    const result = await response.json();\n    console.log('Создано:', result);\n    return result;\n}\n\n// Использование:\ncreateUser({ name: 'Иван', email: 'ivan@mail.com' });</pre>\n\n<b>Другие методы:</b>\n<pre>// PUT — полностью обновить\nfetch(url, { method: 'PUT', body: JSON.stringify(data) });\n\n// PATCH — частично обновить\nfetch(url, { method: 'PATCH', body: JSON.stringify(data) });\n\n// DELETE — удалить\nfetch(url, { method: 'DELETE' });</pre>\n\n<b>Обработка ошибок:</b>\n<pre>async function fetchWithError(url) {\n    try {\n        const response = await fetch(url);\n        \n        if (!response.ok) {\n            throw new Error(`Сервер ответил: ${response.status}`);\n        }\n        \n        return await response.json();\n    } catch (error) {\n        console.error('Ошибка сети или сервера:', error);\n        throw error;  // пробрасываем дальше\n    }\n}</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>fetch(url, options)</code> — возвращает Promise\n• <code>response.ok</code> — true если статус 200-299\n• <code>response.json()</code> — парсинг JSON-ответа\n• <code>JSON.stringify(obj)</code> — объект в JSON-строку\n• <code>headers</code> — заголовки запроса\n• <code>method</code> — HTTP-метод (GET, POST, PUT, DELETE)\n• <code>body</code> — тело запроса (для POST/PUT/PATCH)",
+        "tip": "💡 <b>Лайфхак:</b>\nВсегда проверяй <code>response.ok</code>! <code>fetch</code> отклоняет Promise ТОЛЬКО при ошибке сети. Ответ 404 или 500 — это УСПЕШНЫЙ fetch (с точки зрения сети), но <code>ok: false</code>.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nЗабыть <code>await response.json()</code> и пытаться использовать <code>response</code> как данные. <code>response</code> — это объект ответа, а не сами данные. Данные получаем через <code>.json()</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ <code>fetch(url)</code> — GET-запрос (по умолчанию)\n✅ <code>fetch(url, { method: 'POST', body: ... })</code> — другие методы\n✅ <code>response.json()</code> — парсинг ответа\n✅ <code>JSON.stringify()</code> — объект в строку\n✅ Всегда проверяй <code>response.ok</code>",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Получи список пользователей с <code>jsonplaceholder.typicode.com/users</code> и выведи их имена на страницу.\n\n📝 <b>Задание 2:</b> Отправь POST-запрос на тот же сервис с тестовыми данными и выведи ответ.\n\n📝 <b>Задание 3:</b> Сделай обработку ошибок: показывай сообщение на странице, если запрос не удался.\n\n🤖 <b>Вопрос к размышлению:</b> Почему <code>fetch</code> не считает HTTP-ошибки (404, 500) ошибками Promise?",
+        "bonus": "🎉 <b>Бонус:</b>\nТвой JavaScript теперь общается с внешним миром! Fetch API — это окно в любые данные интернета. Ты можешь создать что угодно: от погодного виджета до полноценного приложения! 🌍"
+      }
+    },
+    {
+      "id": 19,
+      "title": "💾 LocalStorage: сохраняем данные в браузере",
+      "description": "Учимся хранить данные на стороне клиента с помощью LocalStorage",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nНаучиться сохранять данные в браузере пользователя с помощью LocalStorage и SessionStorage.",
+        "theory": "📚 <b>Теория</b>\n\n<b>LocalStorage</b> — это хранилище «ключ-значение» в браузере. Данные сохраняются даже после закрытия браузера!\n\n<b>Основные операции:</b>\n<pre>// Сохранить (только строки!)\nlocalStorage.setItem('username', 'Анна');\n\n// Получить\nconst name = localStorage.getItem('username');\nconsole.log(name);  // 'Анна'\n\n// Удалить конкретный ключ\nlocalStorage.removeItem('username');\n\n// Очистить ВСЁ хранилище\nlocalStorage.clear();\n\n// Количество записей\nconsole.log(localStorage.length);</pre>\n\n<b>Хранение объектов (сериализация):</b>\n<pre>const user = {\n    name: 'Петя',\n    age: 30,\n    settings: { theme: 'dark' }\n};\n\n// Сохраняем объект → JSON-строка\nlocalStorage.setItem('user', JSON.stringify(user));\n\n// Получаем JSON-строку → объект\nconst savedUser = JSON.parse(localStorage.getItem('user'));\nconsole.log(savedUser.name);  // 'Петя'</pre>\n\n<b>Практический пример — тёмная тема:</b>\n<pre>// При загрузке страницы\nconst savedTheme = localStorage.getItem('theme');\nif (savedTheme === 'dark') {\n    document.body.classList.add('dark-mode');\n}\n\n// При переключении\nbutton.addEventListener('click', () => {\n    document.body.classList.toggle('dark-mode');\n    const currentTheme = document.body.classList.contains('dark-mode') \n        ? 'dark' \n        : 'light';\n    localStorage.setItem('theme', currentTheme);\n});</pre>\n\n<b>SessionStorage</b> — то же самое, но данные живут только до закрытия вкладки:\n<pre>sessionStorage.setItem('temp', 'временные данные');</pre>",
+        "code_breakdown": "🔍 <b>Разбор:</b>\n• <code>localStorage.setItem('ключ', 'значение')</code> — сохранить\n• <code>localStorage.getItem('ключ')</code> — получить\n• <code>localStorage.removeItem('ключ')</code> — удалить один\n• <code>localStorage.clear()</code> — удалить всё\n• <code>JSON.stringify(obj)</code> — объект → строка\n• <code>JSON.parse(str)</code> — строка → объект\n• LocalStorage живёт вечно (пока не удалят), SessionStorage — до закрытия вкладки",
+        "tip": "💡 <b>Лайфхак:</b>\nLocalStorage отлично подходит для: темы оформления, настроек пользователя, черновиков форм, токенов авторизации (НЕ паролей!). Максимальный размер — около 5-10 МБ.",
+        "common_mistake": "⚠️ <b>Типичная ошибка:</b>\nПытаться сохранить объект напрямую: <code>localStorage.setItem('user', user)</code>. Сохранится строка <code>[object Object]</code>! Всегда используй <code>JSON.stringify()</code>.",
+        "summary": "✅ <b>Итоги:</b>\n✅ LocalStorage — хранилище в браузере\n✅ <code>setItem</code>, <code>getItem</code>, <code>removeItem</code>, <code>clear</code>\n✅ Только строки! Объекты → <code>JSON.stringify</code>\n✅ <code>JSON.parse</code> — обратно в объект\n✅ Данные живут до удаления",
+        "homework": "🧠 <b>Самостоятельная работа:</b>\n\n📝 <b>Задание 1:</b> Сохрани имя пользователя в LocalStorage и отобрази его на странице при загрузке.\n\n📝 <b>Задание 2:</b> Реализуй счётчик посещений страницы: при каждом обновлении увеличивай число в LocalStorage.\n\n📝 <b>Задание 3:</b> Создай переключатель тёмной темы, которая сохраняется между сессиями.\n\n🤖 <b>Вопрос к размышлению:</b> Почему НЕЛЬЗЯ хранить пароли в LocalStorage? Чем это опасно?",
+        "bonus": "🎉 <b>Бонус:</b>\nТвой сайт обрёл память! Он запоминает пользователя и его настройки. LocalStorage — это как маленькая база данных прямо в браузере. 💾"
+      }
+    },
+    {
+      "id": 20,
+      "title": "🏆 Итоговый проект «ToDo-приложение с нуля»",
+      "description": "Собираем все знания: создаём полноценное приложение для списка задач на HTML, CSS и JavaScript",
+      "content": {
+        "goal": "🎯 <b>Цель урока:</b>\nКонсолидировать все знания и создать завершённое веб-приложение «Список задач» с сохранением в LocalStorage.",
+        "theory": "📚 <b>Техническое задание (ТЗ) на проект</b>\n\nСоздай приложение для управления задачами. Файлы: <code>index.html</code>, <code>style.css</code>, <code>app.js</code>.\n\n<b>Функционал:</b>\n\n<b>1. Добавление задачи:</b>\n• Поле ввода + кнопка «Добавить»\n• При клике задача добавляется в список\n• Пустые задачи не добавляются (валидация!)\n• После добавления поле очищается\n\n<b>2. Отображение списка:</b>\n• Каждая задача — элемент списка\n• Показывать: текст задачи, дату создания, статус\n\n<b>3. Управление задачами:</b>\n• Отметить как выполненную (зачёркивание текста)\n• Удалить задачу (кнопка с крестиком)\n• Редактировать задачу (двойной клик для редактирования)\n\n<b>4. Статистика:</b>\n• Счётчик: «Всего: X, Выполнено: Y»\n• Прогресс-бар выполнения\n\n<b>5. Фильтрация:</b>\n• Кнопки: «Все», «Активные», «Выполненные»\n• При клике показывать соответствующие задачи\n\n<b>6. Сохранение данных:</b>\n• Все задачи хранятся в LocalStorage\n• При загрузке страницы восстанавливаются\n• Автосохранение при любом изменении\n\n<b>7. Бонусные фичи:</b>\n• Анимация добавления/удаления\n• Очистка всех выполненных задач\n• Drag-and-drop для перестановки\n\n<b>8. Дизайн:</b>\n• Красивый современный интерфейс\n• Адаптивность (мобильные + десктоп)\n• Тёмная тема (сохраняется!)",
+        "code_breakdown": "🔍 <b>Архитектура приложения:</b>\n\n<b>Данные:</b>\n<pre>let todos = [];  // массив объектов {id, text, completed, date}</pre>\n\n<b>Функции:</b>\n<pre>function addTodo(text) { ... }\nfunction deleteTodo(id) { ... }\nfunction toggleTodo(id) { ... }\nfunction editTodo(id, newText) { ... }\nfunction renderTodos() { ... }\nfunction saveToStorage() { ... }\nfunction loadFromStorage() { ... }</pre>\n\n<b>События:</b>\n• Форма: <code>submit</code> → добавить задачу\n• Кнопка удаления: <code>click</code> → удалить\n• Чекбокс: <code>change</code> → переключить статус\n• Загрузка страницы: загрузить из LocalStorage\n\n<b>Структура HTML:</b>\n<pre>&lt;div class=\"todo-app\"&gt;\n    &lt;header&gt;...&lt;/header&gt;\n    &lt;form class=\"add-form\"&gt;...&lt;/form&gt;\n    &lt;div class=\"filters\"&gt;...&lt;/div&gt;\n    &lt;ul class=\"todo-list\"&gt;...&lt;/ul&gt;\n    &lt;footer class=\"stats\"&gt;...&lt;/footer&gt;\n&lt;/div&gt;</pre>",
+        "tip": "💡 <b>Лайфхак:</b>\nРазрабатывай слоями: сначала HTML-структуру, потом базовый CSS, потом добавление задачи (проверил), потом удаление (проверил), потом LocalStorage, потом фильтры. Каждый слой тестируй отдельно!",
+        "common_mistake": "⚠️ <b>Напоминание:</b>\nНе забывай: уникальные ID для задач (<code>Date.now()</code> или <code>crypto.randomUUID()</code>), <code>event.preventDefault()</code> у формы, <code>JSON.stringify/parse</code> для LocalStorage!",
+        "summary": "✅ <b>Итоги всего курса:</b>\n✅ Освоил синтаксис JavaScript\n✅ Научился работать с переменными, функциями, массивами, объектами\n✅ Изучил DOM и события\n✅ Понял асинхронность (Promise, async/await)\n✅ Научился работать с формами и валидацией\n✅ Освоил Fetch API и LocalStorage\n✅ Создал полноценное приложение\n✅ Ты — JavaScript-разработчик! 🎉",
+        "homework": "🧠 <b>Финальное задание:</b>\n\n📝 Создай ToDo-приложение по ТЗ выше.\n\n📝 Добавь одну уникальную фичу, которой нет в задании (например, теги, сроки, уведомления).\n\n📝 Выложи проект на GitHub Pages.\n\n📝 Покажи друзьям — это работает!\n\n🤖 <b>Финальный вопрос:</b> Что было самым сложным в JavaScript? А что самым интересным?",
+        "bonus": "🎉 <b>Финальный бонус:</b>\nТы прошёл весь курс по JavaScript! От «Привет, мир!» до полноценного веб-приложения. Ты теперь frontend-разработчик. Дальше — React, Node.js, и весь мир технологий открыт перед тобой. Не останавливайся! 🚀💻🌟"
+      }
+    }
+  ],
+  "tests": [
+    {
+      "id": "easy",
+      "difficulty": "🥉 Лёгкий",
+      "title": "Лёгкий тест по JavaScript (10 вопросов)",
+      "description": "Базовые вопросы на знание синтаксиса и основных концепций",
+      "total_questions": 10,
+      "questions": [
+        {
+          "id": 1,
+          "emoji": "🤖",
+          "question": "Как вывести сообщение в консоль браузера?",
+          "options": [
+            "A) <code>print('Hello')</code>",
+            "B) <code>console.log('Hello')</code>",
+            "C) <code>echo 'Hello'</code>",
+            "D) <code>System.out.println('Hello')</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>console.log()</code> — главный метод для вывода в консоль.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. В JavaScript используется <code>console.log()</code>."
+        },
+        {
+          "id": 2,
+          "emoji": "🎯",
+          "question": "Как объявить переменную, которую НЕЛЬЗЯ перезаписать?",
+          "options": [
+            "A) <code>var x = 5</code>",
+            "B) <code>let x = 5</code>",
+            "C) <code>const x = 5</code>",
+            "D) <code>static x = 5</code>"
+          ],
+          "correct": 2,
+          "explanation_correct": "✅ Да! <code>const</code> — константа, её нельзя перезаписать.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — C. <code>const</code> создаёт константу, которую нельзя перезаписать."
+        },
+        {
+          "id": 3,
+          "emoji": "📝",
+          "question": "Какая функция вызывает всплывающее окно?",
+          "options": [
+            "A) <code>popup()</code>",
+            "B) <code>alert()</code>",
+            "C) <code>msgBox()</code>",
+            "D) <code>window.open()</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>alert()</code> показывает модальное окно с сообщением.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>alert('текст')</code> — всплывающее окно."
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "question": "Какой оператор строгого равенства?",
+          "options": [
+            "A) <code>=</code>",
+            "B) <code>==</code>",
+            "C) <code>===</code>",
+            "D) <code>!=</code>"
+          ],
+          "correct": 2,
+          "explanation_correct": "✅ Верно! <code>===</code> — строгое равенство (без приведения типов).",
+          "explanation_wrong": "❌ Нет. Правильный ответ — C. <code>===</code> проверяет и значение, и тип."
+        },
+        {
+          "id": 5,
+          "emoji": "🤖",
+          "question": "Что делает <code>typeof 42</code>?",
+          "options": [
+            "A) <code>'number'</code>",
+            "B) <code>'string'</code>",
+            "C) <code>42</code>",
+            "D) <code>true</code>"
+          ],
+          "correct": 0,
+          "explanation_correct": "✅ Да! <code>typeof</code> возвращает строку с типом операнда. 42 — это <code>'number'</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — A. <code>typeof 42</code> вернёт строку <code>'number'</code>."
+        },
+        {
+          "id": 6,
+          "emoji": "🎉",
+          "question": "Как получить первый элемент массива <code>arr</code>?",
+          "options": [
+            "A) <code>arr[1]</code>",
+            "B) <code>arr[0]</code>",
+            "C) <code>arr.first()</code>",
+            "D) <code>arr.get(0)</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Индексы в массивах начинаются с 0. Первый элемент — <code>arr[0]</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Индексация начинается с 0, первый элемент: <code>arr[0]</code>."
+        },
+        {
+          "id": 7,
+          "emoji": "🔍",
+          "question": "Что делает <code>array.push(5)</code>?",
+          "options": [
+            "A) Удаляет последний элемент",
+            "B) Добавляет 5 в начало массива",
+            "C) Добавляет 5 в конец массива",
+            "D) Удаляет элемент со значением 5"
+          ],
+          "correct": 2,
+          "explanation_correct": "✅ Верно! <code>.push()</code> добавляет элемент в КОНЕЦ массива.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — C. <code>.push()</code> добавляет в конец, <code>.unshift()</code> — в начало."
+        },
+        {
+          "id": 8,
+          "emoji": "🧠",
+          "question": "Как называется цикл, который выполняется минимум один раз?",
+          "options": [
+            "A) <code>for</code>",
+            "B) <code>while</code>",
+            "C) <code>do...while</code>",
+            "D) <code>forEach</code>"
+          ],
+          "correct": 2,
+          "explanation_correct": "✅ Да! <code>do...while</code> сначала выполняет тело, потом проверяет условие.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — C. <code>do { ... } while(условие)</code> гарантирует минимум одну итерацию."
+        },
+        {
+          "id": 9,
+          "emoji": "📚",
+          "question": "Что вернёт <code>typeof []</code> (массив)?",
+          "options": [
+            "A) <code>'array'</code>",
+            "B) <code>'object'</code>",
+            "C) <code>'list'</code>",
+            "D) <code>'undefined'</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Массивы в JavaScript — это объекты. <code>typeof []</code> вернёт <code>'object'</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>typeof []</code> = <code>'object'</code>. Для проверки на массив используй <code>Array.isArray()</code>."
+        },
+        {
+          "id": 10,
+          "emoji": "🚀",
+          "question": "Как добавить CSS-класс элементу?",
+          "options": [
+            "A) <code>element.class = 'active'</code>",
+            "B) <code>element.classList.add('active')</code>",
+            "C) <code>element.addClass('active')</code>",
+            "D) <code>element.style.class = 'active'</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>classList.add()</code> — современный способ работы с классами.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>element.classList.add('active')</code> добавляет класс."
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "difficulty": "🥈 Средний",
+      "title": "Средний тест по JavaScript (20 вопросов)",
+      "description": "Вопросы по функциям, массивам, объектам, DOM и событиям",
+      "total_questions": 20,
+      "questions": [
+        {
+          "id": 1,
+          "emoji": "🤖",
+          "question": "В чём разница между <code>let</code> и <code>var</code>?",
+          "options": [
+            "A) Разницы нет",
+            "B) <code>let</code> имеет блочную область видимости, <code>var</code> — функциональную",
+            "C) <code>var</code> нельзя перезаписать",
+            "D) <code>let</code> — устаревший"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>let</code> и <code>const</code> ограничены блоком <code>{}</code>, <code>var</code> — функцией.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>let</code> — блочная видимость, <code>var</code> — функциональная."
+        },
+        {
+          "id": 2,
+          "emoji": "🎯",
+          "question": "Что выведет <code>console.log(5 === '5')</code>?",
+          "options": [
+            "A) <code>true</code>",
+            "B) <code>false</code>",
+            "C) <code>undefined</code>",
+            "D) Ошибка"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! Строгое равенство: число 5 не равно строке '5', типы разные.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>===</code> проверяет тип: число и строка — разные типы."
+        },
+        {
+          "id": 3,
+          "emoji": "📝",
+          "question": "Чем стрелочная функция отличается от обычной?",
+          "options": [
+            "A) Не может быть именованной",
+            "B) Не имеет своего <code>this</code> (берёт из окружения)",
+            "C) Работает только в строгом режиме",
+            "D) Всегда возвращает <code>undefined</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Стрелочные функции не имеют собственного <code>this</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. У стрелочных функций нет своего <code>this</code>, они берут его из замыкания."
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "question": "Что делает метод <code>map()</code>?",
+          "options": [
+            "A) Меняет исходный массив",
+            "B) Создаёт новый массив, трансформируя каждый элемент",
+            "C) Фильтрует массив",
+            "D) Ищет элемент"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>map()</code> возвращает НОВЫЙ массив, применяя функцию к каждому элементу.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>map()</code> создаёт новый массив, исходный не меняется."
+        },
+        {
+          "id": 5,
+          "emoji": "🔥",
+          "question": "Как правильно обработать отправку формы без перезагрузки?",
+          "options": [
+            "A) <code>form.onsubmit = false</code>",
+            "B) <code>event.preventDefault()</code> в обработчике submit",
+            "C) Убрать атрибут <code>action</code>",
+            "D) Использовать <code>return false</code> в HTML"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>event.preventDefault()</code> отменяет стандартную отправку формы.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Только <code>event.preventDefault()</code> надёжно отменяет отправку."
+        },
+        {
+          "id": 6,
+          "emoji": "🤖",
+          "question": "Что такое <code>undefined</code>?",
+          "options": [
+            "A) Ошибка в коде",
+            "B) Значение переменной, которой не присвоили значение",
+            "C) Синоним <code>null</code>",
+            "D) Тип объекта"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>undefined</code> — значение по умолчанию для неинициализированных переменных.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>undefined</code> означает «значение не присвоено»."
+        },
+        {
+          "id": 7,
+          "emoji": "🎉",
+          "question": "Как получить значение из поля ввода?",
+          "options": [
+            "A) <code>input.text</code>",
+            "B) <code>input.value</code>",
+            "C) <code>input.innerHTML</code>",
+            "D) <code>input.get()</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>.value</code> возвращает текущее значение поля ввода.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>input.value</code> содержит введённый текст."
+        },
+        {
+          "id": 8,
+          "emoji": "🔍",
+          "question": "Что делает <code>addEventListener</code>?",
+          "options": [
+            "A) Удаляет элемент",
+            "B) Подписывается на событие элемента",
+            "C) Создаёт новый элемент",
+            "D) Меняет стиль"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>addEventListener</code> регистрирует обработчик события.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>addEventListener('click', fn)</code> — подписка на событие."
+        },
+        {
+          "id": 9,
+          "emoji": "🧠",
+          "question": "Как преобразовать объект в JSON-строку?",
+          "options": [
+            "A) <code>obj.toString()</code>",
+            "B) <code>JSON.stringify(obj)</code>",
+            "C) <code>obj.toJSON()</code>",
+            "D) <code>JSON.parse(obj)</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>JSON.stringify()</code> превращает объект в JSON-строку.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>JSON.stringify(obj)</code> — объект в строку."
+        },
+        {
+          "id": 10,
+          "emoji": "📚",
+          "question": "Что делает <code>setTimeout(fn, 2000)</code>?",
+          "options": [
+            "A) Вызывает fn каждые 2 секунды",
+            "B) Вызывает fn один раз через 2 секунды",
+            "C) Останавливает выполнение на 2 секунды",
+            "D) Вызывает fn 2000 раз"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>setTimeout</code> выполняет функцию ОДИН раз через указанную задержку.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>setTimeout</code> — однократный вызов с задержкой."
+        },
+        {
+          "id": 11,
+          "emoji": "🚀",
+          "question": "Где правильно разместить <code>&lt;script src=\"app.js\"&gt;&lt;/script&gt;</code>?",
+          "options": [
+            "A) Только в <code>&lt;head&gt;</code>",
+            "B) В конце <code>&lt;body&gt;</code>",
+            "C) Где угодно",
+            "D) Перед <code>&lt;!DOCTYPE&gt;</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! Скрипт в конце <code>body</code> гарантирует, что DOM уже загружен.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Размещение в конце <code>body</code> — лучшая практика."
+        },
+        {
+          "id": 12,
+          "emoji": "🤖",
+          "question": "Что вернёт <code>document.querySelector('.card')</code>?",
+          "options": [
+            "A) Все элементы с классом card",
+            "B) Первый элемент с классом card",
+            "C) Коллекцию элементов",
+            "D) null всегда"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>querySelector</code> возвращает ПЕРВЫЙ подходящий элемент.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>querySelector</code> — один элемент, <code>querySelectorAll</code> — все."
+        },
+        {
+          "id": 13,
+          "emoji": "🎯",
+          "question": "Что делает <code>||</code> в JavaScript?",
+          "options": [
+            "A) Побитовое ИЛИ",
+            "B) Логическое ИЛИ (возвращает первый truthy операнд)",
+            "C) Конкатенацию строк",
+            "D) Сложение"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>||</code> возвращает первый <code>truthy</code> операнд или последний <code>falsy</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>a || b</code> — если <code>a</code> истинно, вернёт <code>a</code>, иначе <code>b</code>."
+        },
+        {
+          "id": 14,
+          "emoji": "📝",
+          "question": "Как удалить элемент со страницы?",
+          "options": [
+            "A) <code>element.delete()</code>",
+            "B) <code>element.remove()</code>",
+            "C) <code>element.hide()</code>",
+            "D) <code>delete element</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>.remove()</code> удаляет элемент из DOM.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>element.remove()</code> — современный метод удаления."
+        },
+        {
+          "id": 15,
+          "emoji": "💡",
+          "question": "Что такое <code>NaN</code>?",
+          "options": [
+            "A) Тип данных",
+            "B) Значение «Not a Number» (результат некорректной мат. операции)",
+            "C) Синоним 0",
+            "D) Ошибка"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>NaN</code> — Not a Number, результат невозможной операции (например, <code>'abc' * 2</code>).",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>NaN</code> означает «не число», и <code>typeof NaN === 'number'</code> — забавный факт!"
+        },
+        {
+          "id": 16,
+          "emoji": "🔥",
+          "question": "Как работает <code>Array.prototype.filter()</code>?",
+          "options": [
+            "A) Изменяет исходный массив",
+            "B) Возвращает новый массив с элементами, прошедшими проверку",
+            "C) Удаляет все элементы",
+            "D) Сортирует массив"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>filter()</code> возвращает новый массив с элементами, для которых колбэк вернул <code>true</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>filter()</code> создаёт новый массив из подходящих элементов."
+        },
+        {
+          "id": 17,
+          "emoji": "🧠",
+          "question": "Что сохранит <code>localStorage.setItem('key', 123)</code>?",
+          "options": [
+            "A) Число 123",
+            "B) Строку '123'",
+            "C) Объект",
+            "D) Ничего, будет ошибка"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! LocalStorage хранит всё как строки. Число 123 станет строкой '123'.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. LocalStorage преобразует значение в строку."
+        },
+        {
+          "id": 18,
+          "emoji": "🤖",
+          "question": "Что такое <code>event.target</code>?",
+          "options": [
+            "A) Тип события",
+            "B) Элемент, на котором сработало событие",
+            "C) Функция-обработчик",
+            "D) Объект window"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>event.target</code> — это конкретный элемент, вызвавший событие.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>event.target</code> указывает на источник события."
+        },
+        {
+          "id": 19,
+          "emoji": "🎉",
+          "question": "Как проверить, что массив содержит элемент?",
+          "options": [
+            "A) <code>arr.has(item)</code>",
+            "B) <code>arr.includes(item)</code>",
+            "C) <code>arr.contains(item)</code>",
+            "D) <code>item in arr</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>.includes()</code> проверяет наличие элемента в массиве.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>arr.includes(item)</code> возвращает <code>true/false</code>."
+        },
+        {
+          "id": 20,
+          "emoji": "🔍",
+          "question": "Какой метод разбивает строку в массив по разделителю?",
+          "options": [
+            "A) <code>str.slice()</code>",
+            "B) <code>str.split()</code>",
+            "C) <code>str.cut()</code>",
+            "D) <code>str.array()</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>'a,b,c'.split(',')</code> → <code>['a', 'b', 'c']</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>.split()</code> разбивает строку в массив."
+        }
+      ]
+    },
+    {
+      "id": "hard",
+      "difficulty": "🥇 Сложный",
+      "title": "Сложный тест по JavaScript (30 вопросов)",
+      "description": "Продвинутые вопросы на замыкания, контекст, асинхронность и тонкости языка",
+      "total_questions": 30,
+      "questions": [
+        {
+          "id": 1,
+          "emoji": "🤖",
+          "question": "Что такое замыкание (closure)?",
+          "options": [
+            "A) Ошибка в коде",
+            "B) Функция, которая запоминает своё лексическое окружение",
+            "C) Способ закрыть вкладку",
+            "D) Синоним класса"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! Замыкание — это функция + её лексическое окружение (доступ к переменным внешней функции).",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Замыкание даёт доступ к переменным внешней функции даже после её завершения."
+        },
+        {
+          "id": 2,
+          "emoji": "🎯",
+          "question": "Что выведет: <code>console.log(0.1 + 0.2 === 0.3)</code>?",
+          "options": [
+            "A) <code>true</code>",
+            "B) <code>false</code>",
+            "C) <code>undefined</code>",
+            "D) Ошибка"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! Из-за IEEE 754: <code>0.1 + 0.2 = 0.30000000000000004</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Проблема точности чисел с плавающей точкой."
+        },
+        {
+          "id": 3,
+          "emoji": "📝",
+          "question": "В чём разница между <code>null</code> и <code>undefined</code>?",
+          "options": [
+            "A) Никакой",
+            "B) <code>null</code> — намеренное отсутствие значения, <code>undefined</code> — значение не присвоено",
+            "C) <code>undefined</code> — для объектов",
+            "D) <code>null</code> — тип string"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>null</code> задают явно, <code>undefined</code> — значение по умолчанию.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>null</code> — «здесь пусто» (явно), <code>undefined</code> — «не задано»."
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "question": "Что такое Event Loop?",
+          "options": [
+            "A) Бесконечный цикл",
+            "B) Механизм, который позволяет JavaScript выполнять асинхронные операции, не блокируя поток",
+            "C) Тип события",
+            "D) Фреймворк"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! Event Loop — это цикл событий, основа асинхронности в JavaScript.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Event Loop управляет очередью задач и микрозадач."
+        },
+        {
+          "id": 5,
+          "emoji": "🔥",
+          "question": "Что выведет: <code>console.log(typeof typeof 42)</code>?",
+          "options": [
+            "A) <code>'number'</code>",
+            "B) <code>'string'</code>",
+            "C) <code>'undefined'</code>",
+            "D) <code>42</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>typeof 42</code> → <code>'number'</code>, <code>typeof 'number'</code> → <code>'string'</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>typeof</code> всегда возвращает строку."
+        },
+        {
+          "id": 6,
+          "emoji": "🤖",
+          "question": "Что такое hoisting (всплытие)?",
+          "options": [
+            "A) Поднятие элемента на странице",
+            "B) Перенос объявлений переменных и функций в начало области видимости",
+            "C) Ошибка браузера",
+            "D) Анимация"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Hoisting — механизм, при котором объявления <code>var</code> и function перемещаются вверх.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Hoisting «поднимает» объявления, но не инициализацию."
+        },
+        {
+          "id": 7,
+          "emoji": "🎉",
+          "question": "Чем Promise отличается от async/await?",
+          "options": [
+            "A) Ничем",
+            "B) async/await — синтаксический сахар над Promise для более удобного написания",
+            "C) Promise быстрее",
+            "D) async/await не поддерживает ошибки"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! async/await — это более читаемый способ работы с Promise.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. async/await — это синтаксис поверх Promise."
+        },
+        {
+          "id": 8,
+          "emoji": "🔍",
+          "question": "Что делает <code>bind()</code>?",
+          "options": [
+            "A) Связывает HTML с JS",
+            "B) Создаёт новую функцию с привязанным контекстом <code>this</code>",
+            "C) Объединяет массивы",
+            "D) Подключает библиотеки"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>fn.bind(ctx)</code> возвращает новую функцию с зафиксированным <code>this</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>bind</code> фиксирует <code>this</code> и (опционально) аргументы."
+        },
+        {
+          "id": 9,
+          "emoji": "🧠",
+          "question": "Что будет в консоли: <code>console.log([] + [])</code>?",
+          "options": [
+            "A) <code>[]</code>",
+            "B) <code>''</code> (пустая строка)",
+            "C) <code>[object Object]</code>",
+            "D) Ошибка"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Массивы приводятся к строкам: <code>[]</code> → <code>''</code>, <code>'' + '' = ''</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Оба массива становятся пустыми строками при конкатенации."
+        },
+        {
+          "id": 10,
+          "emoji": "📚",
+          "question": "Что такое CORS?",
+          "options": [
+            "A) Библиотека для запросов",
+            "B) Механизм безопасности браузера для кросс-доменных запросов",
+            "C) Формат данных",
+            "D) Тип cookie"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! CORS (Cross-Origin Resource Sharing) — политика безопасности для запросов между доменами.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. CORS ограничивает запросы к другим доменам без специальных заголовков."
+        },
+        {
+          "id": 11,
+          "emoji": "🚀",
+          "question": "Как работает делегирование событий?",
+          "options": [
+            "A) Каждому элементу свой обработчик",
+            "B) Один обработчик на родителе, проверяем <code>event.target</code>",
+            "C) Через библиотеки",
+            "D) Автоматически"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! Делегирование: вешаем обработчик на родителя и фильтруем по <code>event.target</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Один обработчик на общем предке, решение — через <code>event.target</code>."
+        },
+        {
+          "id": 12,
+          "emoji": "🤖",
+          "question": "Что выведет: <code>console.log(!!'false')</code>?",
+          "options": [
+            "A) <code>false</code>",
+            "B) <code>true</code>",
+            "C) <code>'false'</code>",
+            "D) <code>undefined</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>'false'</code> — непустая строка, truthy. <code>!!'false'</code> → <code>true</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Любая непустая строка — truthy, включая строку <code>'false'</code>."
+        },
+        {
+          "id": 13,
+          "emoji": "🎯",
+          "question": "В чём разница между <code>for...in</code> и <code>for...of</code>?",
+          "options": [
+            "A) Никакой",
+            "B) <code>for...in</code> — ключи, <code>for...of</code> — значения (для итерируемых)",
+            "C) <code>for...of</code> только для объектов",
+            "D) <code>for...in</code> не работает с массивами"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>for...in</code> перебирает КЛЮЧИ, <code>for...of</code> — ЗНАЧЕНИЯ итерируемых объектов.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>for...in</code> — ключи/индексы, <code>for...of</code> — значения."
+        },
+        {
+          "id": 14,
+          "emoji": "📝",
+          "question": "Что делает <code>Object.freeze()</code>?",
+          "options": [
+            "A) Удаляет объект",
+            "B) Делает объект неизменяемым (нельзя добавлять/удалять/менять свойства)",
+            "C) Копирует объект",
+            "D) Преобразует в JSON"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>Object.freeze(obj)</code> «замораживает» объект, делая его иммутабельным.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Замороженный объект нельзя изменить."
+        },
+        {
+          "id": 15,
+          "emoji": "💡",
+          "question": "Что такое «strict mode» (<code>'use strict'</code>)?",
+          "options": [
+            "A) Режим отладки",
+            "B) Строгий режим, запрещающий небезопасные действия и неявные глобальные переменные",
+            "C) Режим для production",
+            "D) Библиотека"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Strict mode делает код безопаснее и помогает избежать ошибок.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>'use strict'</code> включает строгий режим."
+        },
+        {
+          "id": 16,
+          "emoji": "🔥",
+          "question": "Почему <code>['1', '2', '10'].map(parseInt)</code> даёт <code>[1, NaN, 2]</code>?",
+          "options": [
+            "A) Баг в JavaScript",
+            "B) <code>parseInt</code> принимает второй аргумент — основание, а <code>map</code> передаёт индекс",
+            "C) <code>map</code> не работает со строками",
+            "D) Это из-за <code>NaN</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>map(parseInt)</code> → <code>parseInt('1', 0)</code>, <code>parseInt('2', 1)</code>, <code>parseInt('10', 2)</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>map</code> передаёт индекс как второй аргумент в <code>parseInt</code>."
+        },
+        {
+          "id": 17,
+          "emoji": "🧠",
+          "question": "Что такое иммутабельность?",
+          "options": [
+            "A) Неизменяемость данных (вместо изменения — создание новой копии)",
+            "B) Быстрое выполнение кода",
+            "C) Тип переменной",
+            "D) Асинхронная операция"
+          ],
+          "correct": 0,
+          "explanation_correct": "✅ Да! Иммутабельность — создание новых данных вместо изменения существующих.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — A. Иммутабельные данные не меняются, а создаются заново."
+        },
+        {
+          "id": 18,
+          "emoji": "🤖",
+          "question": "Чем <code>microtask</code> отличается от <code>macrotask</code> в Event Loop?",
+          "options": [
+            "A) Ничем",
+            "B) Microtask (Promise.then) выполняются ДО следующего macrotask (setTimeout)",
+            "C) Macrotask быстрее",
+            "D) Microtask только в Node.js"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! Microtask (Promise, queueMicrotask) имеют приоритет перед macrotask.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Microtask выполняются перед следующим macrotask."
+        },
+        {
+          "id": 19,
+          "emoji": "🎉",
+          "question": "Что делает <code>debounce</code>?",
+          "options": [
+            "A) Ускоряет функцию",
+            "B) Ограничивает частоту вызова: функция сработает через N мс после ПОСЛЕДНЕГО вызова",
+            "C) Запускает функцию много раз",
+            "D) Это метод массива"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! Debounce — функция выполнится только после того, как её перестали вызывать.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Debounce откладывает выполнение до завершения серии вызовов."
+        },
+        {
+          "id": 20,
+          "emoji": "🔍",
+          "question": "Что такое <code>throttle</code>?",
+          "options": [
+            "A) То же, что debounce",
+            "B) Ограничивает частоту: функция срабатывает не чаще N раз в период",
+            "C) Удаляет вызовы",
+            "D) Метод для анимаций"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! Throttle гарантирует выполнение не чаще одного раза в интервал времени.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Throttle «прореживает» вызовы, в отличие от debounce."
+        },
+        {
+          "id": 21,
+          "emoji": "📚",
+          "question": "Как работает прототипное наследование?",
+          "options": [
+            "A) Как классы в Java",
+            "B) Объекты наследуют свойства от других объектов через цепочку прототипов (<code>__proto__</code>)",
+            "C) Через ключевое слово <code>extends</code> только",
+            "D) JavaScript не поддерживает наследование"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! В JavaScript наследование — прототипное, через цепочку <code>__proto__</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Объекты связаны через скрытое свойство <code>[[Prototype]]</code>."
+        },
+        {
+          "id": 22,
+          "emoji": "🚀",
+          "question": "Что такое IIFE (Immediately Invoked Function Expression)?",
+          "options": [
+            "A) Функция, которая вызывается сразу после объявления",
+            "B) Ошибка",
+            "C) Тип переменной",
+            "D) Внешняя библиотека"
+          ],
+          "correct": 0,
+          "explanation_correct": "✅ Верно! IIFE: <code>(function() { ... })()</code> — создаётся и сразу выполняется.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — A. IIFE — функция, вызываемая немедленно после создания."
+        },
+        {
+          "id": 23,
+          "emoji": "🤖",
+          "question": "Что такое <code>Symbol</code>?",
+          "options": [
+            "A) Эмодзи",
+            "B) Примитивный тип данных для создания уникальных идентификаторов",
+            "C) Строка",
+            "D) Число"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>Symbol()</code> создаёт уникальное значение, которое не равно ни одному другому.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Symbol — уникальный и неизменяемый примитив."
+        },
+        {
+          "id": 24,
+          "emoji": "🎯",
+          "question": "Что делает <code>Object.entries()</code>?",
+          "options": [
+            "A) Удаляет объект",
+            "B) Возвращает массив пар [ключ, значение] объекта",
+            "C) Замораживает объект",
+            "D) Преобразует в строку"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>Object.entries(obj)</code> → <code>[['key1', val1], ['key2', val2]]</code>.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>Object.entries()</code> возвращает массив пар [ключ, значение]."
+        },
+        {
+          "id": 25,
+          "emoji": "📝",
+          "question": "В чём опасность <code>innerHTML</code>?",
+          "options": [
+            "A) Медленно работает",
+            "B) XSS-уязвимость: вставка пользовательского HTML может выполнить скрипты",
+            "C) Не поддерживается",
+            "D) Удаляет содержимое"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>innerHTML</code> с пользовательскими данными может привести к XSS-атаке.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>innerHTML</code> выполняет вставленный JavaScript-код."
+        },
+        {
+          "id": 26,
+          "emoji": "💡",
+          "question": "Что такое <code>requestAnimationFrame</code>?",
+          "options": [
+            "A) HTTP-запрос",
+            "B) Метод для плавных анимаций, синхронизированных с частотой обновления экрана",
+            "C) Таймер",
+            "D) Событие клика"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>requestAnimationFrame</code> оптимизирует анимации под ~60 FPS.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Лучший способ создавать анимации в браузере."
+        },
+        {
+          "id": 27,
+          "emoji": "🔥",
+          "question": "Как проверить, является ли значение массивом?",
+          "options": [
+            "A) <code>typeof arr === 'array'</code>",
+            "B) <code>Array.isArray(arr)</code>",
+            "C) <code>arr instanceof Object</code>",
+            "D) <code>arr.isArray()</code>"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Правильно! <code>Array.isArray()</code> — надёжный способ проверки на массив.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Только <code>Array.isArray()</code> работает корректно всегда."
+        },
+        {
+          "id": 28,
+          "emoji": "🧠",
+          "question": "Что делает <code>??</code> (Nullish coalescing)?",
+          "options": [
+            "A) Логическое ИЛИ",
+            "B) Возвращает правый операнд, если левый — <code>null</code> или <code>undefined</code>",
+            "C) Сравнение",
+            "D) Присваивание"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Верно! <code>a ?? b</code> — b только если a === null или a === undefined.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. <code>??</code> реагирует только на <code>null</code>/<code>undefined</code>, в отличие от <code>||</code>."
+        },
+        {
+          "id": 29,
+          "emoji": "🤖",
+          "question": "Что такое Optional Chaining (<code>?.</code>)?",
+          "options": [
+            "A) Условный оператор",
+            "B) Безопасный доступ к вложенным свойствам: если значение undefined/null, возвращает undefined без ошибки",
+            "C) Цикл",
+            "D) Тип данных"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Да! <code>user?.address?.city</code> — не упадёт с ошибкой, если <code>user</code> или <code>address</code> нет.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. Optional chaining безопасно обращается к свойствам."
+        },
+        {
+          "id": 30,
+          "emoji": "🎉",
+          "question": "Как работает сборщик мусора (Garbage Collector) в JavaScript?",
+          "options": [
+            "A) Ручное управление памятью",
+            "B) Автоматически удаляет объекты, на которые больше нет ссылок (алгоритм mark-and-sweep)",
+            "C) Очищает console.log",
+            "D) Удаляет переменные после функции"
+          ],
+          "correct": 1,
+          "explanation_correct": "✅ Отлично! Сборщик мусора удаляет недостижимые объекты, освобождая память.",
+          "explanation_wrong": "❌ Нет. Правильный ответ — B. JavaScript автоматически управляет памятью через сборщик мусора."
+        }
+      ]
+    }
+  ],
+  "bot_commands": {
+    "start": {
+      "command": "/start",
+      "message": "👋 <b>Привет, будущий программист!</b>\n\nДобро пожаловать на курс <b>«Основы JavaScript с нуля»</b>! ⚡\n\nЗдесь ты научишься оживлять веб-страницы: от переменных и функций до работы с сервером и создания полноценных приложений.\n\n<b>Доступные команды:</b>\n/lesson [номер] — открыть урок (1-20)\n/test [уровень] — пройти тест (easy, medium, hard)\n/progress — мой прогресс\n/help — помощь\n\n<b>Рекомендация:</b> Убедись, что знаком с HTML и CSS! 🏗️🎨\n\n<b>Совет:</b> Держи консоль браузера (F12) всегда открытой!",
+      "parse_mode": "HTML"
+    },
+    "help": {
+      "command": "/help",
+      "message": "📚 <b>Помощь по боту-курсу JavaScript</b>\n\n<b>Команды:</b>\n/lesson [1-20] — изучаем уроки по порядку\n/test [easy|medium|hard] — тестируем знания\n/progress — смотрим прогресс\n\n<b>Как учиться:</b>\n1️⃣ Начни с /lesson 1\n2️⃣ Читай теорию и ОБЯЗАТЕЛЬНО пиши код\n3️⃣ Открывай консоль (F12) для экспериментов\n4️⃣ Выполняй все задания\n5️⃣ Закрепляй тестами\n6️⃣ Создай итоговый проект!\n\n<b>Важно:</b> Программирование — это практика. Не просто читай, а ПИШИ код! 💻\n\nУдачи, будущий разработчик! ⚡",
+      "parse_mode": "HTML"
+    },
+    "progress": {
+      "command": "/progress",
+      "message": "📊 <b>Твой прогресс по JavaScript</b>\n\nПройдено уроков: {completed_lessons}/20\nПройдено тестов: {completed_tests}/3\n\n{progress_bar}\n\n{badge} <b>Статус:</b> {status}\n\n<i>«JavaScript — это язык, на котором говорит весь веб.»</i>",
+      "parse_mode": "HTML"
+    }
+  },
+  "course_navigation": {
+    "lesson_format": "/lesson {id}",
+    "test_format": "/test {difficulty}",
+    "next_lesson_button": "➡️ Следующий урок",
+    "prev_lesson_button": "⬅️ Предыдущий урок",
+    "take_test_button": "📝 Пройти тест",
+    "back_to_menu": "🏠 В начало"
+  }
+}

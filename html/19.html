@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 19</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>© Спецсимволы: как написать &lt;p&gt; на странице, а не начать новый параграф</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться вставлять на страницу символы, которые являются частью синтаксиса HTML, и специальные типографские знаки.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Спецсимволы (Entities): начинаются с <code>&</code>, заканчиваются <code>;</code>.<br/>
+            <br/>
+            Самые нужные:
+            <ul>
+                <li><code>&amp;lt;</code> — знак &lt;</li>
+                <li><code>&amp;gt;</code> — знак &gt;</li>
+                <li><code>&amp;amp;</code> — сам амперсанд &amp;</li>
+                <li><code>&amp;copy;</code> — ©</li>
+                <li><code>&amp;reg;</code> — ®</li>
+                <li><code>&amp;trade;</code> — ™</li>
+                <li><code>&amp;mdash;</code> — длинное тире —</li>
+                <li><code>&amp;nbsp;</code> — неразрывный пробел</li>
+            </ul>
+            <pre>
+&lt;p&gt;Тег &lt;p&gt; создаёт параграф.&lt;/p&gt;
+&lt;p&gt;Компания "Рога&amp;Копыта&trade;"&lt;/p&gt;
+&lt;p&gt;Основана в&nbsp;2023&nbsp;году.&lt;/p&gt;</pre>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&amp;lt;</code> — Less Than (меньше)</li>
+            <li><code>&amp;gt;</code> — Greater Than (больше)</li>
+            <li><code>&amp;amp;</code> — AMPersand</li>
+            <li><code>&amp;copy;</code> — COPYright</li>
+            <li><code>&amp;nbsp;</code> — Non-Breaking Space (связывает слова, не даёт разорваться)</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда используй <code>&amp;nbsp;</code> для связывания предлогов, инициалов, чисел с единицами. «10&amp;nbsp;кг» — «10 кг» всегда будут на одной строке. Признак профи!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть точку с запятой. <code>&amp;copy</code> может не сработать. Всегда: <code>&amp;copy;</code>, <code>&amp;nbsp;</code>, <code>&amp;lt;</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>&amp;lt</code>, <code>&amp;gt</code> — для отображения тегов</li>
+            <li><code>&amp;amp</code> — для амперсанда</li>
+            <li><code>&amp;copy</code>, <code>&amp;reg</code>, <code>&amp;trade</code> — типографика</li>
+            <li><code>&amp;nbsp</code> — неразрывный пробел</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Выведи на страницу инструкцию: «Используйте тег <img src="...">» (замени скобки спецсимволами).
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай подвал с копирайтом: «Все права защищены &amp;copy; 2023».
+                </p>
+            </li>
+            <li>
+                <p>
+                    Напиши предложение с инициалами (А.&amp;nbsp;С.&amp;nbsp;Пушкин) и температурой (-5&amp;nbsp;&amp;deg;C). Сузь окно браузера — слова не разрываются!
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему для отображения кода придумали спецсимволы, а не «безопасный» тег, где код можно писать как есть?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой текст теперь типографски грамотен в любой ситуации. Внимание к деталям — визитная карточка крутого специалиста! 🧐✨
+        </p>
+
+    </body>
+</html>

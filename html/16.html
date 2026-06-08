@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 16</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🧙 Магия атрибутов: title, hidden, lang, dir и data-*</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Изучить универсальные атрибуты и научиться создавать кастомные <code>data-*</code> атрибуты.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>Универсальный атрибуты:<br/>
+                <ul>
+                    <li><code>title</code> — всплывающая подсказка</li>
+                    <li><code>hidden</code> — скрывает элемент</li>
+                    <li><code>lang</code> — язык содержимого</li>
+                    <li><code>dir</code> — направление текста (ltr/rtl)</li>
+                </ul>
+                <pre>
+&lt;p title="Я — подсказка!"&gt;Наведи на меня&lt;/p&gt;
+&lt;div hidden&gt;Скрытый блок&lt;/div&gt;
+&lt;p lang="en"&gt;Hello, World!&lt;/p&gt;</pre>
+            </li>
+            <li>data-* атрибуты 🔥<br/>
+                Храни свои данные прямо в HTML!
+                <pre>
+&lt;article data-author="Анна К." data-post-id="12345"&gt;
+    &lt;h2>Новость&lt;/h2&gt;
+    &lt;button class="like-btn"&gt;❤️&lt;/button&gt;
+&lt;/article&gt;</pre>
+            </li>
+        </ol>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>title</code> — тултип при наведении</li>
+            <li><code>hidden</code> — элемент скрыт, но есть в DOM</li>
+            <li><code>lang</code> — важно для скринридеров и SEO</li>
+            <li><code>data-author</code>, <code>data-post-id</code> — пользовательские данные для JavaScript</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>data-*</code> для передачи данных из HTML в JavaScript. Имена — в нижнем регистре через дефис: data-user-id.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Хранить в <code>data-*</code> секретную информацию (пароли, токены)! Эти данные видны любому, кто откроет «Посмотреть код».
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>title</code> — подсказка</li>
+            <li><code>hidden</code> — скрытие</li>
+            <li><code>lang</code>, <code>dir</code> — язык и направление</li>
+            <li><code>data-*</code> — кастомные данные</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Добавь <code>title</code> с забавными подсказками к параграфам.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай карточку товара, кнопке «В корзину» добавь <code>data-product-id="10"</code> и <code>data-price="1990"</code>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Создай видимый блок и скрытый блок с <code>hidden</code>.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему придумали синтаксис <code>data-*</code>, а не разрешили любые атрибуты типа <code>mycoolattribute</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты становишься архитектором данных на фронтенде! <code>data-*</code> — ключик к динамическим приложениям. 🔑
+        </p>
+
+    </body>
+</html>

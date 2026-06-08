@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 10</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🏷️ Атрибуты class и id: даём имена и фамилии</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять разницу между атрибутами <code>class</code> (для группы) и <code>id</code> (для уникального элемента).
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>id — Уникальный идентификатор<br/>
+                Как номер паспорта. На странице — ТОЛЬКО ОДИН элемент с конкретным <code>id</code>.
+                <pre>
+&lt;header id="main-header"&gt;
+    &lt;h1&gt;Мой сайт&lt;/h1&gt;
+&lt;/header&gt;</pre>
+            </li>
+            <li>class — Класс (группа)<br/>
+                Как фамилия. Можно присвоить многим элементам. Один элемент может иметь несколько классов через пробел.
+                <pre>
+&lt;p class="important-text highlighted"&gt;Важный и подсвеченный текст&lt;/p&gt;
+&lt;p class="important-text"&gt;Просто важный текст&lt;/p&gt;
+&lt;p>Обычный текст&lt;/p&gt;</pre>
+            </li>
+        </ol>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>id="main-header"</code> — уникальный идентификатор</li>
+            <li><code>class="important-text highlighted"</code> — два класса у одного элемента</li>
+            <li>Несколько классов пишутся через пробел</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Имена должны описывать СМЫСЛ, а не внешний вид.<br/>
+            Плохо: <code>class="red-text"</code>, <code>class="left-column"</code><br/>
+            Хорошо: <code>class="error-message"</code>, <code>class="sidebar"</code><br/>
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Дублировать одинаковые <code>id</code> на странице. Для группы всегда используй <code>class</code>!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>id</code> — уникальное имя (раз на странице)</li>
+            <li><code>class</code> — имя для группы (много раз)</li>
+            <li>Имена должны быть осмысленными</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Добавь одинаковый <code>class="card"</code> всем карточкам.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Шапке добавь <code>id="header"</code>, подвалу — <code>id="footer"</code>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Одной карточке добавь дополнительный класс <code>class="card special"</code>.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Как бы ты назвал классы для формы подписки: <code>id="subscribe-form"</code> или <code>id="blue-block"</code>? Почему?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты навёл порядок в коде! Теперь разметка готова к CSS. Это огромный шаг! 👨‍💻
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 15</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🎵 Мультимедиа: видео и аудио на твоём сайте</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться встраивать аудио- и видеофайлы с помощью тегов <code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code>.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>Аудио <code>&lt;audio&gt;</code><br/>
+                <pre>
+&lt;audio controls&gt;
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+    &lt;source src="music.ogg" type="audio/ogg"&gt;
+    Ваш браузер не поддерживает аудио.
+&lt;/audio&gt;</pre>
+            </li>
+            <li>Видео <code>&lt;video&gt;</code><br/>
+                <pre>
+&lt;video controls width="640" height="360" poster="preview.jpg"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.webm" type="video/webm"&gt;
+    Ваш браузер не поддерживает видео.
+&lt;/video&gt;</pre>
+            </li>
+        </ol>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&lt;audio&gt;</code> / <code>&lt;video&gt;</code> — контейнеры</li>
+            <li><code>controls</code> — ОБЯЗАТЕЛЬНО! Показывает кнопки управления</li>
+            <li><code>&lt;source&gt;</code> — файлы в разных форматах, браузер выберет первый подходящий</li>
+            <li><code>poster</code> — картинка-превью для видео</li>
+            <li><code>width</code>, <code>height</code> — размеры плеера</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда добавляй <code>controls</code>! Без него плеер будет невидим. Другие атрибуты: <code>autoplay</code>, <code>loop</code>, <code>muted</code>.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Кинуть видео в .mkv или .avi и удивляться, что не работает. Браузеры понимают .mp4 (H.264) и .webm. Конвертируй!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code> — нативные плееры</li>
+            <li><code>controls</code> обязателен</li>
+            <li><code>&lt;source&gt;</code> для разных форматов</li>
+            <li><code>poster</code> — превью видео</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Вставь короткий .mp3 звук с <code>controls</code>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Вставь тестовое .mp4 видео, задай размеры 600x400 и добавь постер.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Добавь к видео <code>loop</code> и <code>muted</code>. Посмотри, что изменится.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему используют вложенные <code>&lt;source&gt;</code>, а не один <code>src</code>, как у картинки?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты освоил базу, на которой держится YouTube и Spotify! Твой сайт может стать интерактивным кинотеатром. 🍿
+        </p>
+
+    </body>
+</html>

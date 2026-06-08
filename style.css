@@ -1,0 +1,43 @@
+body {
+    background-color: #212121;
+    color: #CECECE;
+
+    word-wrap: normal;
+}
+
+pre, code {
+    background-color: #101010;
+    color: #8774E1;
+}
+code {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+pre {
+    border: #101010 solid 10px;
+    border-left-color: #3E84C6;
+    border-left-width: 5px;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+
+a {
+    color: #3E84C6;
+}
+
+.lesson-results-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        padding-left: 1em;
+        text-indent: -1em;
+    }
+    li:before {
+        content: "✅";
+        padding-right: 5px;
+    }
+}

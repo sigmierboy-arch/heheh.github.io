@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod HTML - Урок 14</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🤖💬 Семантическая вёрстка: header, nav, main, article, section, aside, footer</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять важность семантики и заменить основные <code>&lt;div&gt;</code> на соответствующие теги HTML5.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Семантический тег — тег, имя которого говорит о его назначении.<br/>
+            <br/>
+            Было (div-ад):
+            <pre>
+&lt;div id="header"&gt;...&lt;/div&gt;
+&lt;div id="nav"&gt;...&lt;/div&gt;
+&lt;div id="content"&gt;...&lt;/div&gt;
+&lt;div id="footer"&gt;...&lt;/div&gt;</pre>
+
+            Стало (семантика):
+            <pre>
+&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</pre>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>&lt;header&gt;</code> — шапка сайта/раздела</li>
+            <li><code>&lt;nav&gt;</code> — основная навигация</li>
+            <li><code>&lt;main&gt;</code> — уникальный контент (один на странице!)</li>
+            <li><code>&lt;article&gt;</code> — независимый блок (пост, новость)</li>
+            <li><code>&lt;section&gt;</code> — тематический раздел</li>
+            <li><code>&lt;aside&gt;</code> — боковая панель (косвенный контент)</li>
+            <li><code>&lt;footer&gt;</code> — подвал</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Семантика = вклад в SEO. Поисковые роботы «читают» твой сайт. Семантические теги говорят им: «Вот меню, вот статья, вот подвал». Сайт лучше ранжируется!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Думать, что «семантика не нужна, я и на дивах сверстаю». Это подход 2005 года. Семантика критична для accessibility, SEO и читаемости кода.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li>Семантика = СМЫСЛ контента</li>
+            <li><code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>section</code>, <code>aside</code>, <code>footer</code></li>
+            <li>Критично для accessibility, SEO, читаемости</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>
+                <p>
+                    Переверстай старую страницу с <code>&lt;div&gt;</code> на семантические теги.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Придумай структуру блога: что будет <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>?
+                </p>
+            </li>
+            <li>
+                <p>
+                     Возьми скриншот любого сайта и мысленно разбей его на семантические блоки.
+                </p>
+            </li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Есть ли разница для незрячего пользователя со скринридером между сайтом на <code>&lt;div&gt;</code> и на семантических тегах?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты перешёл из «кодеров» в «верстальщики, думающие о людях и роботах». Твой код стал ГРАМОТНЫМ. Это отличает профи! 🧠✨
+        </p>
+
+    </body>
+</html>
