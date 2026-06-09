@@ -18,12 +18,12 @@
 
         <h2>📚 Теория</h2>
         <p>
-            <b>Событие</b> — это сигнал от браузера о том, что что-то произошло (клик, ввод, загрузка).\n\n<b>Способ 1: addEventListener (ЛУЧШИЙ! 🔥):</b>\n<pre>const button = document.querySelector('button');\n\nbutton.addEventListener('click', function() {\n    alert('Кнопка нажата!');\n});\n\n// Со стрелочной функцией:\nbutton.addEventListener('click', () => {\n    console.log('Клик!');\n});</pre>\n\n<b>Способ 2: onclick (устаревший, только ОДИН обработчик):</b>\n<pre>button.onclick = function() {\n    alert('Клик!');\n};</pre>\n\n<b>Популярные события:</b>\n<pre>// Мышь\nelement.addEventListener('click', handler);      // клик\nelement.addEventListener('dblclick', handler);   // двойной клик\nelement.addEventListener('mouseover', handler);  // наведение\nelement.addEventListener('mouseout', handler);   // уход курсора\n\n// Клавиатура\ndocument.addEventListener('keydown', handler);  // нажатие клавиши\ndocument.addEventListener('keyup', handler);    // отпускание\n\n// Формы\ninput.addEventListener('input', handler);   // ввод текста\ninput.addEventListener('change', handler);  // изменение + уход фокуса\nform.addEventListener('submit', handler);  // отправка формы\n\n// Загрузка\ndocument.addEventListener('DOMContentLoaded', handler); // DOM готов</pre>\n\n<b>Объект события (event):</b>\n<pre>button.addEventListener('click', function(event) {\n    console.log(event.target);  // элемент, на котором сработало\n    console.log(event.type);    // 'click'\n    event.preventDefault();     // отменить действие по умолчанию\n});</pre>
+            <b>Событие</b> — это сигнал от браузера о том, что что-то произошло (клик, ввод, загрузка).<br/><br/><b>Способ 1: addEventListener (ЛУЧШИЙ! 🔥):</b><br/><pre>const button = document.querySelector('button');<br/><br/>button.addEventListener('click', function() {<br/>    alert('Кнопка нажата!');<br/>});<br/><br/>// Со стрелочной функцией:<br/>button.addEventListener('click', () => {<br/>    console.log('Клик!');<br/>});</pre><br/><br/><b>Способ 2: onclick (устаревший, только ОДИН обработчик):</b><br/><pre>button.onclick = function() {<br/>    alert('Клик!');<br/>};</pre><br/><br/><b>Популярные события:</b><br/><pre>// Мышь<br/>element.addEventListener('click', handler);      // клик<br/>element.addEventListener('dblclick', handler);   // двойной клик<br/>element.addEventListener('mouseover', handler);  // наведение<br/>element.addEventListener('mouseout', handler);   // уход курсора<br/><br/>// Клавиатура<br/>document.addEventListener('keydown', handler);  // нажатие клавиши<br/>document.addEventListener('keyup', handler);    // отпускание<br/><br/>// Формы<br/>input.addEventListener('input', handler);   // ввод текста<br/>input.addEventListener('change', handler);  // изменение + уход фокуса<br/>form.addEventListener('submit', handler);  // отправка формы<br/><br/>// Загрузка<br/>document.addEventListener('DOMContentLoaded', handler); // DOM готов</pre><br/><br/><b>Объект события (event):</b><br/><pre>button.addEventListener('click', function(event) {<br/>    console.log(event.target);  // элемент, на котором сработало<br/>    console.log(event.type);    // 'click'<br/>    event.preventDefault();     // отменить действие по умолчанию<br/>});</pre>
         </p>
 
         <h3>🔍 Разбор:</h3>
         <p>
-            • <code>.addEventListener('событие', функция)</code> — подписка\n• <code>'click'</code> — клик мыши\n• <code>'input'</code> — каждое изменение в поле ввода\n• <code>'submit'</code> — отправка формы\n• <code>'keydown'</code> — нажатие клавиши\n• <code>event.target</code> — кто вызвал событие\n• <code>event.preventDefault()</code> — отмена стандартного поведения
+            • <code>.addEventListener('событие', функция)</code> — подписка<br/>• <code>'click'</code> — клик мыши<br/>• <code>'input'</code> — каждое изменение в поле ввода<br/>• <code>'submit'</code> — отправка формы<br/>• <code>'keydown'</code> — нажатие клавиши<br/>• <code>event.target</code> — кто вызвал событие<br/>• <code>event.preventDefault()</code> — отмена стандартного поведения
         </p>
 
         <h3>💡 Полезный совет:</h3>
@@ -38,12 +38,12 @@
 
         <h3>✅ Итоги урока:</h3>
         <p>
-            ✅ События — действия пользователя (клик, ввод, загрузка)\n✅ <code>.addEventListener()</code> — подписка на событие\n✅ <code>'click', 'input', 'submit', 'keydown'</code> — типы событий\n✅ <code>event.target</code> — источник события\n✅ <code>event.preventDefault()</code> — отмена действия по умолчанию
+            ✅ События — действия пользователя (клик, ввод, загрузка)<br/>✅ <code>.addEventListener()</code> — подписка на событие<br/>✅ <code>'click', 'input', 'submit', 'keydown'</code> — типы событий<br/>✅ <code>event.target</code> — источник события<br/>✅ <code>event.preventDefault()</code> — отмена действия по умолчанию
         </p>
 
         <h2>🧠 Самостоятельная работа:</h2>
         <p>
-            📝 <b>Задание 1:</b> Создай кнопку, при клике на которую меняется текст в абзаце.\n\n📝 <b>Задание 2:</b> Создай поле ввода, при вводе текста в которое дублируется текст в <code>&lt;span&gt;</code> ниже.\n\n📝 <b>Задание 3:</b> Отследи нажатие клавиши <code>Enter</code> и выведи сообщение в консоль.
+            📝 <b>Задание 1:</b> Создай кнопку, при клике на которую меняется текст в абзаце.<br/><br/>📝 <b>Задание 2:</b> Создай поле ввода, при вводе текста в которое дублируется текст в <code>&lt;span&gt;</code> ниже.<br/><br/>📝 <b>Задание 3:</b> Отследи нажатие клавиши <code>Enter</code> и выведи сообщение в консоль.
         </p>
 
         <h3>🤖 Вопрос к размышлению:</h3>
