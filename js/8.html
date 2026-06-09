@@ -18,12 +18,12 @@
 
         <h2>📚 Теория</h2>
         <p>
-            Строки в JavaScript неизменяемы (immutable). Все методы возвращают НОВУЮ строку.\n\n<b>Основные методы строк:</b>\n<pre>let str = 'Привет, Мир!';\n\n// Длина строки\nconsole.log(str.length);  // 13\n\n// Регистр\nconsole.log(str.toUpperCase());  // 'ПРИВЕТ, МИР!'\nconsole.log(str.toLowerCase());  // 'привет, мир!'\n\n// Поиск подстроки\nconsole.log(str.includes('Мир'));    // true\nconsole.log(str.indexOf('Мир'));     // 8 (позиция)\nconsole.log(str.startsWith('При'));  // true\nconsole.log(str.endsWith('!'));      // true\n\n// Извлечение\nconsole.log(str.slice(0, 6));   // 'Привет'\nconsole.log(str.slice(8));      // 'Мир!'\nconsole.log(str.substring(0, 6)); // 'Привет'\n\n// Замена\nconsole.log(str.replace('Мир', 'JavaScript')); // 'Привет, JavaScript!'\nconsole.log(str.replaceAll('и', 'ы')); // замена всех\n\n// Разбиение в массив\nconsole.log(str.split(', '));  // ['Привет', 'Мир!']\n\n// Удаление пробелов\nlet raw = '   текст   ';\nconsole.log(raw.trim());  // 'текст'</pre>
+            Строки в JavaScript неизменяемы (immutable). Все методы возвращают НОВУЮ строку.<br/><br/><b>Основные методы строк:</b><br/><pre>let str = 'Привет, Мир!';<br/><br/>// Длина строки<br/>console.log(str.length);  // 13<br/><br/>// Регистр<br/>console.log(str.toUpperCase());  // 'ПРИВЕТ, МИР!'<br/>console.log(str.toLowerCase());  // 'привет, мир!'<br/><br/>// Поиск подстроки<br/>console.log(str.includes('Мир'));    // true<br/>console.log(str.indexOf('Мир'));     // 8 (позиция)<br/>console.log(str.startsWith('При'));  // true<br/>console.log(str.endsWith('!'));      // true<br/><br/>// Извлечение<br/>console.log(str.slice(0, 6));   // 'Привет'<br/>console.log(str.slice(8));      // 'Мир!'<br/>console.log(str.substring(0, 6)); // 'Привет'<br/><br/>// Замена<br/>console.log(str.replace('Мир', 'JavaScript')); // 'Привет, JavaScript!'<br/>console.log(str.replaceAll('и', 'ы')); // замена всех<br/><br/>// Разбиение в массив<br/>console.log(str.split(', '));  // ['Привет', 'Мир!']<br/><br/>// Удаление пробелов<br/>let raw = '   текст   ';<br/>console.log(raw.trim());  // 'текст'</pre>
         </p>
 
         <h3>🔍 Разбор:</h3>
         <p>
-            • <code>.length</code> — длина строки (свойство, не метод!)\n• <code>.toUpperCase() / .toLowerCase()</code> — регистр\n• <code>.includes()</code> — есть ли подстрока (true/false)\n• <code>.indexOf()</code> — позиция подстроки (-1 если нет)\n• <code>.slice(начало, конец)</code> — извлечь часть\n• <code>.replace()</code> — заменить ПЕРВОЕ вхождение\n• <code>.replaceAll()</code> — заменить ВСЕ вхождения\n• <code>.split()</code> — разбить в массив\n• <code>.trim()</code> — убрать пробелы по краям
+            • <code>.length</code> — длина строки (свойство, не метод!)<br/>• <code>.toUpperCase() / .toLowerCase()</code> — регистр<br/>• <code>.includes()</code> — есть ли подстрока (true/false)<br/>• <code>.indexOf()</code> — позиция подстроки (-1 если нет)<br/>• <code>.slice(начало, конец)</code> — извлечь часть<br/>• <code>.replace()</code> — заменить ПЕРВОЕ вхождение<br/>• <code>.replaceAll()</code> — заменить ВСЕ вхождения<br/>• <code>.split()</code> — разбить в массив<br/>• <code>.trim()</code> — убрать пробелы по краям
         </p>
 
         <h3>💡 Полезный совет:</h3>
@@ -38,12 +38,12 @@
 
         <h3>✅ Итоги урока:</h3>
         <p>
-            ✅ Строки неизменяемы (методы возвращают новую строку)\n✅ <code>.length</code>, <code>.toUpperCase()</code>, <code>.toLowerCase()</code>\n✅ <code>.includes()</code>, <code>.indexOf()</code>, <code>.slice()</code>\n✅ <code>.replace()</code>, <code>.split()</code>, <code>.trim()</code>
+            ✅ Строки неизменяемы (методы возвращают новую строку)<br/>✅ <code>.length</code>, <code>.toUpperCase()</code>, <code>.toLowerCase()</code><br/>✅ <code>.includes()</code>, <code>.indexOf()</code>, <code>.slice()</code><br/>✅ <code>.replace()</code>, <code>.split()</code>, <code>.trim()</code>
         </p>
 
         <h2>🧠 Самостоятельная работа:</h2>
         <p>
-            📝 <b>Задание 1:</b> Напиши функцию, которая принимает строку и возвращает её длину и первый/последний символы.\n\n📝 <b>Задание 2:</b> Проверь, содержит ли email символ '@' и точку.\n\n📝 <b>Задание 3:</b> Разбей предложение на слова с помощью <code>.split()</code> и выведи их количество.
+            📝 <b>Задание 1:</b> Напиши функцию, которая принимает строку и возвращает её длину и первый/последний символы.<br/><br/>📝 <b>Задание 2:</b> Проверь, содержит ли email символ '@' и точку.<br/><br/>📝 <b>Задание 3:</b> Разбей предложение на слова с помощью <code>.split()</code> и выведи их количество.
         </p>
 
         <h3>🤖 Вопрос к размышлению:</h3>
