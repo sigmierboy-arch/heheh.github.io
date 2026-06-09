@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 9</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📏 Размеры правильно: box-sizing: border-box</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять разницу между <code>content-box</code> и <code>border-box</code> и навсегда решить проблему расчёта размеров.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Проблема:<br/>
+            По умолчанию (<code>box-sizing: content-box</code>) ширина <code>width: 300px</code> относится ТОЛЬКО к контенту. Padding и border добавляются СВЕРХУ:
+            <pre>
+div {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+}
+/* Реальная ширина = 300 + 20*2 + 5*2 = 350px! */</pre>
+
+            Решение: box-sizing: border-box 🔥<br/>
+            С этим свойством <code>width</code> включает и padding, и border:
+            <pre>
+* {
+    box-sizing: border-box;
+}
+/* Реальная ширина = ровно 300px, padding и border внутри */</pre>
+
+            Это свойство настолько важно, что его добавляют в КАЖДЫЙ проект:
+            <pre>
+*, *::before, *::after {
+    box-sizing: border-box;
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ol>
+            <li><code>content-box</code> — по умолчанию, width = только контент</li>
+            <li><code>border-box</code> — <code>width</code> = контент + padding + border</li>
+            <li>С <code>border-box</code> ты говоришь браузеру: «Вот ширина, вмести всё внутрь»</li>
+            <li>Универсальный селектор <code>*</code> применяет это ко ВСЕМ элементам</li>
+        </ol>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда начинай CSS-файл с этого заклинания:
+            <pre>
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}</pre>
+            Это сбросит все встроенные отступы и включит удобный режим размеров. База любого проекта!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть про <code>box-sizing</code> и мучиться: «Почему два блока по 50% не влезают в строку?». Потому что padding добавляется! С <code>border-box</code> такой проблемы нет.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>content-box</code> — width только контента (по умолчанию)</li>
+            <li><code>border-box</code> — width включает padding и border</li>
+            <li><code>box-sizing: border-box</code> — must-have для любого проекта</li>
+            <li>Сбрасывай отступы и ставь <code>border-box</code> в начале CSS</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай два блока шириной 50% с <code>padding: 20px</code>. Без <code>border-box</code> они упадут в столбик. Добавь <code>border-box</code> — встанут в ряд!</li>
+            <li>Создай CSS-файл, который ты будешь использовать во всех проектах. Первым правилом поставь <code>box-sizing: border-box</code>.</li>
+            <li>Нарисуй на бумаге два одинаковых блока: один с <code>content-box</code>, другой с <code>border-box</code>. Покажи, как распределятся padding и border.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему разработчики CSS сделали <code>content-box</code> по умолчанию, а не более удобный <code>border-box</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты только что избавился от головной боли с размерами на всю жизнь! <code>border-box</code> — это суперсила. Теперь вёрстка будет предсказуемой. 💪
+        </p>
+
+    </body>
+</html>

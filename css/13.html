@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 13</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1> 📐 CSS Grid часть 1: Сетка, колонки и строки</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять двумерную модель Grid и научиться создавать сетки с колонками и строками.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            CSS Grid — это ДВУМЕРНАЯ система раскладки. Flexbox — для одной оси (строка ИЛИ колонка). Grid — для двух осей одновременно (строки И колонки).
+        </p>
+        <p>
+            Как включить:<pre>
+.container {
+    display: grid;  /* магия сетки! */
+}</pre>
+        </p>
+        <p>
+            Определяем колонки и строки:<pre>
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: 100px auto 100px;
+    gap: 20px;
+}</pre>
+        </p>
+        <p>
+            Единицы измерения для Grid:
+            <ul>
+                <li><code>px</code> — фиксированные пиксели</li>
+                <li><code>fr</code> — доля свободного пространства (fraction) 🔥</li>
+                <li><code>%</code> — проценты</li>
+                <li><code>auto</code> — по содержимому</li>
+                <li><code>repeat(3, 1fr)</code> — повторить 3 раза по 1fr</li>
+            </ul>
+        </p>
+        <p>
+            Функция repeat():<pre>
+grid-template-columns: repeat(4, 1fr);
+/* 4 одинаковые колонки */
+
+grid-template-columns: repeat(3, 200px);
+/* 3 колонки по 200px */</pre>
+        </p>
+        <p>
+            minmax():<pre>
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/* адаптивная сетка! Сама решает, сколько колонок влезет */</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>grid-template-columns</code> — сколько колонок и какой ширины</li>
+            <li><code>grid-template-rows</code> — сколько строк и какой высоты</li>
+            <li><code>1fr</code> — «возьми одну долю оставшегося места»</li>
+            <li><code>repeat(3, 1fr)</code> — создай 3 колонки по 1fr</li>
+            <li><code>gap</code> — зазор между ячейками</li>
+            <li><code>minmax(200px, 1fr)</code> — не меньше 200px, не больше 1fr</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>fr</code> для адаптивных раскладок. Сетка на <code>fr</code> сама пересчитывается при изменении размера экрана. Никаких калькуляторов!
+        </p>
+        <p>
+            Шпаргалка: <code>repeat(auto-fill, minmax(250px, 1fr))</code> — сама добавляет/убирает колонки при ресайзе!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Путать Grid и Flexbox. Grid — для раскладки ВСЕЙ страницы (строки и колонки). Flexbox — для компонентов (выравнивание в одну линию). Они друзья, а не конкуренты!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>display: grid</code> — включаем сетку</li>
+            <li><code>grid-template-columns</code> — колонки</li>
+            <li><code>grid-template-rows</code> — строки</li>
+            <li><code>fr</code> — доля пространства</li>
+            <li><code>repeat()</code> — повторение</li>
+            <li><code>minmax()</code> — мин/макс размер</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай сетку 3×3 с помощью Grid. Используй <code>repeat(3, 1fr)</code> для колонок.</li>
+            <li>Создай макет страницы: шапка (полная ширина), контент + сайдбар (2 колонки), подвал (полная ширина).</li>
+            <li>Создай адаптивную галерею с <code>repeat(auto-fill, minmax(250px, 1fr))</code>. Поиграй с шириной окна.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Когда использовать Grid, а когда Flexbox? Приведи примеры.
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты вступил в мир двумерной магии! Grid — это инструмент для создания целых макетов страниц. Скоро твои сайты будут выглядеть как проффесиональные! 🏗️
+        </p>
+
+    </body>
+</html>

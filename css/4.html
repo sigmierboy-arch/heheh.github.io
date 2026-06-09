@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 4</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📏 Размеры и отступы: width, height, margin, padding</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять блочную модель CSS и научиться управлять размерами элементов и отступами: <code>width</code>, <code>height</code>, <code>margin</code>, <code>padding</code>, <code>border</code>.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Блочная модель (CSS Box Model):<br/>
+            Каждый элемент — это прямоугольник, состоящий из слоёв:
+            <pre>
+┌─────────────────────────────┐
+│         margin              │
+│  ┌───────────────────────┐  │
+│  │       border          │  │
+│  │  ┌─────────────────┐  │  │
+│  │  │    padding      │  │  │
+│  │  │  ┌───────────┐  │  │  │
+│  │  │  │  CONTENT  │  │  │  │
+│  │  │  └───────────┘  │  │  │
+│  │  └─────────────────┘  │  │
+│  └───────────────────────┘  │
+└─────────────────────────────┘</pre>
+
+            Свойства:
+            <ul>
+                <li><code>width</code> / <code>height</code> — размеры СОДЕРЖИМОГО</li>
+                <li><code>padding</code> — ВНУТРЕННИЙ отступ (от контента до границы)</li>
+                <li><code>border</code> — ГРАНИЦА элемента</li>
+                <li><code>margin</code> — ВНЕШНИЙ отступ (от границы до соседей)</li>
+            </ul>
+            <pre>
+div {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 30px;
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>width: 300px</code> — ширина контента 300 пикселей</li>
+            <li><code>padding: 20px</code> — воздух ВНУТРИ (от текста до рамки)</li>
+            <li><code>border: 2px solid black</code> — рамка: толщина, стиль, цвет</li>
+            <li><code>margin: 30px</code> — воздух СНАРУЖИ (от рамки до других элементов)</li>
+        </ul>
+        <p>
+            Сокращённая запись:
+            <pre>
+margin: 10px 20px 30px 40px;
+/* верх право низ лево (по часовой) */</pre>
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Запомни порядок для margin/padding: <b>TRouBLe</b> — Top, Right, Bottom, Left (как «трабл» — проблема). Или по часовой стрелке начиная сверху.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Думать, что <code>width: 300px</code> — это полная ширина элемента. На самом деле полная ширина = width + padding-left + padding-right + border-left + border-right. Это называется <code>box-sizing</code> (о нём позже).
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>width</code>/<code>height</code> — размеры контента</li>
+            <li><code>padding</code> — внутренний отступ</li>
+            <li><code>border</code> — граница</li>
+            <li><code>margin</code> — внешний отступ</li>
+            <li>Блочная модель = content + padding + border + margin</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай три <code>&lt;div&gt;</code> с разными padding. Внутри каждого — текст. Посмотри, как padding влияет на положение текста.</li>
+            <li>Создай два блока и задай им <code>margin-bottom: 30px</code>. Посмотри на расстояние между ними.</li>
+            <li>Нарисуй на бумаге блочную модель и подпиши все 4 слоя для элемента с <code>width: 200px, padding: 15px, border: 3px, margin: 25px</code>.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему margin двух соседних элементов иногда «схлопывается», а padding — никогда?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Блочная модель — это азбука CSS. Понимая её, ты понимаешь 50% всей вёрстки. Ты красавчик! 📦
+        </p>
+
+    </body>
+</html>

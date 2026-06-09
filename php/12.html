@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 12</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📅 Дата и время: функции date(), time(), strtotime()</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить работу с датами и временем в PHP: форматирование, timestamp, вычисление интервалов.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>1. Текущая дата и время:</b><br/><pre>echo date('d.m.Y');          // 31.12.2024<br/>echo date('H:i:s');           // 14:30:00<br/>echo date('d.m.Y H:i:s');     // 31.12.2024 14:30:00<br/>echo date('l, j F Y');       // Tuesday, 31 December 2024</pre><br/><br/><b>Форматы date():</b><br/>• <code>d</code> — день (01-31)<br/>• <code>m</code> — месяц (01-12)<br/>• <code>Y</code> — год (2024)<br/>• <code>H</code> — часы (00-23)<br/>• <code>i</code> — минуты (00-59)<br/>• <code>s</code> — секунды (00-59)<br/>• <code>l</code> — день недели<br/>• <code>F</code> — месяц словом<br/><br/><b>2. Timestamp и strtotime():</b><br/><pre>$timestamp = time();  // текущее время в секундах с 1970-01-01<br/>echo time();  // 1700000000 (пример)<br/><br/>// Преобразование строки в timestamp<br/>$ts = strtotime('next Monday');<br/>$ts = strtotime('2024-12-31');<br/>$ts = strtotime('+1 week');<br/>$ts = strtotime('+2 days');<br/>echo date('d.m.Y', $ts);</pre><br/><br/><b>3. Разница между датами:</b><br/><pre>$date1 = strtotime('2024-01-01');<br/>$date2 = strtotime('2024-12-31');<br/>$diff = $date2 - $date1;<br/>$days = $diff / (60 * 60 * 24);  // количество дней<br/>echo "Разница: $days дней";</pre><br/><br/><b>4. Часовой пояс:</b><br/><pre>date_default_timezone_set('Europe/Moscow');  // установить<br/>echo date_default_timezone_get();  // узнать текущий</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>date('формат')</code> — форматирование даты<br/>• <code>time()</code> — текущий Unix timestamp<br/>• <code>strtotime('строка')</code> — текст → timestamp (магия!)<br/>• Математика с timestamp — вычисление интервалов<br/>• <code>date_default_timezone_set()</code> — установка часового пояса
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            <code>strtotime()</code> — невероятно мощная функция! Она понимает фразы типа «next Monday», «+2 weeks», «first day of next month». Используй её для любых преобразований дат!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть установить часовой пояс. По умолчанию используется UTC, и время может отличаться от ожидаемого. Всегда ставь: <code>date_default_timezone_set('Europe/Moscow');</code>
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>date()</code> — форматирование даты<br/>✅ <code>time()</code> — текущий timestamp<br/>✅ <code>strtotime()</code> — строка → timestamp<br/>✅ Разница дат через вычитание timestamp'ов<br/>✅ <code>date_default_timezone_set()</code> — часовой пояс
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Выведи текущую дату в формате «31 декабря 2024 года, вторник».<br/><br/>📝 <b>Задание 2:</b> Посчитай, сколько дней осталось до Нового года.<br/><br/>📝 <b>Задание 3:</b> Создай календарь на текущий месяц (выведи все дни в таблице).
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему timestamp считают от 1 января 1970 года? Что это за дата?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Даты и время — это то, с чем сталкивается практически любое приложение. Ты освоил эту тему и теперь можешь создавать календари, таймеры, планировщики! 📅
+        </p>
+
+    </body>
+</html>

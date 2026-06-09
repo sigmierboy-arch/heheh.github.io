@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 1</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🐘 Что такое PHP и первая программа</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять, что такое PHP, как он работает на сервере, и написать свою первую программу «Hello, World!».
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            PHP (PHP: Hypertext Preprocessor) — это <b>серверный язык программирования</b>. В отличие от JavaScript, который выполняется в браузере, PHP работает НА СЕРВЕРЕ и генерирует HTML, который отправляется пользователю. 🖥️<br/><br/><b>Что нужно для работы:</b><br/>• Веб-сервер (Apache, Nginx)<br/>• Интерпретатор PHP<br/>• Можно установить готовый набор: <b>XAMPP</b>, <b>MAMP</b>, <b>OpenServer</b>, <b>Laragon</b><br/><br/><b>Первая PHP-программа:</b><br/><pre>&lt;?php<br/>echo 'Привет, мир!';<br/>?&gt;</pre><br/><br/><b>Как вставить PHP в HTML:</b><br/><pre>&lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br/>&lt;head&gt;<br/>    &lt;title&gt;Моя страница&lt;/title&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;h1&gt;&lt;?php echo 'Привет из PHP!'; ?&gt;&lt;/h1&gt;<br/>    &lt;p&gt;Сегодня: &lt;?php echo date('d.m.Y'); ?&gt;&lt;/p&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;</pre><br/><br/>Файлы PHP имеют расширение <code>.php</code>. Сервер обрабатывает PHP-код, а браузер получает уже чистый HTML!
+        </p>
+
+        <h3>🔍 Разбор кода:</h3>
+        <p>
+            <code>&lt;?php</code> — открывающий тег PHP (начало PHP-кода)<br/>• <code>?&gt;</code> — закрывающий тег (если файл чисто PHP, его можно не ставить)<br/>• <code>echo</code> — оператор вывода (выводит текст в HTML)<br/>• <code>date('d.m.Y')</code> — встроенная функция для работы с датой<br/>• Точка с запятой <code>;</code> — КАЖДАЯ инструкция должна заканчиваться точкой с запятой!<br/>• PHP код может быть в любом месте HTML-файла
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Установи <b>OpenServer</b> (Windows) или <b>MAMP</b> (Mac). Они содержат всё необходимое «из коробки»: Apache, PHP, MySQL. Запускай свои PHP-файлы через <code>http://localhost/</code>, а не просто открывая файл в браузере!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Открывать .php файл напрямую в браузере (через File → Open). Браузер не умеет выполнять PHP! Файл должен обрабатываться сервером. Всегда используй <code>http://localhost/ваш-файл.php</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ PHP — серверный язык, выполняется НА СЕРВЕРЕ<br/>✅ Код PHP пишется внутри <code>&lt;?php ... ?&gt;</code><br/>✅ <code>echo</code> — вывод текста<br/>✅ Файлы с расширением <code>.php</code><br/>✅ Нужен веб-сервер (OpenServer, XAMPP, MAMP)<br/>✅ Открывать через <code>http://localhost/</code>
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Установи OpenServer (или аналог) и запусти его.<br/><br/>📝 <b>Задание 2:</b> Создай файл <code>index.php</code> в папке сервера и выведи «Привет, я изучаю PHP!».<br/><br/>📝 <b>Задание 3:</b> Выведи текущую дату и время с помощью функции <code>date()</code>.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему PHP-код нельзя увидеть в браузере через «Посмотреть код», в отличие от HTML?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты сделал первый шаг в серверную разработку! PHP — это язык, на котором работают Facebook (раньше), Wikipedia, WordPress и миллионы других сайтов. Вперёд! 🚀
+        </p>
+
+    </body>
+</html>

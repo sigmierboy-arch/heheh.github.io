@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 15</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔗 PHP + MySQL: подключение и запросы (PDO)</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться подключаться к MySQL из PHP и выполнять основные CRUD-операции (создание, чтение, обновление, удаление).
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>PDO (PHP Data Objects)</b> — современный и безопасный способ работы с БД.<br/><br/><b>1. Подключение:</b><br/><pre>$host = 'localhost';<br/>$dbname = 'myapp';<br/>$user = 'root';<br/>$pass = '';<br/><br/>try {<br/>    $pdo = new PDO(<br/>        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",<br/>        $user,<br/>        $pass,<br/>        [<br/>            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,<br/>            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC<br/>        ]<br/>    );<br/>} catch (PDOException $e) {<br/>    die('Ошибка подключения: ' . $e->getMessage());<br/>}</pre><br/><br/><b>2. SELECT (получить данные):</b><br/><pre>// Простой запрос<br/>$stmt = $pdo->query('SELECT * FROM users');<br/>$users = $stmt->fetchAll();<br/>foreach ($users as $user) {<br/>    echo $user['name'] . '&lt;br&gt;';<br/>}<br/><br/>// С параметрами (ЗАЩИЩЁННЫЙ!)<br/>$stmt = $pdo->prepare('SELECT * FROM users WHERE age > :age');<br/>$stmt->execute(['age' => 18]);<br/>$adults = $stmt->fetchAll();</pre><br/><br/><b>3. INSERT (добавить):</b><br/><pre>$stmt = $pdo->prepare('INSERT INTO users (name, email, age) VALUES (:name, :email, :age)');<br/>$stmt->execute([<br/>    'name' => 'Иван',<br/>    'email' => 'ivan@mail.com',<br/>    'age' => 30<br/>]);<br/>echo 'Добавлен пользователь с ID: ' . $pdo->lastInsertId();</pre><br/><br/><b>4. UPDATE (обновить):</b><br/><pre>$stmt = $pdo->prepare('UPDATE users SET age = :age WHERE id = :id');<br/>$stmt->execute(['age' => 31, 'id' => 1]);</pre><br/><br/><b>5. DELETE (удалить):</b><br/><pre>$stmt = $pdo->prepare('DELETE FROM users WHERE id = :id');<br/>$stmt->execute(['id' => 3]);</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>new PDO(DSN, user, pass)</code> — подключение<br/>• <code>ERRMODE_EXCEPTION</code> — ошибки как исключения<br/>• <code>FETCH_ASSOC</code> — возвращать ассоциативные массивы<br/>• <code>prepare()</code> + <code>execute()</code> — ПОДГОТОВЛЕННЫЕ запросы (защита от SQL-инъекций!)<br/>• <code>:name</code> — именованные плейсхолдеры<br/>• <code>fetchAll()</code> — все строки, <code>fetch()</code> — одна строка
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            ВСЕГДА используй подготовленные запросы (<code>prepare/execute</code>) с плейсхолдерами. Никогда не вставляй переменные напрямую в SQL-строку! Это защита от SQL-инъекций.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Формировать запрос так: <code>"SELECT * FROM users WHERE name = '$name'"</code>. Это SQL-ИНЪЕКЦИЯ! Злоумышленник может уничтожить всю БД. Всегда используй <code>prepare()</code> + <code>execute()</code>!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ PDO — современный способ работы с БД<br/>✅ <code>prepare/execute</code> — защита от инъекций<br/>✅ <code>fetchAll()</code> — все строки<br/>✅ <code>lastInsertId()</code> — ID последней вставки<br/>✅ CRUD: SELECT, INSERT, UPDATE, DELETE
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Подключись к БД через PDO и выведи всех пользователей на страницу.<br/><br/>📝 <b>Задание 2:</b> Создай форму для добавления нового пользователя (имя, email, возраст) с сохранением в БД.<br/><br/>📝 <b>Задание 3:</b> Реализуй удаление пользователя по ID.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>prepare/execute</code> защищает от SQL-инъекций?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            PHP и MySQL — это классическая связка, на которой работают миллионы сайтов. Ты освоил её и теперь можешь создавать полноценные веб-приложения! 🔗
+        </p>
+
+    </body>
+</html>

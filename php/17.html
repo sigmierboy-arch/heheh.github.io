@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 17</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📤 Загрузка файлов на сервер</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться обрабатывать загрузку файлов через формы и безопасно сохранять их на сервере.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>HTML-форма для загрузки:</b><br/><pre>&lt;form method="POST" enctype="multipart/form-data"&gt;<br/>    &lt;input type="file" name="avatar"&gt;<br/>    &lt;button type="submit"&gt;Загрузить&lt;/button&gt;<br/>&lt;/form&gt;</pre><br/><br/><b>Обработка в PHP:</b><br/><pre>if ($_SERVER['REQUEST_METHOD'] === 'POST') {<br/>    $file = $_FILES['avatar'];<br/>    <br/>    // Проверки<br/>    if ($file['error'] !== UPLOAD_ERR_OK) {<br/>        die('Ошибка загрузки');<br/>    }<br/>    <br/>    // Проверка размера (например, макс 5MB)<br/>    if ($file['size'] > 5 * 1024 * 1024) {<br/>        die('Файл слишком большой');<br/>    }<br/>    <br/>    // Проверка типа<br/>    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];<br/>    if (!in_array($file['type'], $allowedTypes)) {<br/>        die('Недопустимый тип файла');<br/>    }<br/>    <br/>    // Уникальное имя<br/>    $ext = pathinfo($file['name'], PATHINFO_EXTENSION);<br/>    $newName = uniqid('img_') . '.' . $ext;<br/>    $uploadPath = 'uploads/' . $newName;<br/>    <br/>    // Перемещение из временной папки<br/>    if (move_uploaded_file($file['tmp_name'], $uploadPath)) {<br/>        echo 'Файл загружен: ' . $newName;<br/>    }<br/>}</pre><br/><br/><b>$_FILES содержит:</b><br/>• <code>name</code> — оригинальное имя<br/>• <code>type</code> — MIME-тип<br/>• <code>size</code> — размер в байтах<br/>• <code>tmp_name</code> — временный путь<br/>• <code>error</code> — код ошибки (0 = успех)
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>enctype="multipart/form-data"</code> — ОБЯЗАТЕЛЬНО в форме!<br/>• <code>$_FILES['имя_поля']</code> — данные о файле<br/>• <code>uniqid()</code> — генерация уникального имени<br/>• <code>pathinfo()</code> — получение расширения<br/>• <code>move_uploaded_file()</code> — перемещение из временной папки<br/>• ВСЕГДА проверяй тип и размер!
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Генерируй уникальные имена файлов (<code>uniqid()</code>), чтобы избежать конфликтов. Сохраняй оригинальное имя в БД отдельно, если нужно. Ограничивай размер и тип файлов.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть <code>enctype="multipart/form-data"</code> в форме. Без этого <code>$_FILES</code> будет пустым! И доверять MIME-типу из <code>$_FILES['type']</code> — он идёт от клиента, его можно подделать.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>enctype="multipart/form-data"</code> — обязательно<br/>✅ <code>$_FILES</code> — информация о файле<br/>✅ Проверка размера и типа<br/>✅ <code>move_uploaded_file()</code> — сохранение<br/>✅ Уникальные имена через <code>uniqid()</code>
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай форму для загрузки аватара.<br/><br/>📝 <b>Задание 2:</b> Реализуй проверку: только картинки (JPEG, PNG), не больше 2 МБ.<br/><br/>📝 <b>Задание 3:</b> Выведи загруженное изображение на страницу.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему нельзя доверять <code>$_FILES['type']</code> для проверки типа файла?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой сайт теперь умеет принимать файлы! Загрузка изображений, документов, аватаров — основа многих сервисов. 📤
+        </p>
+
+    </body>
+</html>

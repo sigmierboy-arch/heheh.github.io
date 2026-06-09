@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 15</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔗 Псевдоклассы: :hover, :active, :focus, :nth-child, :not</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить псевдоклассы CSS для стилизации интерактивных состояний и выбора элементов по позиции.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Псевдокласс начинается с двоеточия и описывает СОСТОЯНИЕ элемента.
+        </p>
+        <p>
+            Интерактивные псевдоклассы:<pre>
+a:hover {
+    color: red;  /* при наведении мыши */
+}
+button:active {
+    transform: scale(0.95);  /* при нажатии */
+}
+input:focus {
+    outline: 2px solid blue;  /* в фокусе (клавиатура/мышь) */
+}
+a:visited {
+    color: purple;  /* посещённая ссылка */
+}</pre>
+        </p>
+        <p>
+            Псевдоклассы позиции (очень мощные! 🔥):<pre>
+li:first-child { ... }   /* первый элемент */
+li:last-child { ... }    /* последний элемент */
+li:nth-child(2) { ... }  /* второй элемент */
+li:nth-child(odd) { ... }  /* нечётные (1,3,5...) */
+li:nth-child(even) { ... } /* чётные (2,4,6...) */
+li:nth-child(3n) { ... }   /* каждый третий */
+li:nth-child(3n+1) { ... } /* 1, 4, 7, 10... */</pre>
+        </p>
+        <p>
+            Другие полезные псевдоклассы:<pre>
+p:first-of-type { ... }  /* первый параграф в родителе */
+div:empty { ... }        /* пустой элемент */
+:not(.special) { ... }   /* все, КРОМЕ .special */</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>:hover</code> — курсор над элементом</li>
+            <li><code>:active</code> — момент нажатия</li>
+            <li><code>:focus</code> — элемент активен (клавиатура/таб)</li>
+            <li><code>:nth-child(odd)</code>  — нечётные дети</li>
+            <li><code>:not(.class)</code>— исключение</li>
+            <li><code>:first-of-type</code> — первый СВОЕГО ТИПА (не любой первый)</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>:nth-child(odd)</code> для полосатых таблиц (зебра-стиль):<pre>
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}</pre>
+        </p>
+        <p>
+            А <code>:not()</code> — отличный способ применить стили ко всем, кроме одного.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Путать <code>:first-child</code> и <code>:first-of-type</code>.
+            Первый ищет ЛЮБОЙ первый элемент, второй — первый элемент КОНКРЕТНОГО ТИПА.
+            <code>p:first-child</code> сработает, только если параграф действительно первый ребёнок.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>:hover</code> — наведение</li>
+            <li><code>:active</code> — нажатие</li>
+            <li><code>:focus</code> — фокус</li>
+            <li><code>:nth-child()</code> — по позиции</li>
+            <li><code>:first-child</code>, <code>:last-child</code></li>
+            <li><code>:not()</code> — исключение</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Стилизуй ссылки: обычный цвет, <code>:hover</code> (другой цвет), <code>:visited</code> (третий цвет).</li>
+            <li>Создай список из 10 элементов и раскрась чётные строки в светло-серый.</li>
+            <li>Создай 5 карточек. С помощью <code>:not()</code> задай фон всем, кроме третьей.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>:focus</code> важен не только для красоты, но и для accessibility?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Псевдоклассы — это магия интерактивности без JavaScript! Твои сайты оживают и реагируют на пользователя. ✨
+        </p>
+
+    </body>
+</html>

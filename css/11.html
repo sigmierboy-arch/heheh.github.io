@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 11</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔄 Flexbox часть 1: Знакомство и оси</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять модель Flexbox и научиться выравнивать элементы по главной и поперечной осям.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Flexbox — это революция в вёрстке! Забудь про <code>float</code> и <code>inline-block</code> с их хаками. Flexbox создан для удобного расположения элементов в строку или колонку.<br/>
+            <br/>
+            Как включить:<pre>
+.container {
+    display: flex;  /* магия! */
+}</pre>
+            Все прямые дочерние элементы становятся flex-элементами и выстраиваются вдоль главной оси (по умолчанию — горизонтально).<br/>
+            <br/>
+            Свойства контейнера:
+            <ul class="empty-list">
+                <li>flex-direction — направление главной оси:<pre>
+flex-direction: row;            /* слева направо (по умолч.) */
+flex-direction: row-reverse;    /* справа налево */
+flex-direction: column;         /* сверху вниз */
+flex-direction: column-reverse; /* снизу вверх */</pre></li>
+                <li>justify-content — выравнивание по ГЛАВНОЙ оси:<pre>
+justify-content: flex-start;    /* в начале (по умолч.) */
+justify-content: flex-end;      /* в конце */
+justify-content: center;        /* по центру */
+justify-content: space-between; /* по краям, равные промежутки */
+justify-content: space-around;  /* равные отступы вокруг */
+justify-content: space-evenly;  /* равные отступы везде */</pre></li>
+                <li>align-items — выравнивание по ПОПЕРЕЧНОЙ оси:<pre>
+align-items: stretch;      /* растянуть (по умолч.) */
+align-items: flex-start;   /* в начале */
+align-items: flex-end;     /* в конце */
+align-items: center;       /* по центру */
+align-items: baseline;     /* по базовой линии текста */</pre></li>
+            </ul>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>display: flex</code> — включаем флекс-контейнер</li>
+            <li>Главная ось — вдоль неё выстраиваются элементы</li>
+            <li>Поперечная ось — перпендикулярно главной</li>
+            <li><code>justify-content</code> — двигаем ПО ГЛАВНОЙ</li>
+            <li><code>align-items</code> — двигаем ПО ПОПЕРЕЧНОЙ</li>
+            <li><code>space-between</code> — первый и последний прижаты к краям</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Три волшебные строчки для идеального центрирования:<pre>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</pre>
+            Элемент будет ровно по центру родителя. Забудь про муки с <code>margin: auto</code>!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть, что <code>align-items</code> работает по ПОПЕРЕЧНОЙ оси. Если главная ось горизонтальная (<code>row</code>), то <code>align-items</code> двигает по вертикали, и наоборот.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>display: flex</code> — включаем Flexbox</li>
+            <li><code>flex-direction</code> — направление главной оси</li>
+            <li><code>justify-content</code> — по главной оси</li>
+            <li><code>align-items</code> — по поперечной оси</li>
+            <li>Три строчки = идеальное центрирование</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай контейнер с 5 элементами. Включи Flexbox и поиграйся со всеми значениями <code>justify-content</code>.</li>
+            <li>Создай контейнер высотой 400px. Выровняй элементы по центру и вертикали с помощью <code>align-items</code>.</li>
+            <li>Сделай навигационное меню: логотип слева, ссылки справа (используй <code>justify-content: space-between</code>).</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему Flexbox называют «одномерной» моделью, в отличие от Grid?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты открыл дверь в современную вёрстку! Flexbox — это инструмент, который используют ВСЕ профессиональные верстальщики. Добро пожаловать в клуб! 🚪
+        </p>
+
+    </body>
+</html>

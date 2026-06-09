@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 19</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📧 Отправка писем: функция mail() и PHPMailer</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться отправлять электронные письма из PHP-скриптов.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>1. Встроенная функция mail():</b><br/><pre>$to = 'user@example.com';<br/>$subject = 'Тема письма';<br/>$message = 'Привет! Это тестовое письмо.';<br/>$headers = 'From: sender@mysite.com' . "\\r\<br/>" .<br/>           'Reply-To: sender@mysite.com' . "\\r\<br/>";<br/><br/>if (mail($to, $subject, $message, $headers)) {<br/>    echo 'Письмо отправлено!';<br/>} else {<br/>    echo 'Ошибка отправки';<br/>}</pre><br/><br/><b>НО!</b> Встроенная <code>mail()</code> имеет много недостатков: письма часто попадают в спам, нет аутентификации, сложно отправлять HTML-письма.<br/><br/><b>2. PHPMailer — современное решение 🔥:</b><br/><pre>// Подключение через Composer<br/>// composer require phpmailer/phpmailer<br/><br/>use PHPMailer\\PHPMailer\\PHPMailer;<br/>use PHPMailer\\PHPMailer\\Exception;<br/><br/>require 'vendor/autoload.php';<br/><br/>$mail = new PHPMailer(true);<br/><br/>try {<br/>    // Настройки сервера<br/>    $mail->isSMTP();<br/>    $mail->Host = 'smtp.gmail.com';<br/>    $mail->SMTPAuth = true;<br/>    $mail->Username = 'your@gmail.com';<br/>    $mail->Password = 'app_password';  // пароль приложения!<br/>    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;<br/>    $mail->Port = 587;<br/>    $mail->CharSet = 'UTF-8';<br/>    <br/>    // Отправитель и получатель<br/>    $mail->setFrom('from@example.com', 'Мой Сайт');<br/>    $mail->addAddress('to@example.com', 'Получатель');<br/>    <br/>    // Контент<br/>    $mail->isHTML(true);<br/>    $mail->Subject = 'Тема письма';<br/>    $mail->Body = '&lt;h1&gt;Привет!&lt;/h1&gt;&lt;p&gt;Это &lt;b&gt;HTML&lt;/b&gt; письмо&lt;/p&gt;';<br/>    $mail->AltBody = 'Привет! Это текстовое письмо';<br/>    <br/>    $mail->send();<br/>    echo 'Письмо отправлено!';<br/>} catch (Exception $e) {<br/>    echo "Ошибка: {$mail->ErrorInfo}";<br/>}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>mail()</code> — встроенная, но ограниченная<br/>• PHPMailer — библиотека, устанавливается через Composer<br/>• <code>isSMTP()</code> — отправка через SMTP-сервер (надёжно!)<br/>• <code>isHTML(true)</code> — HTML-письма с форматированием<br/>• <code>AltBody</code> — текстовая версия для клиентов без HTML<br/>• Для Gmail нужен «пароль приложения» (не основной пароль!)
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда используй PHPMailer (или аналоги) вместо <code>mail()</code>. С SMTP-аутентификацией письма доходят надёжнее и реже попадают в спам. Установка через Composer: <code>composer require phpmailer/phpmailer</code>.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Использовать основной пароль от Gmail в PHPMailer. Google блокирует такие попытки! Нужно создать «Пароль приложения» в настройках безопасности Google-аккаунта.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>mail()</code> — встроенная, но не рекомендуется<br/>✅ PHPMailer — современное решение<br/>✅ SMTP-аутентификация — надёжная доставка<br/>✅ HTML-письма с <code>isHTML(true)</code><br/>✅ Composer для установки библиотек
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Отправь тестовое письмо через <code>mail()</code>.<br/><br/>📝 <b>Задание 2:</b> Установи PHPMailer через Composer и отправь HTML-письмо.<br/><br/>📝 <b>Задание 3:</b> Создай форму обратной связи, которая отправляет письмо администратору.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему письма, отправленные через <code>mail()</code>, часто попадают в спам?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой сайт научился отправлять письма! Подтверждение регистрации, восстановление пароля, рассылки — всё это теперь в твоих силах. 📧
+        </p>
+
+    </body>
+</html>

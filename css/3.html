@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 3</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🌈 Цвета в CSS: раскрашиваем мир</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться задавать цвета в CSS всеми возможными способами и управлять цветом текста и фона.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Цвет в CSS можно задать несколькими способами:
+            <ol>
+                <li>Именованные цвета — просто английское название:<br/>
+                    <pre>
+color: red;
+color: dodgerblue;
+color: tomato;</pre>
+                </li>
+                <li>HEX-код — решётка + 6 символов (0-9, A-F):<br/>
+                    <pre>
+color: #FF0000;   /* Красный */
+color: #00FF00;   /* Зелёный */
+color: #0000FF;   /* Синий */
+color: #333;      /* Сокращённо: #333 = #333333 */</pre>
+                </li>
+                <li>RGB — Red, Green, Blue (0-255):<br/>
+                    <pre>
+color: rgb(255, 0, 0);       /* Красный */
+color: rgb(0, 128, 0);       /* Тёмно-зелёный */</pre>
+                </li>
+                <li>RGBA — RGB + Альфа-канал (прозрачность 0-1):<br/>
+                    <pre>
+color: rgba(0, 0, 0, 0.5);   /* Полупрозрачный чёрный */
+background-color: rgba(255, 0, 0, 0.3);</pre>
+                </li>
+                <li>HSL / HSLA — Hue, Saturation, Lightness:<br/>
+                    <pre>
+color: hsl(0, 100%, 50%);     /* Красный */
+color: hsla(240, 100%, 50%, 0.7);</pre>
+                </li>
+            </ol>
+
+            Основные свойства:
+            <ul>
+                <li><code>color</code> — цвет текста</li>
+                <li><code>background-color</code> — цвет фона элемента</li>
+            </ul>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>color</code> — красит ТЕКСТ</li>
+            <li><code>background-color</code> — красит ФОН позади текста</li>
+            <li><code>rgba(0,0,0,0.5)</code> — последнее число (0.5) = 50% прозрачности</li>
+            <li>HEX <code>#FF00AA</code>: FF=красный, 00=зелёный, AA=синий</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй HEX для сплошных цветов и RGBA, когда нужна прозрачность. А чтобы быстро подобрать цвет — гугли «color picker» или используй DevTools (F12).
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть решётку # в HEX. <code>color: FF0000;</code> не сработает. Всегда: <code>color: #FF0000;</code>
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li>Именованные цвета: <code>red</code>, <code>blue</code></li>
+            <li>HEX: <code>#FF0000</code>, <code>#333</code></li>
+            <li>RGB/RGBA: <code>rgb(255,0,0)</code>, <code>rgba(0,0,0,0.5)</code></li>
+            <li>HSL/HSLA: <code>hsl(0,100%,50%)</code></li>
+            <li><code>color</code> — текст, <code>background-color</code> — фон</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай 5 <code>&lt;div&gt;</code> и раскрась каждый разным способом: именованный, HEX, RGB, RGBA, HSL.</li>
+            <li>Создай параграф с полупрозрачным красным фоном и чёрным текстом.</li>
+            <li>Найди в интернете HEX-код своего любимого цвета и используй его для заголовка.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Зачем нужна прозрачность (RGBA), если можно просто подобрать похожий непрозрачный цвет?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Мир заиграл красками! Ты теперь умеешь раскрашивать сайт как художник. Дальше — больше! 🎨
+        </p>
+
+    </body>
+</html>

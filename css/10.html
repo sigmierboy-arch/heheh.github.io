@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 10</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🧊 Позиционирование: static, relative, absolute, fixed, sticky</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить все типы позиционирования (<code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>) и свойство <code>z-index</code>.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            position — как элемент ведёт себя в потоке:
+            <ol>
+                <li>static (по умолчанию) — обычное поведение. <code>top/left/right/bottom</code> не работают.</li>
+                <li>relative — сдвигается ОТНОСИТЕЛЬНО своего обычного места:<pre>
+.box {
+    position: relative;
+    top: 10px;   /* сдвинули вниз на 10px */
+    left: 20px;  /* сдвинули вправо на 20px */
+}</pre></li>
+                <li>absolute — «вырывается» из потока, позиционируется относительно ближайшего позиционированного предка:<pre>
+.child {
+    position: absolute;
+    top: 0;
+    right: 0;  /* прилип к правому верхнему углу родителя */
+}
+.parent {
+    position: relative;  /* чтобы absolute считал от него! */
+}</pre></li>
+                <li>fixed — фиксируется относительно ОКНА БРАУЗЕРА:<pre>
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;  /* прилип к верху, всегда виден */
+}</pre></li>
+                <li>sticky —«прилипает» при прокрутке:<pre>
+.nav {
+    position: sticky;
+    top: 0;  /* как только доходит до верха — прилипает */
+}</pre></li>
+            </ol>
+
+            z-index — кто сверху (работает ТОЛЬКО с позиционированными элементами):
+            <pre>
+.modal {
+    position: fixed;
+    z-index: 1000;  /* поверх всего */
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>static</code> — обычный поток</li>
+            <li><code>relative</code> — сдвиг от своего места (место сохраняется)</li>
+            <li><code>absolute</code> — позиция от предка с <code>position: relative</code></li>
+            <li><code>fixed</code> — позиция от окна браузера</li>
+            <li><code>sticky</code> — гибрид relative и fixed</li>
+            <li><code>z-index</code> — слои (чем больше, тем выше)</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Если <code>absolute</code> ведёт себя не так, как ожидаешь — проверь, задан ли родителю <code>position: relative</code>. Без этого absolute будет считать от <code>&lt;body&gt;</code>!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Думать, что <code>z-index</code> работает всегда. Нет! Только для элементов с <code>position</code>, отличным от <code>static</code>. Проверь это первым делом!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>static</code> — по умолчанию</li>
+            <li><code>relative</code> — сдвиг от своего места</li>
+            <li><code>absolute</code> — от позиционированного предка</li>
+            <li><code>fixed</code> — от окна браузера</li>
+            <li><code>sticky</code> — прилипает при прокрутке</li>
+            <li><code>z-index</code> — слои</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай блок с <code>position: relative</code> и внутри него — блок с <code>position: absolute</code>. Помести дочерний блок в правый нижний угол.</li>
+            <li>Создай «липкую» шапку с <code>position: sticky; top: 0;</code>. Добавь много текста и проверь, что шапка прилипает при прокрутке.</li>
+            <li>Создай модальное окно (поверх всего) с <code>position: fixed</code> и <code>z-index: 1000</code>.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>sticky</code> не работает, если у родителя задан <code>overflow: hidden</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Позиционирование — это управление пространством. Теперь ты можешь разместить элемент в любом месте экрана. Это как телекинез! 🧙‍♂️
+        </p>
+
+    </body>
+</html>

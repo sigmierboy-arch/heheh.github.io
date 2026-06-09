@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 12</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🖱️ События: click, input, submit, клавиатура, мышь</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться обрабатывать события: клики, ввод текста, отправку форм, нажатия клавиш.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Событие</b> — это сигнал от браузера о том, что что-то произошло (клик, ввод, загрузка).\n\n<b>Способ 1: addEventListener (ЛУЧШИЙ! 🔥):</b>\n<pre>const button = document.querySelector('button');\n\nbutton.addEventListener('click', function() {\n    alert('Кнопка нажата!');\n});\n\n// Со стрелочной функцией:\nbutton.addEventListener('click', () => {\n    console.log('Клик!');\n});</pre>\n\n<b>Способ 2: onclick (устаревший, только ОДИН обработчик):</b>\n<pre>button.onclick = function() {\n    alert('Клик!');\n};</pre>\n\n<b>Популярные события:</b>\n<pre>// Мышь\nelement.addEventListener('click', handler);      // клик\nelement.addEventListener('dblclick', handler);   // двойной клик\nelement.addEventListener('mouseover', handler);  // наведение\nelement.addEventListener('mouseout', handler);   // уход курсора\n\n// Клавиатура\ndocument.addEventListener('keydown', handler);  // нажатие клавиши\ndocument.addEventListener('keyup', handler);    // отпускание\n\n// Формы\ninput.addEventListener('input', handler);   // ввод текста\ninput.addEventListener('change', handler);  // изменение + уход фокуса\nform.addEventListener('submit', handler);  // отправка формы\n\n// Загрузка\ndocument.addEventListener('DOMContentLoaded', handler); // DOM готов</pre>\n\n<b>Объект события (event):</b>\n<pre>button.addEventListener('click', function(event) {\n    console.log(event.target);  // элемент, на котором сработало\n    console.log(event.type);    // 'click'\n    event.preventDefault();     // отменить действие по умолчанию\n});</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>.addEventListener('событие', функция)</code> — подписка\n• <code>'click'</code> — клик мыши\n• <code>'input'</code> — каждое изменение в поле ввода\n• <code>'submit'</code> — отправка формы\n• <code>'keydown'</code> — нажатие клавиши\n• <code>event.target</code> — кто вызвал событие\n• <code>event.preventDefault()</code> — отмена стандартного поведения
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>addEventListener</code> вместо <code>onclick</code>. Он позволяет повесить НЕСКОЛЬКО обработчиков на одно событие и легко их удалять.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть про <code>event.preventDefault()</code> при отправке формы. Страница перезагрузится, и весь JavaScript-код потеряет состояние!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ События — действия пользователя (клик, ввод, загрузка)\n✅ <code>.addEventListener()</code> — подписка на событие\n✅ <code>'click', 'input', 'submit', 'keydown'</code> — типы событий\n✅ <code>event.target</code> — источник события\n✅ <code>event.preventDefault()</code> — отмена действия по умолчанию
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай кнопку, при клике на которую меняется текст в абзаце.\n\n📝 <b>Задание 2:</b> Создай поле ввода, при вводе текста в которое дублируется текст в <code>&lt;span&gt;</code> ниже.\n\n📝 <b>Задание 3:</b> Отследи нажатие клавиши <code>Enter</code> и выведи сообщение в консоль.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>addEventListener</code> лучше, чем <code>onclick</code>? Приведи минимум две причины.
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой сайт ОЖИЛ! Он реагирует на пользователя: на клики, ввод текста, нажатия клавиш. Это настоящая интерактивность! 🖱️
+        </p>
+
+    </body>
+</html>

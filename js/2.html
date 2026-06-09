@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 2</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📦 Переменные: let, const и var</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться создавать переменные с помощью <code>let</code> и <code>const</code>, понять основные типы данных и разницу между ними.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Переменная</b> — это как коробка с этикеткой, в которой мы храним данные.<br/><br/><b>Три способа объявить переменную:</b><br/><pre>// СОВРЕМЕННЫЙ способ (меняется)<br/>let name = 'Анна';<br/>let age = 25;<br/><br/>// КОНСТАНТА (не меняется)<br/>const PI = 3.14159;<br/>const BIRTH_YEAR = 1999;<br/><br/>// УСТАРЕВШИЙ (не используй!)<br/>var oldWay = 'не надо так';</pre><br/><br/><b>Основные типы данных:</b><br/><pre>// Число (Number)<br/>let count = 42;<br/>let price = 19.99;<br/><br/>// Строка (String)<br/>let message = 'Привет!';<br/>let name = "Иван";<br/>let template = `Привет, ${name}!`; // шаблонная строка<br/><br/>// Булево (Boolean)<br/>let isLoggedIn = true;<br/>let isAdmin = false;<br/><br/>// null — «ничего», пусто<br/>let empty = null;<br/><br/>// undefined — значение не присвоено<br/>let notDefined;<br/>console.log(notDefined); // undefined</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>let</code> — переменная, можно перезаписывать<br/>• <code>const</code> — константа, НЕЛЬЗЯ перезаписывать (но объекты/массивы внутри менять можно)<br/>• <code>var</code> — НЕ ИСПОЛЬЗУЙ (устарел, странная область видимости)<br/>• <code>${}</code> — вставка переменной в шаблонную строку (обратные кавычки!)<br/>• Типы: Number, String, Boolean, null, undefined
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            По умолчанию используй <code>const</code>! Если знаешь, что значение будет меняться — только тогда <code>let</code>. Это делает код предсказуемее и защищает от случайных перезаписей.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Пытаться перезаписать <code>const</code>. <code>const x = 5; x = 10;</code> — ОШИБКА! Консоль покажет <code>TypeError: Assignment to constant variable</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>let</code> — изменяемая переменная<br/>✅ <code>const</code> — константа (не перезаписывается)<br/>✅ <code>var</code> — НЕ ИСПОЛЬЗОВАТЬ<br/>✅ Типы: Number, String, Boolean, null, undefined<br/>✅ Шаблонные строки: <code>`Привет, ${name}`</code>
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай переменные для имени, возраста и города. Выведи их в консоль и через <code>alert()</code>.<br/><br/>📝 <b>Задание 2:</b> Попробуй изменить <code>const</code>. Посмотри на ошибку в консоли.<br/><br/>📝 <b>Задание 3:</b> Создай шаблонную строку: «Меня зовут ..., мне ... лет, я из ...».
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>const</code> не защищает содержимое массива или объекта от изменений?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Переменные — это алфавит программирования. Освоил их — и ты уже можешь хранить любую информацию! 📦
+        </p>
+
+    </body>
+</html>

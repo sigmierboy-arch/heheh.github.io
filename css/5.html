@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 5</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>✍️ Шрифты: font-family, font-size, font-weight, line-height</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться управлять шрифтами: выбирать гарнитуру, задавать размер, жирность, курсив и межстрочный интервал.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Основные свойства шрифтов:
+            <ol>
+                <li>font-family — семейство шрифта. Всегда указывай запасные варианты!<br/>
+                    <pre>
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+}</pre>
+                </li>
+                <li>font-size — размер шрифта:<br/>
+                    <pre>
+p {
+    font-size: 16px;    /* пиксели */
+    font-size: 1.2em;   /* относительно родителя */
+    font-size: 1.5rem;  /* относительно корня (html) */
+}</pre>
+                </li>
+                <li>font-weight — жирность:<br/>
+                    <pre>
+font-weight: normal;   /* 400 */
+font-weight: bold;     /* 700 */
+font-weight: 300;      /* Light */
+font-weight: 900;      /* Black */</pre>
+                </li>
+                <li>font-style — начертание:<br/>
+                    <pre>
+font-style: italic;
+font-style: normal;</pre>
+                </li>
+                <li>line-height — межстрочный интервал:<br/>
+                    <pre>
+line-height: 1.5;  /* 150% от размера шрифта — золотой стандарт */</pre>
+                </li>
+                <li>text-align — выравнивание:<br/>
+                    <pre>
+text-align: center;
+text-align: justify;
+text-align: right;</pre>
+                </li>
+            </ol>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ol>
+            <li><code>font-family: 'Roboto', Arial, sans-serif;</code> — если Roboto нет, берём Arial, если и его нет — любой без засечек</li>
+            <li><code>font-size: 16px</code> — абсолютный размер</li>
+            <li><code>font-size: 1.5rem</code> — относительный (1.5 × базовый размер html)</li>
+            <li><code>line-height: 1.5</code> — без единиц! Умножается на font-size</li>
+        </ol>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>rem</code> для размеров шрифта! В отличие от <code>px</code>, пользователь может масштабировать текст в браузере. А <code>line-height: 1.5</code> — это комфортное чтение.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть кавычки у названия шрифта из двух слов. <code>font-family: Times New Roman;</code> — ОШИБКА! Правильно: <code>font-family: 'Times New Roman', serif;</code>
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>font-family</code> — гарнитура (с запасными)</li>
+            <li><code>font-size</code> — размер (px, em, rem)</li>
+            <li><code>font-weight</code> — жирность (100-900)</li>
+            <li><code>font-style</code> — курсив</li>
+            <li><code>line-height</code> — межстрочный интервал</li>
+            <li><code>text-align</code> — выравнивание</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Подключи Google Fonts (выбери любой шрифт) и примени его к заголовкам.</li>
+            <li>Создай статью с заголовком и текстом. Задай: заголовок — жирный 32px, текст — 16px с <code>line-height: 1.6</code>.</li>
+            <li>Поэкспериментируй с <code>rem</code>: задай <code>html { font-size: 20px; }</code> и используй <code>1.5rem</code> для параграфов.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему профессиональные верстальщики предпочитают rem вместо px для шрифтов?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой текст стал не просто читаемым, а типографски красивым! Хорошая типографика — признак профи. 📖
+        </p>
+
+    </body>
+</html>

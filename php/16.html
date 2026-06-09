@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 16</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📊 Работа с формами и БД вместе</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Связать формы и базу данных в единое приложение: создание, чтение, обновление и удаление записей.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>CRUD — четыре основные операции:</b><br/>• <b>C</b>reate — создать<br/>• <b>R</b>ead — прочитать<br/>• <b>U</b>pdate — обновить<br/>• <b>D</b>elete — удалить<br/><br/><b>Практический пример — список задач:</b><br/><br/><pre>// index.php — единая точка входа<br/>require_once 'db.php';  // подключение к БД<br/><br/>// Определяем действие<br/>$action = $_GET['action'] ?? 'list';<br/><br/>switch ($action) {<br/>    case 'add':<br/>        // Показать форму добавления или обработать<br/>        if ($_SERVER['REQUEST_METHOD'] === 'POST') {<br/>            $title = $_POST['title'] ?? '';<br/>            $stmt = $pdo->prepare('INSERT INTO todos (title) VALUES (:title)');<br/>            $stmt->execute(['title' => $title]);<br/>            header('Location: index.php');  // редирект после POST<br/>            exit;<br/>        }<br/>        // Показать форму<br/>        require 'templates/add.php';<br/>        break;<br/>        <br/>    case 'delete':<br/>        $id = $_GET['id'] ?? 0;<br/>        $stmt = $pdo->prepare('DELETE FROM todos WHERE id = :id');<br/>        $stmt->execute(['id' => $id]);<br/>        header('Location: index.php');<br/>        exit;<br/>        <br/>    case 'edit':<br/>        $id = $_GET['id'] ?? 0;<br/>        if ($_SERVER['REQUEST_METHOD'] === 'POST') {<br/>            $stmt = $pdo->prepare('UPDATE todos SET title = :title WHERE id = :id');<br/>            $stmt->execute(['title' => $_POST['title'], 'id' => $id]);<br/>            header('Location: index.php');<br/>            exit;<br/>        }<br/>        $stmt = $pdo->prepare('SELECT * FROM todos WHERE id = :id');<br/>        $stmt->execute(['id' => $id]);<br/>        $todo = $stmt->fetch();<br/>        require 'templates/edit.php';<br/>        break;<br/>        <br/>    default:<br/>        // Список всех задач<br/>        $todos = $pdo->query('SELECT * FROM todos ORDER BY id DESC')->fetchAll();<br/>        require 'templates/list.php';<br/>}</pre><br/><br/><b>Паттерн Post/Redirect/Get (PRG):</b><br/>После обработки POST — всегда делай редирект. Это prevents повторную отправку формы при обновлении страницы!
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • Одна точка входа (<code>index.php?action=...</code>)<br/>• <code>switch</code> маршрутизирует запросы<br/>• После POST — <code>header('Location: ...')</code> (редирект!)<br/>• Шаблоны в отдельной папке <code>templates/</code><br/>• Чистый и организованный код
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда используй <b>Post/Redirect/Get (PRG)</b>: после обработки POST-запроса делай редирект на GET. Это prevents дублирование данных при обновлении страницы.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Не делать редирект после обработки POST. Пользователь нажимает F5 — и данные отправляются повторно. Дубли в БД!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ CRUD — 4 основные операции<br/>✅ Одна точка входа с маршрутизацией<br/>✅ Post/Redirect/Get (PRG) — защита от дублей<br/>✅ Шаблоны отдельно от логики<br/>✅ <code>header('Location: ...')</code> — редирект
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай CRUD для списка задач (добавление, просмотр, удаление).<br/><br/>📝 <b>Задание 2:</b> Добавь возможность редактирования задачи.<br/><br/>📝 <b>Задание 3:</b> Реализуй отметку задачи как выполненной (чекбокс).
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему после обработки POST-запроса важно делать редирект?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты создал полноценный CRUD! Это основа 90% веб-приложений: блоги, магазины, CRM-системы. Архитектура твоего кода стала профессиональной! 📊
+        </p>
+
+    </body>
+</html>

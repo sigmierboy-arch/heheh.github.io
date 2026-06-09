@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 8</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📐 Свойство display: block, inline, inline-block, none</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Разобраться с типами отображения элементов (display) и научиться менять их поведение: блочный, строчный, строчно-блочный, скрытый.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            display — главное свойство, определяющее поведение элемента в потоке.
+            <ol>
+                <li>display: block (блочный)
+                    <ul>
+                        <li>Занимает ВСЮ доступную ширину</li>
+                        <li>Начинается с новой строки</li>
+                        <li><code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;-&lt;h6&gt;</code>, <code>&lt;section&gt;</code></li>
+                    </ul>
+                </li>
+                <li>display: inline (строчный)
+                    <ul>
+                        <li>Занимает место ПО СОДЕРЖИМОМУ</li>
+                        <li>НЕ начинает новую строку</li>
+                        <li><code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code></li>
+                        <li>НЕЛЬЗЯ задать width/height!</li>
+                    </ul>
+                </li>
+                <li>display: inline-block (строчно-блочный) 🔥
+                    <ul>
+                        <li>Как inline (в строку), НО можно задавать width и height!</li>
+                        <li>Идеально для карточек в ряд</li>
+                    </ul>
+                </li>
+                <li>display: none (скрытый)
+                    <ul>
+                        <li>Элемент ИСЧЕЗАЕТ из потока (как будто его нет)</li>
+                        <li>Отличается от <code>visibility: hidden</code> (место остаётся)</li>
+                    </ul>
+                </li>
+            </ol>
+            <pre>
+.card {
+    display: inline-block;
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ol>
+            <li><code>block</code> — «я — кирпич, занимаю весь ряд»</li>
+            <li><code>inline</code> — «я — слово в предложении»</li>
+            <li><code>inline-block</code> — «я — кирпичик в строку, но с размерами»</li>
+            <li><code>none</code> — «меня нет» (место не занимаю)</li>
+            <li><code>visibility: hidden</code> — «я невидим, но место моё»</li>
+        </ol>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Если нужно выстроить карточки в ряд, используй <code>display: inline-block</code> (или Flexbox, о нём позже).
+            А чтобы убрать пробелы между inline-block элементами — задай родителю <code>font-size: 0</code> (а детям верни обратно).
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Пытаться задать <code>width</code> и <code>height</code> строчному элементу (inline).
+            <code>span { width: 100px; }</code> — НЕ РАБОТАЕТ! Сначала смени display на <code>inline-block</code> или <code>block</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>display: block</code> — блочный (вся ширина, с новой строки)</li>
+            <li><code>display: inline</code> — строчный (по содержимому)</li>
+            <li><code>display: inline-block</code> — строчный + можно размеры</li>
+            <li><code>display: none</code> — скрыть (место исчезает)</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай три <code>&lt;div&gt;</code>, задай им <code>display: inline-block</code> и убедись, что они встали в один ряд.</li>
+            <li>Попробуй задать ширину и высоту <code>&lt;span&gt;</code>. Потом смени ему <code>display: inline-block</code> и сравни.</li>
+            <li>Создай блок с <code>display: none</code> и такой же с <code>visibility: hidden</code>. Посмотри разницу в расположении остальных элементов.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Где в реальной жизни пригодится <code>visibility: hidden</code> вместо <code>display: none</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Понимание display — это как выучить ноты в музыке. Дальше пойдут аккорды (Flexbox) и симфонии (Grid)! 🎵
+        </p>
+
+    </body>
+</html>

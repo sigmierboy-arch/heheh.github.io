@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 7</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔁 Методы массивов: forEach, map, filter, find, reduce</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить функциональные методы массивов, которые заменяют циклы и делают код чище и выразительнее.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Современный JavaScript предлагает крутые методы для работы с массивами. Они принимают <b>колбэк-функцию</b>.<br/><br/><b>1. forEach</b> — просто перебрать (без возврата):<br/><pre>let fruits = ['яблоко', 'банан', 'киви'];<br/>fruits.forEach(function(item, index) {<br/>    console.log(`${index}: ${item}`);<br/>});<br/>// 0: яблоко, 1: банан, 2: киви</pre><br/><br/><b>2. map</b> — ТРАНСФОРМИРОВАТЬ каждый элемент (возвращает новый массив!):<br/><pre>let numbers = [1, 2, 3];<br/>let doubled = numbers.map(n => n * 2);<br/>console.log(doubled);  // [2, 4, 6]</pre><br/><br/><b>3. filter</b> — ОТФИЛЬТРОВАТЬ (вернуть только подходящие):<br/><pre>let ages = [12, 18, 25, 14, 30];<br/>let adults = ages.filter(age => age >= 18);<br/>console.log(adults);  // [18, 25, 30]</pre><br/><br/><b>4. find</b> — НАЙТИ первый подходящий:<br/><pre>let users = [<br/>    {name: 'Аня', age: 25},<br/>    {name: 'Ваня', age: 17},<br/>    {name: 'Катя', age: 30}<br/>];<br/>let user = users.find(u => u.age > 18);<br/>console.log(user);  // {name: 'Аня', age: 25}</pre><br/><br/><b>5. reduce</b> — СВЕРНУТЬ массив в одно значение:<br/><pre>let numbers = [1, 2, 3, 4, 5];<br/>let sum = numbers.reduce((accumulator, current) => accumulator + current, 0);<br/>console.log(sum);  // 15</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>.forEach()</code> — перебор, ничего не возвращает<br/>• <code>.map()</code> — новый массив той же длины (трансформация)<br/>• <code>.filter()</code> — новый массив с подходящими элементами<br/>• <code>.find()</code> — первый подходящий элемент (или undefined)<br/>• <code>.reduce()</code> — аккумуляция (сумма, объект, строка)<br/>• Стрелочная функция: <code>item => item * 2</code>
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Выбирай правильный метод:<br/>• Просто пройтись → <code>forEach</code><br/>• Изменить каждый → <code>map</code><br/>• Отобрать → <code>filter</code><br/>• Найти один → <code>find</code><br/>• Посчитать сумму/объединить → <code>reduce</code>
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Думать, что <code>map</code> меняет исходный массив. НЕТ! <code>map</code> возвращает НОВЫЙ массив. Исходный остаётся неизменным (иммутабельность!).
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>.forEach()</code> — перебор<br/>✅ <code>.map()</code> — трансформация<br/>✅ <code>.filter()</code> — фильтрация<br/>✅ <code>.find()</code> — поиск первого<br/>✅ <code>.reduce()</code> — свёртка в одно значение<br/>✅ Исходный массив НЕ меняется!
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Дан массив чисел <code>[1,2,3,4,5]</code>. С помощью <code>map</code> создай массив квадратов этих чисел.<br/><br/>📝 <b>Задание 2:</b> Из массива чисел отфильтруй только чётные.<br/><br/>📝 <b>Задание 3:</b> Найди сумму всех чисел массива с помощью <code>reduce</code>.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>map</code> не меняет исходный массив? Чем это полезно?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты перешёл на новый уровень! Эти методы — визитная карточка современного JavaScript-разработчика. Код стал чище и элегантнее! 🎯
+        </p>
+
+    </body>
+</html>

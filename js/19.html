@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 19</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>💾 LocalStorage: сохраняем данные в браузере</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться сохранять данные в браузере пользователя с помощью LocalStorage и SessionStorage.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>LocalStorage</b> — это хранилище «ключ-значение» в браузере. Данные сохраняются даже после закрытия браузера!<br/><br/><b>Основные операции:</b><br/><pre>// Сохранить (только строки!)<br/>localStorage.setItem('username', 'Анна');<br/><br/>// Получить<br/>const name = localStorage.getItem('username');<br/>console.log(name);  // 'Анна'<br/><br/>// Удалить конкретный ключ<br/>localStorage.removeItem('username');<br/><br/>// Очистить ВСЁ хранилище<br/>localStorage.clear();<br/><br/>// Количество записей<br/>console.log(localStorage.length);</pre><br/><br/><b>Хранение объектов (сериализация):</b><br/><pre>const user = {<br/>    name: 'Петя',<br/>    age: 30,<br/>    settings: { theme: 'dark' }<br/>};<br/><br/>// Сохраняем объект → JSON-строка<br/>localStorage.setItem('user', JSON.stringify(user));<br/><br/>// Получаем JSON-строку → объект<br/>const savedUser = JSON.parse(localStorage.getItem('user'));<br/>console.log(savedUser.name);  // 'Петя'</pre><br/><br/><b>Практический пример — тёмная тема:</b><br/><pre>// При загрузке страницы<br/>const savedTheme = localStorage.getItem('theme');<br/>if (savedTheme === 'dark') {<br/>    document.body.classList.add('dark-mode');<br/>}<br/><br/>// При переключении<br/>button.addEventListener('click', () => {<br/>    document.body.classList.toggle('dark-mode');<br/>    const currentTheme = document.body.classList.contains('dark-mode') <br/>        ? 'dark' <br/>        : 'light';<br/>    localStorage.setItem('theme', currentTheme);<br/>});</pre><br/><br/><b>SessionStorage</b> — то же самое, но данные живут только до закрытия вкладки:<br/><pre>sessionStorage.setItem('temp', 'временные данные');</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>localStorage.setItem('ключ', 'значение')</code> — сохранить<br/>• <code>localStorage.getItem('ключ')</code> — получить<br/>• <code>localStorage.removeItem('ключ')</code> — удалить один<br/>• <code>localStorage.clear()</code> — удалить всё<br/>• <code>JSON.stringify(obj)</code> — объект → строка<br/>• <code>JSON.parse(str)</code> — строка → объект<br/>• LocalStorage живёт вечно (пока не удалят), SessionStorage — до закрытия вкладки
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            LocalStorage отлично подходит для: темы оформления, настроек пользователя, черновиков форм, токенов авторизации (НЕ паролей!). Максимальный размер — около 5-10 МБ.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Пытаться сохранить объект напрямую: <code>localStorage.setItem('user', user)</code>. Сохранится строка <code>[object Object]</code>! Всегда используй <code>JSON.stringify()
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ LocalStorage — хранилище в браузере<br/>✅ <code>setItem</code>, <code>getItem</code>, <code>removeItem</code>, <code>clear</code><br/>✅ Только строки! Объекты → <code>JSON.stringify</code><br/>✅ <code>JSON.parse</code> — обратно в объект<br/>✅ Данные живут до удаления
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Сохрани имя пользователя в LocalStorage и отобрази его на странице при загрузке.<br/><br/>📝 <b>Задание 2:</b> Реализуй счётчик посещений страницы: при каждом обновлении увеличивай число в LocalStorage.<br/><br/>📝 <b>Задание 3:</b> Создай переключатель тёмной темы, которая сохраняется между сессиями.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему НЕЛЬЗЯ хранить пароли в LocalStorage? Чем это опасно?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой сайт обрёл память! Он запоминает пользователя и его настройки. LocalStorage — это как маленькая база данных прямо в браузере. 💾
+        </p>
+
+    </body>
+</html>

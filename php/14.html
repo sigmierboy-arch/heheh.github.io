@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 14</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🗄️ Базы данных и MySQL: первые шаги</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять основы реляционных баз данных, создать свою первую БД и таблицу в MySQL.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>База данных (БД)</b> — организованное хранилище данных. MySQL — самая популярная реляционная БД для PHP.<br/><br/><b>Основные понятия:</b><br/>• <b>База данных</b> — контейнер для таблиц<br/>• <b>Таблица</b> — структура с колонками и строками<br/>• <b>Колонка (поле)</b> — тип данных (имя, возраст, email)<br/>• <b>Строка (запись)</b> — одна единица данных<br/>• <b>Первичный ключ (PRIMARY KEY)</b> — уникальный идентификатор<br/><br/><b>Создание БД через phpMyAdmin:</b><br/>1. Открыть <code>http://localhost/phpmyadmin</code><br/>2. Нажать «Создать БД»<br/>3. Ввести имя (например, <code>myapp</code>)<br/>4. Выбрать кодировку <code>utf8mb4_general_ci</code><br/><br/><b>Создание таблицы SQL-запросом:</b><br/><pre>CREATE TABLE users (<br/>    id INT AUTO_INCREMENT PRIMARY KEY,<br/>    name VARCHAR(100) NOT NULL,<br/>    email VARCHAR(150) UNIQUE NOT NULL,<br/>    age INT,<br/>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br/>);</pre><br/><br/><b>Типы данных MySQL:</b><br/>• <code>INT</code> — целое число<br/>• <code>VARCHAR(N)</code> — строка переменной длины<br/>• <code>TEXT</code> — длинный текст<br/>• <code>DATE</code>, <code>DATETIME</code>, <code>TIMESTAMP</code> — даты<br/>• <code>DECIMAL(10,2)</code> — деньги<br/>• <code>BOOLEAN</code> (TINYINT) — true/false
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>CREATE TABLE имя</code> — создать таблицу<br/>• <code>id INT AUTO_INCREMENT PRIMARY KEY</code> — автоинкрементный ID<br/>• <code>VARCHAR(100) NOT NULL</code> — строка до 100 символов, обязательна<br/>• <code>UNIQUE</code> — значение должно быть уникальным<br/>• <code>DEFAULT CURRENT_TIMESTAMP</code> — значение по умолчанию<br/>• <code>utf8mb4</code> — кодировка для полной поддержки Unicode (включая эмодзи)
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда создавай <code>id</code> с <code>AUTO_INCREMENT PRIMARY KEY</code> для каждой таблицы. Это лучшая практика. Для кодировки выбирай <code>utf8mb4_general_ci</code> — она поддерживает все языки и эмодзи.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть про кодировку или выбрать <code>utf8</code> вместо <code>utf8mb4</code>. С <code>utf8</code> эмодзи и некоторые символы не сохранятся! Всегда <code>utf8mb4</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ БД — организованное хранилище<br/>✅ Таблицы состоят из колонок и строк<br/>✅ <code>PRIMARY KEY</code> + <code>AUTO_INCREMENT</code> — ID<br/>✅ Типы: INT, VARCHAR, TEXT, TIMESTAMP<br/>✅ Кодировка: <code>utf8mb4_general_ci</code>
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай БД <code>myblog</code> через phpMyAdmin.<br/><br/>📝 <b>Задание 2:</b> Создай таблицу <code>posts</code> с полями: id, title, content, created_at.<br/><br/>📝 <b>Задание 3:</b> Добавь несколько записей вручную через phpMyAdmin.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему для ID используют <code>AUTO_INCREMENT</code>, а не генерируют ID в PHP?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты вошёл в мир баз данных! Это то, что отличает простые сайты от серьёзных веб-приложений. Базы данных — основа 99% сайтов! 🗄️
+        </p>
+
+    </body>
+</html>

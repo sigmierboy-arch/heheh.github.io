@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 14</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📐 CSS Grid часть 2: Размещение элементов, области, выравнивание</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться точно размещать элементы в Grid-сетке по номерам линий, использовать именованные области и выравнивать сетку.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>Размещение по линиям:<pre>
+.item {
+    grid-column-start: 1;
+    grid-column-end: 3;    /* займёт колонки 1-2 */
+    grid-row-start: 2;
+    grid-row-end: 4;       /* займёт строки 2-3 */
+}
+/* Сокращённо: */
+.item {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+}
+/* Ещё короче (span — на сколько растянуть): */
+.item {
+    grid-column: span 2;  /* растянуть на 2 колонки */
+}</pre></li>
+            <li>2. Именованные области (grid-template-areas) 🔥:<pre>
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 1fr;
+}
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }</pre>
+                Это буквально РИСУНОК макета текстом! 🎨
+            </li>
+            <li>3. Выравнивание всей сетки:<pre>
+.container {
+    justify-content: center;  /* сетка по центру горизонтально */
+    align-content: center;    /* сетка по центру вертикально */
+    place-content: center;    /* оба сразу */
+}</pre></li>
+            <li>Выравнивание ячеек:<pre>
+.container {
+    justify-items: center;  /* элементы внутри ячеек по горизонтали */
+    align-items: center;    /* элементы внутри ячеек по вертикали */
+    place-items: center;    /* оба сразу */
+}</pre></li>
+        </ol>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>grid-column: 1 / 3</code> — от первой линии до третьей (займёт 2 колонки)</li>
+            <li><code>grid-template-areas</code> — визуальное описание макета текстом!</li>
+            <li><code>grid-area</code> — имя, которое привязывается к области</li>
+            <li><code>place-content</code> — выравнивание всей сетки внутри контейнера</li>
+            <li><code>place-items</code> — выравнивание элементов внутри ячеек</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>grid-template-areas</code> для макетов страниц.
+            Это настолько наглядно, что ты буквально «рисуешь» структуру.
+            Особенно круто для адаптива (просто переопредели области в медиа-запросе)!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть, что линии считаются не от 0, а от 1! Первая линия — 1, вторая — 2. И область с <code>grid-column: 1 / 3</code> займёт ДВЕ колонки (от первой линии до третьей).
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>grid-column/row</code> — размещение по линиям</li>
+            <li><code>grid-template-areas</code> — макет текстом</li>
+            <li><code>grid-area</code> — имя области</li>
+            <li><code>place-content</code> — выравнивание сетки</li>
+            <li><code>place-items</code> — выравнивание в ячейках</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай макет сайта через <code>grid-template-areas</code>: шапка, меню, контент, сайдбар, подвал.</li>
+            <li>Размести элемент так, чтобы он занимал 2 колонки и 2 строки.</li>
+            <li>Используй <code>place-items: center</code>, чтобы все элементы в ячейках были по центру.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>grid-template-areas</code> так удобно для адаптивной вёрстки?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Grid — это лего для профессионалов. Теперь ты можешь собрать макет любой сложности. Ты вырос до архитектора веб-страниц! 🏛️
+        </p>
+
+    </body>
+</html>

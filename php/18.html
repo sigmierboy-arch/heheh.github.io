@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 18</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔐 Авторизация и регистрация: хеширование паролей</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться создавать безопасную систему регистрации и авторизации с хешированием паролей.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>НИКОГДА не храните пароли в открытом виде!</b><br/><br/><b>Регистрация:</b><br/><pre>// register.php<br/>if ($_SERVER['REQUEST_METHOD'] === 'POST') {<br/>    $username = $_POST['username'] ?? '';<br/>    $password = $_POST['password'] ?? '';<br/>    <br/>    // Хеширование пароля<br/>    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);<br/>    <br/>    // Сохранение в БД<br/>    $stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');<br/>    $stmt->execute([<br/>        'username' => $username,<br/>        'password' => $hashedPassword  // хеш, не пароль!<br/>    ]);<br/>    <br/>    echo 'Регистрация успешна!';<br/>}</pre><br/><br/><b>Авторизация (вход):</b><br/><pre>// login.php<br/>if ($_SERVER['REQUEST_METHOD'] === 'POST') {<br/>    $username = $_POST['username'] ?? '';<br/>    $password = $_POST['password'] ?? '';<br/>    <br/>    // Ищем пользователя<br/>    $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');<br/>    $stmt->execute(['username' => $username]);<br/>    $user = $stmt->fetch();<br/>    <br/>    // Проверяем пароль<br/>    if ($user && password_verify($password, $user['password'])) {<br/>        session_start();<br/>        $_SESSION['user_id'] = $user['id'];<br/>        $_SESSION['username'] = $user['username'];<br/>        header('Location: dashboard.php');<br/>        exit;<br/>    } else {<br/>        echo 'Неверный логин или пароль';<br/>    }<br/>}</pre><br/><br/><b>Проверка авторизации на других страницах:</b><br/><pre>session_start();<br/>if (!isset($_SESSION['user_id'])) {<br/>    header('Location: login.php');<br/>    exit;<br/>}<br/>// Пользователь авторизован — показываем контент</pre><br/><br/><b>Выход:</b><br/><pre>session_start();<br/>session_destroy();<br/>header('Location: login.php');</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>password_hash($pass, PASSWORD_DEFAULT)</code> — безопасное хеширование<br/>• <code>password_verify($pass, $hash)</code> — проверка пароля<br/>• НИКОГДА не храни пароли в открытом виде<br/>• Хеш нельзя «расшифровать» обратно<br/>• <code>PASSWORD_DEFAULT</code> — использует лучший доступный алгоритм (сейчас bcrypt)
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда используй <code>password_hash()</code> и <code>password_verify()</code>. Не изобретай своё шифрование! PHP сам выбирает лучший алгоритм и автоматически добавляет «соль» (salt) для защиты от радужных таблиц.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Хранить пароли в БД как есть или использовать <code>md5()</code>/<code>sha1()</code>. Это небезопасно! Только <code>password_hash()</code> с <code>PASSWORD_DEFAULT</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>password_hash()</code> — хеширование<br/>✅ <code>password_verify()</code> — проверка<br/>✅ Сессии для хранения авторизации<br/>✅ Никогда не храни пароли в открытом виде<br/>✅ Проверка авторизации на защищённых страницах
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай таблицу users с полями id, username, password.<br/><br/>📝 <b>Задание 2:</b> Реализуй регистрацию с хешированием пароля.<br/><br/>📝 <b>Задание 3:</b> Создай страницу входа и защищённую страницу, доступную только авторизованным.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему нельзя «восстановить» пароль из хеша, а можно только «сбросить»?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты создал систему авторизации! Это критически важный компонент любого серьёзного приложения. Пароли в безопасности, пользователи защищены! 🔐
+        </p>
+
+    </body>
+</html>

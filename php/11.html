@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 11</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📁 Работа с файлами: чтение и запись</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться работать с файловой системой: читать, записывать, добавлять данные в файлы.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Чтение файла:</b><br/><pre>// Прочитать весь файл в строку<br/>$content = file_get_contents('data.txt');<br/>echo $content;<br/><br/>// Прочитать в массив (каждая строка — элемент)<br/>$lines = file('data.txt');<br/>foreach ($lines as $line) {<br/>    echo $line;<br/>}</pre><br/><br/><b>Запись в файл:</b><br/><pre>// Записать (перезапишет файл!)<br/>$text = 'Новый текст';<br/>file_put_contents('data.txt', $text);<br/><br/>// Добавить в конец (не перезаписывая)<br/>file_put_contents('data.txt', $text, FILE_APPEND);<br/><br/>// Добавить с переводом строки<br/>file_put_contents('data.txt', $text . PHP_EOL, FILE_APPEND);</pre><br/><br/><b>Проверка существования:</b><br/><pre>if (file_exists('data.txt')) {<br/>    echo 'Файл существует';<br/>} else {<br/>    echo 'Файла нет';<br/>}</pre><br/><br/><b>Практический пример — гостевая книга:</b><br/><pre>// Сохранение сообщения<br/>$name = $_POST['name'] ?? 'Аноним';<br/>$message = $_POST['message'] ?? '';<br/>$entry = date('d.m.Y H:i') . " | $name: $message" . PHP_EOL;<br/>file_put_contents('guestbook.txt', $entry, FILE_APPEND);<br/><br/>// Чтение всех сообщений<br/>$messages = file('guestbook.txt');<br/>foreach ($messages as $msg) {<br/>    echo htmlspecialchars($msg) . '&lt;br&gt;';<br/>}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>file_get_contents()</code> — чтение в строку<br/>• <code>file()</code> — чтение в массив строк<br/>• <code>file_put_contents()</code> — запись (перезапись)<br/>• <code>FILE_APPEND</code> — флаг добавления в конец<br/>• <code>PHP_EOL</code> — символ переноса строки (кроссплатформенный)<br/>• <code>file_exists()</code> — проверка существования
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Для простых задач (гостевая книга, логи, заметки) файлового хранения достаточно. Но для серьёзных проектов используй базы данных (MySQL) — о них в следующих уроках!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть про права доступа! PHP должен иметь права на запись в папку/файл. На сервере это обычно настроено, но на локальном может потребоваться <code>chmod 777</code> для папки.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>file_get_contents()</code> — чтение<br/>✅ <code>file_put_contents()</code> — запись<br/>✅ <code>FILE_APPEND</code> — добавление в конец<br/>✅ <code>file_exists()</code> — проверка<br/>✅ <code>PHP_EOL</code> — перенос строки
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай текстовый файл с несколькими строками и прочитай его через <code>file_get_contents()</code>.<br/><br/>📝 <b>Задание 2:</b> Создай простую гостевую книгу: форма добавляет сообщения в файл, а ниже выводится их список.<br/><br/>📝 <b>Задание 3:</b> Добавь дату и время к каждому сообщению.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Какие недостатки у файлового хранения данных по сравнению с базой данных?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой PHP теперь умеет работать с файлами! Это открывает возможности для логирования, хранения данных, загрузки файлов. Ты управляешь информацией! 📁
+        </p>
+
+    </body>
+</html>

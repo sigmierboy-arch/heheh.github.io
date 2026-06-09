@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 11</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🌳 DOM: что это и как с ним работать</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять, что такое DOM-дерево, и научиться находить элементы на странице с помощью JavaScript.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>DOM (Document Object Model)</b> — это представление HTML-страницы в виде дерева объектов, с которыми JavaScript может взаимодействовать.<br/><br/><b>Главный объект — document:</b><br/><pre>// Выведет весь HTML страницы<br/>console.log(document);</pre><br/><br/><b>Поиск элементов:</b><br/><pre>// По id (ОДИН элемент)<br/>const header = document.getElementById('header');<br/><br/>// По классу (КОЛЛЕКЦИЯ, похожа на массив)<br/>const cards = document.getElementsByClassName('card');<br/><br/>// По тегу (КОЛЛЕКЦИЯ)<br/>const paragraphs = document.getElementsByTagName('p');<br/><br/>// УНИВЕРСАЛЬНЫЙ querySelector (ПЕРВЫЙ подходящий) 🔥<br/>const firstCard = document.querySelector('.card');<br/><br/>// querySelectorAll (ВСЕ подходящие) 🔥<br/>const allCards = document.querySelectorAll('.card');</pre><br/><br/><b>Изменение содержимого:</b><br/><pre>const title = document.querySelector('h1');<br/><br/>title.textContent = 'Новый заголовок';  // только текст (безопасно)<br/>title.innerHTML = 'Новый &lt;span&gt;заголовок&lt;/span&gt;';  // HTML (осторожно!)</pre><br/><br/><b>Изменение стилей:</b><br/><pre>const box = document.querySelector('.box');<br/>box.style.backgroundColor = 'red';<br/>box.style.fontSize = '20px';</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>document</code> — корневой объект всей страницы<br/>• <code>getElementById('id')</code> — один элемент (быстрый)<br/>• <code>querySelector('селектор')</code> — ПЕРВЫЙ по CSS-селектору<br/>• <code>querySelectorAll('селектор')</code> — ВСЕ по CSS-селектору<br/>• <code>.textContent</code> — ТОЛЬКО текст (безопасно от XSS)<br/>• <code>.innerHTML</code> — HTML-код (опасно с пользовательским вводом!)<br/>• <code>.style.свойство</code> — инлайн-стили
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Запомни: <code>querySelector</code> — универсальный (один элемент), <code>querySelectorAll</code> — универсальный (коллекция). Они понимают любой CSS-селектор: <code>'.class'</code>, <code>'#id'</code>, <code>'div > p'</code>.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Пытаться использовать методы DOM до загрузки страницы. Скрипт в <code>&lt;head&gt;</code> не видит <code>&lt;body&gt;</code>! Решение: размещать <code>&lt;script&gt;</code> в конце body или использовать <code>DOMContentLoaded</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ DOM — дерево объектов страницы<br/>✅ <code>querySelector()</code> — поиск элемента<br/>✅ <code>querySelectorAll()</code> — поиск коллекции<br/>✅ <code>.textContent</code> — изменить текст<br/>✅ <code>.innerHTML</code> — изменить HTML<br/>✅ <code>.style</code> — изменить стили
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            <b>Задание 1:</b> Найди на странице заголовок <code>&lt;h1&gt;</code> и измени его текст.<br/><br/>📝 <b>Задание 2:</b> Найди все параграфы и выведи их количество в консоль.<br/><br/>📝 <b>Задание 3:</b> Измени цвет фона первого <code>&lt;div&gt;</code> с классом <code>card</code>.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>textContent</code> безопаснее, чем <code>innerHTML</code>? Что такое XSS-атака?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой JavaScript теперь видит HTML! Ты можешь дотянуться до любого элемента на странице и изменить его. Магия становится реальностью! 🌳
+        </p>
+
+    </body>
+</html>

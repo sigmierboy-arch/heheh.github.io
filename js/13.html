@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 13</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🎨 Манипуляции с DOM: создание, добавление, удаление элементов</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться динамически создавать, добавлять, удалять и клонировать HTML-элементы с помощью JavaScript.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            JavaScript может не только читать, но и МЕНЯТЬ структуру страницы.<br/><br/><b>Создание элемента:</b><br/><pre>// Создать (пока не на странице)<br/>const newDiv = document.createElement('div');<br/><br/>// Добавить класс<br/>newDiv.classList.add('card');<br/><br/>// Добавить текст<br/>newDiv.textContent = 'Я новый элемент!';<br/><br/>// Задать атрибут<br/>newDiv.setAttribute('data-id', '123');</pre><br/><br/><b>Добавление на страницу:</b><br/><pre>const parent = document.querySelector('.container');<br/><br/>// В конец родителя<br/>parent.append(newDiv);<br/><br/>// В начало родителя<br/>parent.prepend(newDiv);<br/><br/>// Перед элементом<br/>target.before(newDiv);<br/><br/>// После элемента<br/>target.after(newDiv);<br/><br/>// Старый способ (ещё работает)<br/>parent.appendChild(newDiv);</pre><br/><br/><b>Удаление:</b><br/><pre>element.remove();  // удалить элемент<br/><br/>// Старый способ<br/>parent.removeChild(element);</pre><br/><br/><b>Клонирование:</b><br/><pre>const clone = element.cloneNode(true);  // true = с содержимым</pre><br/><br/><b>Работа с классами:</b><br/><pre>element.classList.add('active');     // добавить<br/>classList.remove('hidden');   // удалить<br/>classList.toggle('dark');     // переключить<br/>classList.contains('active'); // проверить</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>document.createElement('тег')</code> — создать элемент<br/>• <code>.append()</code> — добавить в конец (современный)<br/>• <code>.prepend()</code> — добавить в начало<br/>• <code>.before() / .after()</code> — рядом с элементом<br/>• <code>.remove()</code> — удалить<br/>• <code>.cloneNode(true)</code> — клонировать<br/>• <code>.classList</code> — удобная работа с классами
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Создавай элемент, настраивай его (классы, текст, атрибуты), а потом ОДИН раз добавляй на страницу. Множество вставок по одной — медленно. Для массового добавления используй <code>insertAdjacentHTML</code> или DocumentFragment.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Пытаться использовать <code>append</code> со строкой. <code>parent.append('текст')</code> — текст добавится как текстовый узел. Для HTML-строки используй <code>insertAdjacentHTML('beforeend', '&lt;div&gt;HTML&lt;/div&gt;')</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>createElement()</code> — создание<br/>✅ <code>.append()</code> — в конец<br/>✅ <code>.prepend()</code> — в начало<br/>✅ <code>.remove()</code> — удаление<br/>✅ <code>.classList</code> — работа с классами<br/>✅ <code>.setAttribute()</code> — атрибуты
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай кнопку «Добавить карточку». При клике создавай новый <code>&lt;div&gt;</code> с классом card и текстом.<br/><br/>📝 <b>Задание 2:</b> В каждой карточке сделай кнопку «Удалить», которая удаляет именно эту карточку.<br/><br/>📝 <b>Задание 3:</b> Реализуй переключение тёмной темы с помощью <code>classList.toggle</code>.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Что быстрее: создать 1000 элементов через цикл или через <code>insertAdjacentHTML</code> с одной строкой?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты теперь можешь строить интерфейсы на лету! Добавить, удалить, изменить — всё подвластно твоему JavaScript. Ты — творец веб-страниц! 🎨
+        </p>
+
+    </body>
+</html>

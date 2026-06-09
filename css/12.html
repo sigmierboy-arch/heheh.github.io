@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 12</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔄 Flexbox часть 2: flex-wrap, align-content, gap, свойства элементов</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить продвинутые возможности Flexbox: перенос элементов, выравнивание строк, зазоры и управление размерами flex-элементов.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Свойства контейнера (продолжение):<br/>
+            <br/>
+            flex-wrap — перенос на новую строку:<pre>
+.container {
+    flex-wrap: nowrap;  /* всё в одну строку (по умолч.) */
+    flex-wrap: wrap;    /* переносить */
+    flex-wrap: wrap-reverse; /* переносить в обратном порядке */
+}</pre>
+            align-content — выравнивание СТРОК (работает только с <code>flex-wrap: wrap</code>):<pre>
+align-content: center;
+align-content: space-between;</pre>
+            gap — зазор между элементами (СОВРЕМЕННО! 🔥):<pre>
+.container {
+    gap: 20px;  /* отступы между всеми элементами */
+    gap: 20px 30px;  /* row-gap column-gap */
+}</pre>
+            <br/>
+            Свойства flex-элементов:<br/>
+            <br/>
+            flex-grow — способность расти (0 — не расти):<pre>
+.item {
+    flex-grow: 1;  /* займёт всё доступное пространство */
+}</pre>
+            flex-shrink — способность сжиматься (1 — сжиматься):<br/>
+            flex-basis — базовый размер:<pre>
+.item {
+    flex-basis: 200px;  /* начинаем с 200px */
+}</pre> 
+            Сокращение flex:<pre>
+.item {
+    flex: 1 1 200px;
+    /* flex-grow flex-shrink flex-basis */
+}</pre>
+            align-self — индивидуальное выравнивание:<pre>
+.special {
+    align-self: flex-end;  /* только этот элемент уйдёт вниз */
+}</pre>
+            order — порядок (чем меньше, тем раньше):<pre>
+.first {
+    order: -1;  /* станет первым */
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор кода по косточкам:</h3>
+        <ul>
+            <li><code>flex-wrap: wrap</code> — если не влезают, переносим</li>
+            <li><code>gap: 20px</code> — современная замена margin для flex-элементов</li>
+            <li><code>flex-grow: 1</code> — все элементы разделят свободное место поровну</li>
+            <li><code>flex: 1</code> — сокращение для <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0</code></li>
+            <li><code>order</code> — меняет порядок визуально, не меняя HTML</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>gap</code> вместо <code>margin</code> у flex-элементов. Не будет лишних отступов по краям, и код чище!
+        </p>
+        <p>
+            А <code>flex: 1</code> на всех элементах — и они разделят ширину поровну. Магия равных колонок!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть, что <code>align-content</code> работает только с <code>flex-wrap: wrap</code>. Если элементы в одну строку — используй <code>align-items</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>flex-wrap: wrap</code> — перенос строк</li>
+            <li><code>gap</code> — отступы между элементами</li>
+            <li><code>flex-grow</code> — растягивание</li>
+            <li><code>flex</code> — сокращённая запись</li>
+            <li><code>align-self</code> — индивидуальное выравнивание</li>
+            <li><code>order</code> — порядок</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай галерею карточек с <code>flex-wrap: wrap</code>. Карточки должны переноситься на новую строку, если не влезают.</li>
+            <li>Создай три колонки с помощью <code>flex: 1</code>. Убедись, что они всегда одинаковой ширины.</li>
+            <li>Используй <code>order</code>, чтобы визуально поменять местами два элемента (не меняя HTML)</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>gap</code> лучше, чем <code>margin</code> для отступов между flex-элементами?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты освоил Flexbox на 100%! Теперь ты можешь верстать навигации, галереи, карточки и даже целые страницы. Flexbox — твой лучший друг! 🤝
+        </p>
+
+    </body>
+</html>

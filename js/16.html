@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 16</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🌐 Асинхронность: Promise, .then(), .catch()</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Понять, что такое асинхронность, и научиться работать с Promise: создавать, обрабатывать результат и ошибки.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Асинхронность</b> — это способность выполнять код, не блокируя основной поток. Как заказ пиццы: ты сделал заказ и можешь заниматься делами, пока её готовят.<br/><br/><b>Promise (Обещание)</b> — объект, который представляет результат асинхронной операции.<br/><br/><b>Состояния Promise:</b><br/>• <b>pending</b> — ожидание (пицца готовится)<br/>• <b>fulfilled</b> — выполнено успешно (пицца приехала!)<br/>• <b>rejected</b> — ошибка (пиццу не довезли)<br/><br/><b>Создание Promise:</b><br/><pre>const myPromise = new Promise((resolve, reject) => {<br/>    // асинхронная операция<br/>    setTimeout(() => {<br/>        const success = true;<br/>        if (success) {<br/>            resolve('Успех! 🎉');<br/>        } else {<br/>            reject('Ошибка! 💥');<br/>        }<br/>    }, 2000);<br/>});</pre><br/><br/><b>Обработка Promise:</b><br/><pre>myPromise<br/>    .then(result => {<br/>        console.log('Результат:', result);  // 'Успех! 🎉'<br/>    })<br/>    .catch(error => {<br/>        console.error('Ошибка:', error);<br/>    })<br/>    .finally(() => {<br/>        console.log('Операция завершена (в любом случае)');<br/>    });</pre><br/><br/><b>Цепочки Promise:</b><br/><pre>fetchUser(1)<br/>    .then(user => fetchPosts(user.id))<br/>    .then(posts => console.log(posts))<br/>    .catch(error => console.error('Где-то ошибка:', error));</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>new Promise((resolve, reject) => {...})</code> — создание<br/>• <code>resolve(данные)</code> — успех, переходит в <code>.then()</code><br/>• <code>reject(ошибка)</code> — ошибка, переходит в <code>.catch()</code><br/>• <code>.then()</code> — обработка успеха<br/>• <code>.catch()</code> — обработка ошибки<br/>• <code>.finally()</code> — выполнится всегда<br/>• Цепочка: <code>.then().then().catch()</code>
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда добавляй <code>.catch()</code> в конце цепочки! Необработанные ошибки в Promise могут «упасть» молча, и ты не узнаешь, что что-то сломалось.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть вернуть (<code>return</code>) Promise в цепочке <code>.then()</code>.<br/><pre>fetchUser(1)<br/>    .then(user => {<br/>        fetchPosts(user.id);  // ЗАБЫЛИ return!<br/>    })<br/>    .then(posts => console.log(posts));  // undefined!</pre>
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ Promise — объект для асинхронных операций<br/>✅ <code>resolve()</code> → <code>.then()</code><br/>✅ <code>reject()</code> → <code>.catch()</code><br/>✅ <code>.finally()</code> — в любом случае<br/>✅ Цепочки: <code>.then().then().catch()</code><br/>✅ Всегда возвращай Promise в <code>.then()</code>
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай Promise, который через 2 секунды возвращает строку «Готово!». Обработай результат.<br/><br/>📝 <b>Задание 2:</b> Создай функцию, возвращающую Promise, который иногда завершается ошибкой. Обработай оба случая.<br/><br/>📝 <b>Задание 3:</b> Сделай цепочку из двух Promise: первый генерирует число, второй умножает его.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Чем Promise лучше старых колбэков? Почему их называют «решением проблемы callback hell»?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Асинхронность — это то, что делает JavaScript мощным. Ты теперь понимаешь Promise — ключевую концепцию современной веб-разработки! 🌐
+        </p>
+
+    </body>
+</html>

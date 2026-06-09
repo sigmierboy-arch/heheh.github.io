@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 7</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📦 Границы и тени: border, border-radius, box-shadow, text-shadow</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться создавать рамки, скруглять углы элементов и добавлять тени для объёма и красоты.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>border — рамка (толщина, стиль, цвет):<pre>
+div {
+    border: 2px solid #333;
+    /* толщина стиль цвет */
+    border: 3px dashed red;
+    border: 1px dotted blue;
+}</pre>
+                Стили рамок: <code>solid</code> (сплошная), <code>dashed</code> (пунктир), <code>dotted</code> (точки), <code>double</code> (двойная), <code>none</code> (без рамки).
+            </li>
+            <li>border-radius — скругление углов:<pre>
+div {
+    border-radius: 10px;           /* все углы */
+    border-radius: 50%;            /* идеальный круг! */
+    border-radius: 10px 20px 30px 40px; /* каждый угол отдельно */
+}</pre></li>
+            <li>box-shadow — тень элемента:<pre>
+div {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    /* сдвигX сдвигY размытие цвет */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* популярная тень */
+}</pre></li>
+            <li>text-shadow — тень текста:<pre>
+h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}</pre></li>
+        </ol>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>border: 2px solid #333;</code> — рамка 2px, сплошная, тёмно-серая</li>
+            <li><code>border-radius: 50%</code> — овал/круг (если width=height — идеальный круг)</li>
+            <li><code>box-shadow: X Y размытие цвет</code> — положительный X = тень справа, положительный Y = снизу</li>
+            <li><code>rgba(0,0,0,0.3)</code> — чёрная тень с 30% непрозрачности</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>box-shadow: 0 4px 6px rgba(0,0,0,0.1)</code> для карточек. Это даёт лёгкий, современный эффект приподнятости. Тень без сдвига, с размытием — и элемент «всплывает»!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть <code>solid</code> (стиль) в <code>border</code>. <code>border: 2px red;</code> не сработает. Нужно: <code>border: 2px solid red;</code>
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>border</code> — рамка (толщина, стиль, цвет)</li>
+            <li><code>border-radius</code> — скругление углов (вплоть до круга)</li>
+            <li><code>box-shadow</code> — тень блока</li>
+            <li><code>text-shadow</code> — тень текста</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай 4 <code>&lt;div&gt;</code> с разными стилями рамок: solid, dashed, dotted, double.</li>
+            <li>Создай аватар (квадратную картинку) и скругли её до круга с помощью <code>border-radius: 50%</code>.</li>
+            <li>Создай «приподнятую» карточку с тенью и скруглёнными углами.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему тень делает элемент визуально «приподнятым»? Как это работает с точки зрения восприятия?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Тени и скругления — это то, что превращает плоский дизайн в объёмный. Твои сайты начинают выглядеть как настоящие приложения! 🎴
+        </p>
+
+    </body>
+</html>

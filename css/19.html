@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 19</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>⚡ Переменные CSS (Custom Properties) и функция calc()</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться использовать CSS-переменные для чистого кода и функцию <code>calc()</code> для вычислений.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            CSS-переменные (Custom Properties):<br/>
+            Позволяют хранить значения (цвета, размеры, шрифты) и переиспользовать их.<pre>
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --spacing-unit: 16px;
+    --border-radius: 8px;
+}
+
+.button {
+    background-color: var(--primary-color);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius);
+}
+.card {
+    color: var(--text-color);
+    padding: calc(var(--spacing-unit) * 2);
+}</pre>
+        </p>
+        <p>
+            Преимущества переменных:
+            <ol>
+                <li>Изменил в <code>:root</code> — обновилось везде</li>
+                <li>Можно менять через JavaScript</li>
+                <li>Работают в медиа-запросах:</li>
+            </ol>
+            <pre>
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #222;
+        --text-color: #eee;
+    }
+}</pre>
+        </p>
+        <p>
+            Функция calc():<br/>
+            Математика прямо в CSS!<pre>
+.sidebar {
+    width: calc(100% - 300px);  /* вся ширина минус 300px */
+}
+.column {
+    width: calc((100% - 40px) / 3);  /* три колонки с gap 20px */
+}
+.heading {
+    font-size: calc(1rem + 1vw);  /* адаптивный шрифт! */
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>:root</code> — псевдокласс, означающий корень документа (обычно <code>&lt;html&gt;</code>)</li>
+            <li><code>--имя: значение</code> — объявление переменной (всегда с двумя дефисами)</li>
+            <li><code>var(--имя)</code> — использование переменной</li>
+            <li><code>calc(выражение)</code> — математическое вычисление</li>
+            <li><code>calc(100% - 300px)</code> — динамический расчёт ширины</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Создай систему переменных для всего проекта: цвета, шрифты, отступы, тени, скругления. Это называется «дизайн-токены». Потом легко менять тему или адаптировать под бренд!
+        </p>
+        <p>
+            А <code>calc()</code> + переменные = магия: <code>calc(var(--spacing) * 2)</code>.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть пробелы вокруг операторов в <code>calc()</code>. <code>calc(100%-20px)</code> — ОШИБКА. Правильно: <code>calc(100% - 20px)</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>--имя: значение</code> — объявление переменной</li>
+            <li><code>:root</code> — глобальная область видимости</li>
+            <li><code>var(--имя)</code> — использование</li>
+            <li><code>calc()</code> — математические выражения</li>
+            <li>Переменные + медиа-запросы = тёмная тема</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай набор переменных для цветов и шрифтов в <code>:root</code>. Используй их во всех стилях.</li>
+            <li>Создай адаптивный шрифт с помощью <code>calc()</code>: <code>font-size: calc(16px + 0.5vw)</code>.</li>
+            <li>Реализуй тёмную тему через медиа-запрос и переменные.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Чем CSS-переменные лучше, чем переменные в препроцессорах (SASS/LESS)?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Переменные делают твой код гибким и профессиональным. Изменил один цвет — и весь сайт подстроился. Это уровень сеньора! 🧙‍♂️
+        </p>
+
+    </body>
+</html>

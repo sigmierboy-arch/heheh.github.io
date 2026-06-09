@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 8</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📂 Подключение файлов: include, require, include_once, require_once</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться организовывать код, разделяя его на файлы, и подключать их с помощью <code>include</code> и <code>require</code>.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Зачем разбивать код на файлы?</b><br/>• Переиспользование (шапка и подвал на всех страницах)<br/>• Чистота и организация<br/>• Лёгкость поддержки<br/><br/><b>4 способа подключения:</b><br/><br/><pre>// include — если файла нет, WARNING, скрипт продолжается<br/>include 'header.php';<br/><br/>// require — если файла нет, FATAL ERROR, скрипт ОСТАНАВЛИВАЕТСЯ<br/>require 'config.php';<br/><br/>// _once — подключить ТОЛЬКО один раз (даже если вызвано несколько раз)<br/>include_once 'functions.php';<br/>require_once 'database.php';  // САМЫЙ частый вариант!</pre><br/><br/><b>Практический пример:</b><br/><pre>// header.php<br/>&lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br/>&lt;head&gt;<br/>    &lt;title&gt;&lt;?= $pageTitle ?? 'Мой сайт' ?&gt;&lt;/title&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;header&gt;...&lt;/header&gt;<br/><br/>// index.php<br/>&lt;?php<br/>$pageTitle = 'Главная';<br/>require_once 'header.php';<br/>?&gt;<br/>    &lt;main&gt;Контент страницы&lt;/main&gt;<br/>&lt;?php<br/>require_once 'footer.php';<br/>?&gt;</pre><br/><br/><b>Когда что использовать:</b><br/>• <code>require</code> — для ОБЯЗАТЕЛЬНЫХ файлов (конфиг, БД)<br/>• <code>include</code> — для НЕОБЯЗАТЕЛЬНЫХ (баннер, виджет)<br/>• <code>_once</code> — почти ВСЕГДА (чтобы не было дублирования)
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>include</code> — Warning если нет файла (скрипт продолжается)<br/>• <code>require</code> — Fatal Error если нет файла (скрипт стоп)<br/>• <code>_once</code> — гарантирует однократное подключение<br/>• <code>require_once</code> — самый надёжный и частый вариант<br/>• <code>&lt;?= $var ?&gt;</code> — короткая запись echo
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Структурируй проект так:<br/><pre>/project<br/>    /includes<br/>        header.php<br/>        footer.php<br/>        functions.php<br/>    /config<br/>        database.php<br/>    index.php<br/>    about.php</pre><br/>Используй <code>require_once</code> для всего критичного.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Подключать один и тот же файл несколько раз (например, с функциями). Без <code>_once</code> будет ошибка «Cannot redeclare function». Всегда используй <code>require_once</code> для файлов с функциями!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>include</code> — мягкое подключение (Warning)<br/>✅ <code>require</code> — жёсткое подключение (Fatal Error)<br/>✅ <code>_once</code> — только один раз<br/>✅ <code>require_once</code> — лучший выбор для обязательных файлов<br/>✅ Разделяй код на логические модули
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай три файла: <code>header.php</code>, <code>footer.php</code>, <code>index.php</code>. Подключи шапку и подвал в index.<br/><br/>📝 <b>Задание 2:</b> Создай файл <code>functions.php</code> с функцией. Подключи его через <code>require_once</code> и используй функцию.<br/><br/>📝 <b>Задание 3:</b> Намеренно попробуй подключить несуществующий файл через <code>include</code> и через <code>require</code>. Сравни результат.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Когда лучше использовать <code>include</code>, а не <code>require</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой проект обретает структуру! Разделение на файлы — признак профессионального подхода. Код становится чистым и модульным. 📂
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 17</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🚀 Async/Await — асинхронность без боли</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить <code>async/await</code> — современный и элегантный способ работы с асинхронным кодом.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>async/await</b> — это «сахар» над Promise, который позволяет писать асинхронный код так, как будто он синхронный.<br/><br/><b>async-функция:</b><br/><pre>// async всегда возвращает Promise<br/>async function fetchData() {<br/>    return 'Данные';<br/>}<br/>// Эквивалентно:<br/>function fetchData() {<br/>    return Promise.resolve('Данные');<br/>}</pre><br/><br/><b>await — ждём результат:</b><br/><pre>async function getUser() {<br/>    // await можно использовать ТОЛЬКО внутри async-функции<br/>    const response = await fetch('https://api.example.com/user');<br/>    const user = await response.json();<br/>    return user;<br/>}</pre><br/><br/><b>Обработка ошибок с try/catch:</b><br/><pre>async function loadData() {<br/>    try {<br/>        const user = await fetchUser();<br/>        const posts = await fetchPosts(user.id);<br/>        console.log(posts);<br/>    } catch (error) {<br/>        console.error('Что-то пошло не так:', error);<br/>    } finally {<br/>        console.log('Загрузка завершена');<br/>    }<br/>}</pre><br/><br/><b>Сравнение Promise и async/await:</b><br/><pre>// Promise<br/>fetchUser()<br/>    .then(user => fetchPosts(user.id))<br/>    .then(posts => console.log(posts))<br/>    .catch(error => console.error(error));<br/><br/>// async/await (читается как обычный код!)<br/>async function load() {<br/>    try {<br/>        const user = await fetchUser();<br/>        const posts = await fetchPosts(user.id);<br/>        console.log(posts);<br/>    } catch (error) {<br/>        console.error(error);<br/>    }<br/>}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>async</code> перед функцией — она вернёт Promise<br/>• <code>await</code> — ждёт выполнения Promise (только внутри async)<br/>• <code>try { ... } catch(error) { ... }</code> — обработка ошибок<br/>• Код после <code>await</code> выполнится, когда Promise разрешится<br/>• Выглядит как синхронный код, но не блокирует поток!
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда оборачивай <code>await</code> в <code>try/catch</code>. Если Promise отклонится, ошибка будет поймана, и приложение не упадёт. Забыл catch — получил необработанную ошибку!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Использовать <code>await</code> вне <code>async</code>-функции. На верхнем уровне (в глобальной области) <code>await</code> можно использовать только в ES модулях. В обычном скрипте — только внутри <code>async function</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>async</code> — функция возвращает Promise<br/>✅ <code>await</code> — ждёт Promise внутри async<br/>✅ <code>try/catch</code> — обработка ошибок<br/>✅ Код чище и читаемее, чем цепочки <code>.then()</code><br/>✅ Всегда обрабатывай ошибки!
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Перепиши цепочку Promise на <code>async/await</code>.<br/><br/>📝 <b>Задание 2:</b> Создай <code>async</code>-функцию, которая делает вид, что загружает данные (setTimeout внутри Promise) и обработай ошибку.<br/><br/>📝 <b>Задание 3:</b> Напиши функцию, которая последовательно получает пользователя, потом его посты, потом комментарии (с искусственными задержками).
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Можно ли использовать <code>await</code> внутри не-<code>async</code> функции? Почему?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Ты освоил САМЫЙ современный способ работы с асинхронностью! Твой код теперь чистый, понятный и профессиональный. async/await — это стандарт индустрии! 🚀
+        </p>
+
+    </body>
+</html>

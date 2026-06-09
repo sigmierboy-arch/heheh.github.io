@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 20</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🏆 Итоговый проект «Блог на PHP с нуля»</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Консолидировать все знания и создать завершённое веб-приложение — блог на чистом PHP с базой данных.
+        </p>
+
+        <h2>📚 Техническое задание (ТЗ) на проект</h2>
+        <p>
+            Создай блог со следующей структурой:<br/><br/><b>Структура проекта:</b><br/><pre>/blog<br/>    /config<br/>        database.php      // подключение к БД<br/>    /includes<br/>        header.php         // шапка сайта<br/>        footer.php         // подвал<br/>        auth.php           // проверка авторизации<br/>    /uploads              // загруженные изображения<br/>    /templates            // HTML-шаблоны<br/>    index.php             // главная (список постов)<br/>    post.php              // отдельный пост<br/>    admin.php             // админка (CRUD постов)<br/>    login.php             // вход<br/>    register.php          // регистрация<br/>    logout.php            // выход</pre><br/><br/><b>Функционал:</b><br/><br/><b>1. Публичная часть:</b><br/>• Главная страница: список постов (заголовок, дата, краткое описание)<br/>• Страница поста: полный текст, изображения<br/>• Комментарии к постам (имя, текст, дата)<br/>• Пагинация (по 5 постов на странице)<br/><br/><b>2. Админ-панель:</b><br/>• Вход по логину/паролю<br/>• Создание/редактирование/удаление постов<br/>• Загрузка изображений в посты<br/>• Модерация комментариев (удаление)<br/><br/><b>3. База данных:</b><br/><pre>CREATE TABLE users (<br/>    id INT AUTO_INCREMENT PRIMARY KEY,<br/>    username VARCHAR(50) UNIQUE NOT NULL,<br/>    password VARCHAR(255) NOT NULL,<br/>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br/>);<br/><br/>CREATE TABLE posts (<br/>    id INT AUTO_INCREMENT PRIMARY KEY,<br/>    title VARCHAR(255) NOT NULL,<br/>    content TEXT NOT NULL,<br/>    image VARCHAR(255),<br/>    user_id INT,<br/>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br/>    FOREIGN KEY (user_id) REFERENCES users(id)<br/>);<br/><br/>CREATE TABLE comments (<br/>    id INT AUTO_INCREMENT PRIMARY KEY,<br/>    post_id INT NOT NULL,<br/>    author VARCHAR(100) NOT NULL,<br/>    content TEXT NOT NULL,<br/>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br/>    FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE<br/>);</pre><br/><br/><b>4. Безопасность:</b><br/>• Пароли хешируются (<code>password_hash()</code>)<br/>• Подготовленные запросы (PDO)<br/>• Экранирование вывода (<code>htmlspecialchars()</code>)<br/>• Защита от XSS и SQL-инъекций<br/>• Проверка авторизации на админ-страницах<br/><br/><b>5. Дополнительные фичи (опционально):</b><br/>• Теги/категории для постов<br/>• Поиск по блогу<br/>• RSS-лента<br/>• ЧПУ (человеко-понятные URL)
+        </p>
+
+        <h3>🔍 Архитектура:</h3>
+        <p>
+            • Точка входа — <code>index.php</code><br/>• Маршрутизация через GET-параметры<br/>• Шаблоны отдельно от логики<br/>• PDO для работы с БД<br/>• Сессии для авторизации<br/>• Post/Redirect/Get
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Создавай проект поэтапно:<br/>1. Структура БД<br/>2. Подключение и шаблоны<br/>3. CRUD постов (без авторизации)<br/>4. Регистрация и вход<br/>5. Связывание постов с авторами<br/>6. Комментарии<br/>7. Красивый дизайн<br/>Каждый этап тестируй!
+        </p>
+
+        <h3>⚠️ Напоминание:</h3>
+        <p>
+            • <code>session_start()</code> — до вывода HTML<br/>• Всегда экранируй вывод<br/>• Не забывай <code>exit</code> после <code>header()</code><br/>• Внешние ключи для связей таблиц<br/>• Резервное копирование БД
+        </p>
+
+        <h3>✅ Итоги всего курса:</h3>
+        <p>
+            ✅ Освоил синтаксис PHP<br/>✅ Научился работать с переменными, массивами, функциями<br/>✅ Изучил работу с формами и GET/POST<br/>✅ Понял безопасность (фильтрация, экранирование)<br/>✅ Работа с файлами и загрузками<br/>✅ Сессии и авторизация<br/>✅ MySQL + PDO<br/>✅ Отправка писем<br/>✅ Создал полноценный блог! 🎉<br/>✅ Ты — PHP-разработчик!
+        </p>
+
+        <h2>🧠 Финальное задание:</h2>
+        <p>
+            📝 Создай блог по ТЗ выше.<br/><br/>📝 Добавь одну уникальную фичу (теги, лайки, подписка).<br/><br/>📝 Сделай адаптивный дизайн.<br/><br/>📝 Выложи на хостинг (бесплатный: Beget, Timeweb).<br/><br/>📝 Покажи друзьям — твой блог работает в интернете!
+        </p>
+
+        <h3>🤖 Финальный вопрос:</h3>
+        <p>
+            Что было самым сложным в PHP? А что самым интересным?
+        </p>
+
+        <h3>🎉 Финальный бонус:</h3>
+        <p>
+            Ты прошёл весь курс по PHP! От «Hello, World!» до полноценного блога с авторизацией и БД. Ты теперь backend-разработчик. Дальше — Laravel, Symfony, API, и весь мир серверной разработки открыт перед тобой. Не останавливайся! 🐘🚀🌟
+        </p>
+
+    </body>
+</html>

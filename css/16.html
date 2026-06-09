@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 16</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🎭 Псевдоэлементы: ::before, ::after, ::placeholder, ::selection</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить псевдоэлементы для добавления декоративного контента и стилизации отдельных частей элементов.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Псевдоэлементы (с двумя двоеточиями) создают «виртуальные» элементы, которых нет в HTML.
+        </p>
+        <p>
+            ::before и ::after — короли псевдоэлементов! 🔥<br/>
+            Добавляют контент ДО и ПОСЛЕ содержимого элемента. Требуют свойство content!<br/>
+            <pre>
+.quote::before {
+    content: "«";
+    font-size: 24px;
+    color: gold;
+}
+.quote::after {
+    content: "»";
+    font-size: 24px;
+    color: gold;
+}</pre>
+        </p>
+        <p>
+            Декоративные элементы:<pre>
+.button::after {
+    content: " →";  /* добавили стрелку */
+}
+.divider::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 10px;
+}</pre>
+        </p>
+        <p>
+            Другие псевдоэлементы:<pre>
+input::placeholder {
+    color: #999;
+    font-style: italic;  /* стилизуем placeholder */
+}
+::selection {
+    background: yellow;
+    color: black;  /* цвет выделения текста */
+}
+p::first-letter {
+    font-size: 3em;
+    color: red;
+    float: left;  /* буквица */
+}
+p::first-line {
+    font-weight: bold;  /* первая строка */
+}</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>::before { content: "«"; }</code> — добавляет кавычку перед текстом</li>
+            <li><code>content: ""</code> — пустой контент (для чисто декоративных элементов)</li>
+            <li><code>::placeholder</code> — стилизация текста-подсказки в input</li>
+            <li><code>::selection</code> — цвет фона/текста при выделении мышью</li>
+            <li><code>::first-letter</code> — буквица (первая буква параграфа)</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            <code>::before</code> и <code>::after</code> с <code>content: ""</code> — это идеальный способ добавить декоративные линии, иконки, фон, не захламляя HTML.
+            А с <code>content: attr(data-tooltip)</code> можно даже сделать тултип на чистом CSS!
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть <code>content</code> у <code>::before</code>/<code>::after</code>. Без этого свойства псевдоэлемент НЕ ПОЯВИТСЯ. Даже если контент пустой — пиши <code>content: ""</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>::before</code> / <code>::after</code> — виртуальные элементы</li>
+            <li><code>content</code> — ОБЯЗАТЕЛЬНО для них</li>
+            <li><code>::placeholder</code> — стиль подсказок</li>
+            <li><code>::selection</code> — цвет выделения</li>
+            <li><code>::first-letter</code> / <code>::first-line</code> — буквица и первая строка</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Добавь кавычки-ёлочки вокруг цитаты с помощью <code>::before</code> и <code>::after</code>.</li>
+            <li>Создай стильную разделительную линию с помощью <code>::before</code> с пустым контентом.</li>
+            <li>Сделай красивую буквицу в первом параграфе статьи.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему псевдоэлементы не видны в HTML-коде страницы, но видны в DevTools?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Псевдоэлементы — это как невидимые помощники. Они делают красоту, не загрязняя HTML. Ты начинаешь мыслить чисто и элегантно! 🎭
+        </p>
+
+    </body>
+</html>

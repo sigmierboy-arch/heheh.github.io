@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod PHP - Урок 4</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🔄 Циклы: for, while, foreach</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Освоить все виды циклов в PHP: <code>for</code>, <code>while</code>, <code>do-while</code> и специальный <code>foreach</code> для массивов.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>1. for</b> — когда знаем количество итераций:<br/><pre>for ($i = 0; $i &lt; 5; $i++) {<br/>    echo "Итерация №$i<br>";<br/>}</pre><br/><br/><b>2. while</b> — пока условие true:<br/><pre>$count = 0;<br/>while ($count &lt; 3) {<br/>    echo "Счёт: $count<br>";<br/>    $count++;<br/>}</pre><br/><br/><b>3. do-while</b> — минимум один раз:<br/><pre>$x = 10;<br/>do {<br/>    echo "Выполнится хотя бы раз";<br/>    $x++;<br/>} while ($x &lt; 5);</pre><br/><br/><b>4. foreach</b> — специально для массивов 🔥:<br/><pre>$fruits = ['яблоко', 'банан', 'апельсин'];<br/>foreach ($fruits as $fruit) {<br/>    echo "$fruit<br>";<br/>}<br/><br/>// С ключами:<br/>$user = ['name' => 'Анна', 'age' => 25];<br/>foreach ($user as $key => $value) {<br/>    echo "$key: $value<br>";<br/>}</pre><br/><br/><b>Управление циклами:</b><br/><pre>break;     // выйти из цикла<br/>continue;  // пропустить текущую итерацию</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>for (начало; условие; шаг)</code> — классический цикл со счётчиком<br/>• <code>while (условие)</code> — проверка ДО каждой итерации<br/>• <code>do-while</code> — проверка ПОСЛЕ (минимум 1 раз)<br/>• <code>foreach ($arr as $item)</code> — перебор массива<br/>• <code>foreach ($arr as $key => $value)</code> — перебор с ключами<br/>• <code>break</code> — выход, <code>continue</code> — пропуск
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй <code>foreach</code> для массивов — он самый удобный и читаемый. <code>for</code> — когда нужен индекс. <code>while</code> — когда неизвестно количество итераций.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Бесконечный цикл! Если условие никогда не станет false — скрипт зависнет. Особенно часто забывают инкремент в while: <code>$i++</code>.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>for</code> — цикл со счётчиком<br/>✅ <code>while</code> — цикл с предусловием<br/>✅ <code>do-while</code> — цикл с постусловием<br/>✅ <code>foreach</code> — для массивов<br/>✅ <code>break/continue</code> — управление
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Выведи таблицу умножения на 7 с помощью цикла for.<br/><br/>📝 <b>Задание 2:</b> Создай массив из 5 любимых фильмов и выведи их через foreach.<br/><br/>📝 <b>Задание 3:</b> Напиши обратный отсчёт от 10 до 0 с while.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>foreach</code> работает только с массивами и объектами, а с обычной переменной — нет?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Циклы — это суперсила автоматизации! Вместо 100 строк кода ты пишешь 3. Ты теперь можешь обрабатывать огромные объёмы данных! 🔄
+        </p>
+
+    </body>
+</html>

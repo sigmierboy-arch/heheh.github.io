@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 17</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🎬 Анимации и переходы: transition, transform, @keyframes</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться создавать плавные переходы, двигать и трансформировать элементы, а также делать анимации с помощью ключевых кадров.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <ol>
+            <li>transition — плавный переход между состояниями:<pre>
+.button {
+    background-color: blue;
+    transition: background-color 0.3s ease;
+    /* свойство длительность функция-сглаживания */
+}
+.button:hover {
+    background-color: red;  /* изменится плавно за 0.3с */
+}</pre>
+                Функции сглаживания: <code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>.
+            </li>
+            <li>transform — трансформации:<pre>
+.card:hover {
+    transform: scale(1.05);         /* увеличить на 5% */
+    transform: rotate(5deg);        /* повернуть */
+    transform: translateY(-10px);   /* сдвинуть вверх */
+    transform: skew(5deg);          /* наклонить */
+    /* комбо: */
+    transform: scale(1.1) rotate(3deg);
+}</pre></li>
+            <li>@keyframes — ключевые кадры (анимации) 🔥:<pre>
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* или с процентами: */
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.element {
+    animation: pulse 2s infinite;
+    /* имя длительность повторение */
+}</pre></li>
+        </ol>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>transition: свойство 0.3s</code> — что анимируем и как долго</li>
+            <li><code>transform: scale(1.2)</code> — масштаб (1 = 100%)</li>
+            <li><code>translateY(-10px)</code> — двигаем по Y (вверх — минус)</li>
+            <li><code>@keyframes</code> — определяем кадры анимации</li>
+            <li><code>animation: имя 2s infinite</code> — применяем анимацию</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Всегда добавляй <code>transition</code> к элементу, а не только к <code>:hover</code>. Тогда и появление, и исчезновение эффекта будут плавными!
+        </p>
+        <p>
+            Анимации делай лёгкими и быстрыми (200-400мс). Всё, что дольше — раздражает пользователя.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Анимировать свойства, которые плохо поддаются анимации (<code>height</code>, <code>display</code>).
+            Это дёргается! Используй <code>transform</code> и <code>opacity</code> — они работают на GPU и всегда плавные.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>transition</code> — плавный переход</li>
+            <li><code>transform</code> — сдвиг, поворот, масштаб</li>
+            <li><code>@keyframes</code> — ключевые кадры</li>
+            <li><code>animation</code> — применение анимации</li>
+            <li><code>ease</code>, <code>linear</code> — сглаживание</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай кнопку, которая плавно меняет цвет фона при наведении.</li>
+            <li>Создай карточку, которая при наведении поднимается вверх (<code>translateY(-10px)</code>) и немного увеличивается.</li>
+            <li>Создай анимацию появления элемента (слева въезжает + плавно проявляется).</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему <code>transform</code> и <code>opacity</code> анимируются плавнее, чем <code>width</code> или <code>height</code>?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Твой сайт ожил! Движение привлекает внимание и делает интерфейс приятным. Но помни: анимация — как перец, хороша в меру! 🌶️
+        </p>
+
+    </body>
+</html>

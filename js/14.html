@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod JavaScript - Урок 14</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>📝 Работа с формами: получение значений, валидация</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться работать с HTML-формами: получать значения полей, проверять (валидировать) их и обрабатывать отправку.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            <b>Получение значений из формы:</b><br/><pre>const form = document.querySelector('form');<br/>const nameInput = document.querySelector('#name');<br/>const emailInput = document.querySelector('#email');<br/><br/>form.addEventListener('submit', (event) => {<br/>    event.preventDefault();  // отменяем перезагрузку!<br/>    <br/>    const name = nameInput.value;<br/>    const email = emailInput.value;<br/>    <br/>    console.log({ name, email });<br/>});</pre><br/><br/><b>Типы полей и их значения:</b><br/><pre>// Текст, пароль, email<br/>input.value<br/><br/>// Чекбокс (галочка)<br/>checkbox.checked  // true/false<br/><br/>// Радио-кнопки<br/>const selected = document.querySelector('input[name="gender"]:checked');<br/>selected.value<br/><br/>// Select<br/>select.value<br/><br/>// Textarea<br/>textarea.value</pre><br/><br/><b>Простая валидация:</b><br/><pre>form.addEventListener('submit', (event) => {<br/>    const email = emailInput.value;<br/>    <br/>    if (!email.includes('@')) {<br/>        alert('Введите корректный email!');<br/>        event.preventDefault();  // не отправлять!<br/>        return;<br/>    }<br/>    <br/>    if (nameInput.value.trim() === '') {<br/>        alert('Имя не может быть пустым!');<br/>        event.preventDefault();<br/>        return;<br/>    }<br/>});</pre><br/><br/><b>Событие input (реакция на лету):</b><br/><pre>nameInput.addEventListener('input', () => {<br/>    const value = nameInput.value;<br/>    const errorSpan = document.querySelector('.error');<br/>    <br/>    if (value.length < 3) {<br/>        errorSpan.textContent = 'Минимум 3 символа';<br/>    } else {<br/>        errorSpan.textContent = '';<br/>    }<br/>});</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <p>
+            • <code>event.preventDefault()</code> — ОБЯЗАТЕЛЬНО при submit!<br/>• <code>input.value</code> — текст из поля<br/>• <code>checkbox.checked</code> — true/false<br/>• <code>input.value.trim()</code> — удалить пробелы по краям<br/>• Валидация — проверка ДО отправки<br/>• <code>'input'</code> — событие при КАЖДОМ изменении
+        </p>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Валидируй на клиенте (в браузере) ДЛЯ УДОБСТВА пользователя (быстрые подсказки). Но ВСЕГДА проверяй данные и на сервере! Клиентскую валидацию легко обойти.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть <code>event.preventDefault()</code> при отправке формы. Страница перезагрузится, все данные потеряются, а консоль очистится. Это САМАЯ частая ошибка новичков!
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <p>
+            ✅ <code>event.preventDefault()</code> — отмена отправки<br/>✅ <code>input.value</code> — значение поля<br/>✅ <code>checkbox.checked</code> — состояние чекбокса<br/>✅ Валидация = проверка + сообщение об ошибке<br/>✅ Проверяй на клиенте И на сервере
+        </p>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <p>
+            📝 <b>Задание 1:</b> Создай форму входа (email + пароль). При отправке выводи значения в консоль.<br/><br/>📝 <b>Задание 2:</b> Добавь валидацию: email должен содержать '@', пароль — минимум 6 символов.<br/><br/>📝 <b>Задание 3:</b> Реализуй live-валидацию: при вводе сразу показывай, корректен ли email.
+        </p>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Почему нельзя полагаться ТОЛЬКО на клиентскую валидацию?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Формы — это мост между пользователем и сервером. Ты научился принимать данные, проверять их и управлять отправкой. Это основа любого веб-приложения! 📝
+        </p>
+
+    </body>
+</html>

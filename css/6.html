@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style.css"/>
+        <title>PodCod CSS - Урок 6</title>
+    </head>
+    <body>
+
+        <a href="./page.html">Вернуться</a>
+
+        <h1>🖼️ Фоны: background-color, background-image, background-size</h1><hr>
+
+        <h2>🎯 Цель урока</h2>
+        <p>
+            Научиться настраивать фон элемента: заливать цветом, добавлять картинки, управлять их размером и позицией, создавать градиенты.
+        </p>
+
+        <h2>📚 Теория</h2>
+        <p>
+            Основные свойства фона:
+            <ol>
+                <li>background-color — цвет фона (уже знакомы)</li>
+                <li>background-image — картинка фона:<pre>
+body {
+    background-image: url('bg.jpg');
+}</pre></li>
+                <li>background-repeat — повторение:<pre>
+background-repeat: no-repeat;  /* не повторять */
+background-repeat: repeat-x;   /* только по горизонтали */</pre></li>
+                <li>background-position — позиция:<pre>
+background-position: center;
+background-position: top right;
+background-position: 50% 50%;</pre></li>
+                <li>background-size — размер:<pre>
+background-size: cover;   /* заполнить весь блок */
+background-size: contain;  /* поместить целиком */
+background-size: 100px 200px;</pre></li>
+                <li>background-attachment — прокрутка:<pre>
+background-attachment: fixed;  /* параллакс-эффект! */</pre></li>
+            </ol>
+
+            Градиенты — это тоже background-image:
+            <pre>
+background-image: linear-gradient(to right, red, blue);
+background-image: radial-gradient(circle, yellow, green);</pre>
+        </p>
+
+        <h3>🔍 Разбор:</h3>
+        <ul>
+            <li><code>url('bg.jpg')</code> — путь к картинке</li>
+            <li><code>no-repeat</code> — без плитки</li>
+            <li><code>cover</code> — масштабирует, чтобы заполнить всё (может обрезать)</li>
+            <li><code>contain</code> — масштабирует, чтобы поместилась целиком (могут быть поля)</li>
+            <li><code>linear-gradient(направление, цвет1, цвет2)</code> — плавный переход</li>
+        </ul>
+
+        <h3>💡 Полезный совет:</h3>
+        <p>
+            Используй сокращённое свойство <code>background</code>:
+            <pre>
+background: #f0f0f0 url('bg.jpg') no-repeat center/cover;</pre>
+            Порядок: цвет, картинка, повтор, позиция/размер.
+        </p>
+
+        <h3>⚠️ Типичная ошибка:</h3>
+        <p>
+            Забыть кавычки у <code>url()</code>. Хотя без кавычек иногда работает, лучше всегда писать <code>url('image.jpg')</code> — это безопаснее.
+        </p>
+
+        <h3>✅ Итоги урока:</h3>
+        <ul class="lesson-results-list">
+            <li><code>background-color</code> — цвет</li>
+            <li><code>background-image</code> — картинка или градиент</li>
+            <li><code>background-repeat</code> — повторение</li>
+            <li><code>background-size: cover/contain</code></li>
+            <li><code>background-position</code> — позиция</li>
+            <li><code>linear-gradient()</code> — градиенты</li>
+        </ul>
+
+        <h2>🧠 Самостоятельная работа:</h2>
+        <ol>
+            <li>Создай блок <code>&lt;div&gt;</code> 400×300px с фоновой картинкой (любая из интернета). Используй <code>background-size: cover</code>.</li>
+            <li>Сделай параграф с полупрозрачным фоновым цветом и фоновой картинкой, которая не перекрывает текст.</li>
+            <li>Создай блок с градиентом от жёлтого к оранжевому слева направо.</li>
+        </ol>
+
+        <h3>🤖 Вопрос к размышлению:</h3>
+        <p>
+            Чем отличается <code>cover</code> от <code>contain</code>? В каком случае что выбрать?
+        </p>
+
+        <h3>🎉 Бонус:</h3>
+        <p>
+            Фон — это холст, на котором ты рисуешь. Теперь твои сайты могут быть с текстурами, паттернами и красивыми переливами! 🖌️
+        </p>
+
+    </body>
+</html>
