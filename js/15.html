@@ -18,12 +18,12 @@
 
         <h2>📚 Теория</h2>
         <p>
-            <b>1. setTimeout</b> — выполнить ОДИН раз через задержку:\n<pre>// Через 3 секунды покажет сообщение\nsetTimeout(() => {\n    console.log('Прошло 3 секунды!');\n}, 3000);  // время в миллисекундах\n\n// С отменой\nconst timerId = setTimeout(() => {\n    console.log('Не увидишь это');\n}, 5000);\nclearTimeout(timerId);  // отменили!</pre>\n\n<b>2. setInterval</b> — повторять КАЖДЫЕ N миллисекунд:\n<pre>// Каждую секунду выводить в консоль\nconst intervalId = setInterval(() => {\n    console.log('Тик!');\n}, 1000);\n\n// Остановить через 5 секунд\nsetTimeout(() => {\n    clearInterval(intervalId);\n    console.log('Остановлено!');\n}, 5000);</pre>\n\n<b>Практический пример — таймер обратного отсчёта:</b>\n<pre>let seconds = 10;\nconst timerElement = document.querySelector('#timer');\n\nconst countdown = setInterval(() => {\n    seconds--;\n    timerElement.textContent = seconds;\n    \n    if (seconds &lt;= 0) {\n        clearInterval(countdown);\n        timerElement.textContent = 'Время вышло!';\n    }\n}, 1000);</pre>
+            <b>1. setTimeout</b> — выполнить ОДИН раз через задержку:<br/><pre>// Через 3 секунды покажет сообщение<br/>setTimeout(() => {<br/>    console.log('Прошло 3 секунды!');<br/>}, 3000);  // время в миллисекундах<br/><br/>// С отменой<br/>const timerId = setTimeout(() => {<br/>    console.log('Не увидишь это');<br/>}, 5000);<br/>clearTimeout(timerId);  // отменили!</pre><br/><br/><b>2. setInterval</b> — повторять КАЖДЫЕ N миллисекунд:<br/><pre>// Каждую секунду выводить в консоль<br/>const intervalId = setInterval(() => {<br/>    console.log('Тик!');<br/>}, 1000);<br/><br/>// Остановить через 5 секунд<br/>setTimeout(() => {<br/>    clearInterval(intervalId);<br/>    console.log('Остановлено!');<br/>}, 5000);</pre><br/><br/><b>Практический пример — таймер обратного отсчёта:</b><br/><pre>let seconds = 10;<br/>const timerElement = document.querySelector('#timer');<br/><br/>const countdown = setInterval(() => {<br/>    seconds--;<br/>    timerElement.textContent = seconds;<br/>    <br/>    if (seconds &lt;= 0) {<br/>        clearInterval(countdown);<br/>        timerElement.textContent = 'Время вышло!';<br/>    }<br/>}, 1000);</pre>
         </p>
 
         <h3>🔍 Разбор:</h3>
         <p>
-            • <code>setTimeout(функция, задержка_в_мс)</code> — один раз\n• <code>setInterval(функция, интервал_в_мс)</code> — повторять\n• <code>1000 мс = 1 секунда</code>\n• <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена\n• Сохраняй ID таймера для возможности отмены\n• <b>Важно:</b> таймеры продолжают работать, даже если пользователь ушёл со вкладки (но с пониженной частотой)
+            • <code>setTimeout(функция, задержка_в_мс)</code> — один раз<br/>• <code>setInterval(функция, интервал_в_мс)</code> — повторять<br/>• <code>1000 мс = 1 секунда</code><br/>• <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена<br/>• Сохраняй ID таймера для возможности отмены<br/>• <b>Важно:</b> таймеры продолжают работать, даже если пользователь ушёл со вкладки (но с пониженной частотой)
         </p>
 
         <h3>💡 Полезный совет:</h3>
@@ -38,12 +38,12 @@
 
         <h3>✅ Итоги урока:</h3>
         <p>
-            ✅ <code>setTimeout(fn, ms)</code> — задержка, один раз\n✅ <code>setInterval(fn, ms)</code> — повторение\n✅ <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена\n✅ Всегда сохраняй ID и очищай при необходимости
+            ✅ <code>setTimeout(fn, ms)</code> — задержка, один раз<br/>✅ <code>setInterval(fn, ms)</code> — повторение<br/>✅ <code>clearTimeout(id)</code> / <code>clearInterval(id)</code> — отмена<br/>✅ Всегда сохраняй ID и очищай при необходимости
         </p>
 
         <h2>🧠 Самостоятельная работа:</h2>
         <p>
-            📝 <b>Задание 1:</b> Выведи сообщение «Привет!» с задержкой в 2 секунды после загрузки страницы.\n\n📝 <b>Задание 2:</b> Создай таймер обратного отсчёта от 10 до 0. Когда 0 — выведи «Финиш!».\n\n📝 <b>Задание 3:</b> Создай кнопку «Старт» (запускает интервал, который выводит время) и «Стоп» (останавливает).
+            📝 <b>Задание 1:</b> Выведи сообщение «Привет!» с задержкой в 2 секунды после загрузки страницы.<br/><br/>📝 <b>Задание 2:</b> Создай таймер обратного отсчёта от 10 до 0. Когда 0 — выведи «Финиш!».<br/><br/>📝 <b>Задание 3:</b> Создай кнопку «Старт» (запускает интервал, который выводит время) и «Стоп» (останавливает).
         </p>
 
         <h3>🤖 Вопрос к размышлению:</h3>
