@@ -18,17 +18,17 @@
 
         <h2>📚 Теория</h2>
         <p>
-            <b>$_GET</b> — данные из URL (видны в адресной строке):\n<pre>// URL: page.php?name=Анна&age=25\necho $_GET['name'];  // Анна\necho $_GET['age'];   // 25\n\n// Проверка существования\nif (isset($_GET['name'])) {\n    echo 'Привет, ' . $_GET['name'];\n}\n\n// Значение по умолчанию\n$name = $_GET['name'] ?? 'Гость';  // PHP 7+</pre>\n\n<b>$_POST</b> — данные из форм (не видны в URL):\n<pre>// HTML-форма\n&lt;form method="POST" action="process.php"&gt;\n    &lt;input name="username"&gt;\n    &lt;input name="password" type="password"&gt;\n    &lt;button type="submit"&gt;Войти&lt;/button&gt;\n&lt;/form&gt;\n\n// process.php\n$username = $_POST['username'] ?? '';\n$password = $_POST['password'] ?? '';\necho "Логин: $username";</pre>\n\n<b>$_REQUEST</b> — содержит и GET, и POST (избегай, небезопасно!)\n\n<b>Когда что использовать:</b>\n• <b>GET</b> — поиск, фильтры, пагинация (данные в URL)\n• <b>POST</b> — логин, отправка форм, личные данные
+            <b>$_GET</b> — данные из URL (видны в адресной строке):<br/><pre>// URL: page.php?name=Анна&age=25<br/>echo $_GET['name'];  // Анна<br/>echo $_GET['age'];   // 25<br/><br/>// Проверка существования<br/>if (isset($_GET['name'])) {<br/>    echo 'Привет, ' . $_GET['name'];<br/>}<br/><br/>// Значение по умолчанию<br/>$name = $_GET['name'] ?? 'Гость';  // PHP 7+</pre><br/><br/><b>$_POST</b> — данные из форм (не видны в URL):<br/><pre>// HTML-форма<br/>&lt;form method="POST" action="process.php"&gt;<br/>    &lt;input name="username"&gt;<br/>    &lt;input name="password" type="password"&gt;<br/>    &lt;button type="submit"&gt;Войти&lt;/button&gt;<br/>&lt;/form&gt;<br/><br/>// process.php<br/>$username = $_POST['username'] ?? '';<br/>$password = $_POST['password'] ?? '';<br/>echo "Логин: $username";</pre><br/><br/><b>$_REQUEST</b> — содержит и GET, и POST (избегай, небезопасно!)<br/><br/><b>Когда что использовать:</b><br/>• <b>GET</b> — поиск, фильтры, пагинация (данные в URL)<br/>• <b>POST</b> — логин, отправка форм, личные данные
         </p>
 
         <h3>🔍 Разбор:</h3>
         <p>
-            • <code>$_GET['key']</code> — значение из URL\n• <code>$_POST['key']</code> — значение из формы\n• <code>isset()</code> — проверка существования\n• <code>??</code> — null coalescing оператор (если нет — значение по умолчанию)\n• GET виден в адресной строке, POST — нет\n• Всегда проверяй и фильтруй пользовательский ввод!
+            • <code>$_GET['key']</code> — значение из URL<br/>• <code>$_POST['key']</code> — значение из формы<br/>• <code>isset()</code> — проверка существования<br/>• <code>??</code> — null coalescing оператор (если нет — значение по умолчанию)<br/>• GET виден в адресной строке, POST — нет<br/>• Всегда проверяй и фильтруй пользовательский ввод!
         </p>
 
         <h3>💡 Полезный совет:</h3>
         <p>
-            Используй null coalescing оператор <code>??</code> для значений по умолчанию:\n<pre>$name = $_GET['name'] ?? 'Гость';</pre>\nЭто короче и элегантнее, чем <code>isset() ? ... : ...</code>
+            Используй null coalescing оператор <code>??</code> для значений по умолчанию:<br/><pre>$name = $_GET['name'] ?? 'Гость';</pre><br/>Это короче и элегантнее, чем <code>isset() ? ... : ...</code>
         </p>
 
         <h3>⚠️ Типичная ошибка:</h3>
@@ -38,12 +38,12 @@
 
         <h3>✅ Итоги урока:</h3>
         <p>
-            ✅ <code>$_GET</code> — данные из URL\n✅ <code>$_POST</code> — данные из форм\n✅ <code>isset()</code> — проверка наличия\n✅ <code>??</code> — значение по умолчанию\n✅ GET — для поиска/фильтров, POST — для sensitive данных
+            ✅ <code>$_GET</code> — данные из URL<br/>✅ <code>$_POST</code> — данные из форм<br/>✅ <code>isset()</code> — проверка наличия<br/>✅ <code>??</code> — значение по умолчанию<br/>✅ GET — для поиска/фильтров, POST — для sensitive данных
         </p>
 
         <h2>🧠 Самостоятельная работа:</h2>
         <p>
-            📝 <b>Задание 1:</b> Создай страницу <code>hello.php</code>, которая принимает <code>?name=Имя</code> и выводит приветствие.\n\n📝 <b>Задание 2:</b> Создай форму обратной связи (имя, email, сообщение) и выведи полученные данные.\n\n📝 <b>Задание 3:</b> Реализуй проверку: если поле пустое — показать ошибку.
+            📝 <b>Задание 1:</b> Создай страницу <code>hello.php</code>, которая принимает <code>?name=Имя</code> и выводит приветствие.<br/><br/>📝 <b>Задание 2:</b> Создай форму обратной связи (имя, email, сообщение) и выведи полученные данные.<br/><br/>📝 <b>Задание 3:</b> Реализуй проверку: если поле пустое — показать ошибку.
         </p>
 
         <h3>🤖 Вопрос к размышлению:</h3>
